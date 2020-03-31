@@ -5,14 +5,38 @@ const alternatifSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    nama: {
+    merk: {
         type: String,
         required: true
     },
-    jenis: {
+    sensor: {
         type: String,
         required: true
     },
+    resolusi: {
+        type: Number,
+        required: true
+    },
+    harga: {
+        type: Number,
+        required: true
+    },
+    fitur: [
+        {
+            namaFitur: {
+                type: String,
+                required: true
+            }
+        }
+    ],
+    iso: {
+        type: Number,
+        required: true
+    },
+    keterangan: {
+        type: String,
+        required: true
+    }
 })
 
 module.exports = mongoose.model("Alternatif", alternatifSchema)

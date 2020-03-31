@@ -13,7 +13,7 @@ const DefaultLayout = React.lazy(() => import('./containers/DefaultLayout'));
 
 class App extends Component {
   render() {
-    console.log(history)
+    // console.log(history)
     return (
       <Router history={history}>
         <React.Suspense fallback={loading()}>

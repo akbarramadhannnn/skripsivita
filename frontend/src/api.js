@@ -29,11 +29,16 @@ export const userLogout = async () => {
     // history.push('/')
 }
 
-export const tambahAlternatif = async (kode,nama,jenis) => {
+export const tambahAlternatif = async (kode,merk,sensor,resolusi,harga,iso,fitur,keterangan) => {
     const data = {
         kode: kode,
-        nama: nama,
-        jenis: jenis
+        merk: merk,
+        sensor: sensor,
+        resolusi: resolusi,
+        harga: harga,
+        fitur: fitur,
+        iso: iso,
+        keterangan: keterangan
     }
     try {
         const result = await axios.post('http://localhost:8080/alternatif/tambah', data)
