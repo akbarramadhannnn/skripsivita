@@ -70,6 +70,33 @@ export const tambahKriteria = async (kode,nama) => {
     }
 }
 
+export const getDetailAlternatif = async (id) => {
+    try {
+        const result = await axios.get(`http://localhost:8080/alternatif/${id}`)
+        return result.data
+    } catch(e) {
+        return e
+    }
+}
+
+export const editAlternatif = async (id,data) => {
+    try {
+        const result = await axios.put(`http://localhost:8080/alternatif/update/${id}`, data)
+        return result.data
+    } catch(e) {
+        return e
+    }
+}
+
+export const hapusAlternatif = async (id) => {
+    try {
+        const result = await axios.delete(`http://localhost:8080/alternatif/delete/${id}`)
+        return result.data
+    } catch(e) {
+        return e
+    }
+}
+
 export const getDataKriteria = async () => {
     try {
         const result = await axios.get('http://localhost:8080/kriteria')

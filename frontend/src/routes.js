@@ -4,6 +4,7 @@ const Dashboard = React.lazy(() => import('./views/Dashboard'));
 
 const Alternatif = React.lazy(() => import('./views/Alternatif/Alternatif'));
 const TambahAlternatif = React.lazy(() => import('./views/Alternatif/TambahAlternatif'));
+const EditAlternatif = React.lazy(() => import('./views/Alternatif/EditAlternatif'));
 
 const Kriteria = React.lazy(() => import('./views/Kriteria/Kriteria'));
 const TambahKriteria = React.lazy(() => import('./views/Kriteria/TambahKriteria'));
@@ -31,6 +32,7 @@ const routes = [
   // Alternatif
   { path: '/alternatif', name: 'Alternatif', component: Alternatif, exact:true },
   { path: '/alternatif/tambah', name: 'Tambah', component: TambahAlternatif },
+  { path: '/alternatif/edit/:id', name: 'Edit', component: EditAlternatif },
   // Kriteria
   { path: '/kriteria', name: 'Kriteria', component: Kriteria, exact:true },
   { path: '/kriteria/tambah', name: 'Tambah', component: TambahKriteria },

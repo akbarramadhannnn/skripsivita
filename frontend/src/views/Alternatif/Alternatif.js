@@ -1,10 +1,11 @@
 import React, { useEffect, useState, Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import { Card, CardBody, CardHeader, Col, Row, Table, Button } from 'reactstrap';
-import { getDataAlternatif } from '../../api'
+import { Card, CardBody, CardHeader, Col, Row, Table, Button, Alert } from 'reactstrap';
+import { getDataAlternatif, hapusAlternatif } from '../../api'
 
 const Alternatif = () => {
     const[dataAlternatif,setDataAlternatif] = useState([])
+    const[message,setMessage]               = useState('')
 
     useEffect(() => {
         getDataAlternatif()
@@ -15,6 +16,22 @@ const Alternatif = () => {
         })
     }, [])
 
+    const deleteAlternatif = (id) => {
+        hapusAlternatif(id)
+        .then(res => {
+            if(res) {
+                getDataAlternatif()
+                .then(res => {
+                    setMessage('Alternatif berhasil di hapus')
+                    setDataAlternatif(res.data)
+                    setTimeout(() => {
+                        setMessage('')
+                    }, 3000);
+                })
+            }
+        })
+    }
+
     return (
         <div className="animated fadeIn">
             <Row>
@@ -24,6 +41,11 @@ const Alternatif = () => {
                             <i className="fa fa-align-justify"></i> Data Alternatif
                         </CardHeader>
                         <CardBody>
+                            {
+                                message && (
+                                    <Alert color="danger">{message}</Alert>
+                                )
+                            }
                             <Link to="/alternatif/tambah">
                                 <Button color="primary">Tambah Alternatif</Button>{' '}
                             </Link>
@@ -50,8 +72,10 @@ const Alternatif = () => {
                                                         <td>{data.kode}</td>
                                                         <td>{data.merk}</td>
                                                         <td>
-                                                            <Button color="warning">Edit</Button>{' '}
-                                                            <Button color="danger">Hapus</Button>{' '}
+                                                            <Link to={`/alternatif/edit/${data._id}`}>
+                                                                <Button color="warning">Edit</Button>{' '}
+                                                            </Link>
+                                                            <Button color="danger" onClick={() => deleteAlternatif(data._id)} >Hapus</Button>{' '}
                                                         </td>
                                                     </tr>
                                                 </tbody>
