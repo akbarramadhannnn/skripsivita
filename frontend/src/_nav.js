@@ -44,12 +44,12 @@ if(getRole() && getRole() === 'admin') {
         children: [
           {
             name: 'Kriteria',
-            url: '/kriteria',
+            url: '/bobotkriteria',
             icon: 'fa fa-list-ul'
           },
           {
             name: 'Subkriteria',
-            url: '/subkriteria',
+            url: '/bobotsubkriteria',
             icon: 'fa fa-list-ul'
           }
         ]
@@ -78,24 +78,12 @@ if(getRole() && getRole() === 'user') {
       },
       {
         name: 'Alternatif',
-        url: '/alternatif',
+        url: '/user/alternatif',
         icon: 'fa fa-archive',
-        children: [
-          {
-            name: 'Data Alternatif',
-            url: '/alternatif',
-            icon: 'fa fa-list-ul'
-          },
-          {
-            name: 'Tambah Alternatif',
-            url: '/alternatif/tambah',
-            icon: 'fa fa-plus'
-          }
-        ]
       },
       {
         name: 'Perhitungan',
-        url: '/perhitungan',
+        url: '/user/perhitungan',
         icon: 'fa fa-archive',
       },
     ]

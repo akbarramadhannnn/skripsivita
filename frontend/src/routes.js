@@ -11,6 +11,18 @@ const TambahKriteria = React.lazy(() => import('./views/Kriteria/TambahKriteria'
 const SubKriteria = React.lazy(() => import('./views/SubKriteria/SubKriteria'));
 const TambahSubKriteria = React.lazy(() => import('./views/SubKriteria/TambahSubKriteria'));
 
+const BobotKriteria = React.lazy(() => import('./views/Bobot/BobotKriteria'));
+const BobotSubKriteria = React.lazy(() => import('./views/Bobot/BobotSubKriteria'));
+
+const Pengguna = React.lazy(() => import('./views/Pengguna/Pengguna'));
+const Perhitungan = React.lazy(() => import('./views/Perhitungan/Perhitungan'));
+
+// user
+const UserAlternatif = React.lazy(() => import('./views/User/Alternatif'));
+const UserPerhitungan = React.lazy(() => import('./views/User/Perhitungan'));
+
+
+
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
   // { path: '/', name: 'Home' },
@@ -25,7 +37,19 @@ const routes = [
   // Sub Kriteria
   { path: '/subkriteria/:idkriteria', name: 'Sub Kriteria', component: SubKriteria, exact:true },
   { path: '/subkriteria/tambah/:idKriteria', name: 'Tambah', component: TambahSubKriteria },
+  // Bobot Kriteria
+  { path: '/bobotkriteria', name: 'Bobot Kriteria', component: BobotKriteria, exact:true },
+  { path: '/bobotsubkriteria', name: 'Bobot Sub Kriteria', component: BobotSubKriteria, exact:true },
 
+  // pengguna
+  { path: '/pengguna', name: 'Pengguna', component: Pengguna, exact:true },
+
+  // perhitungan
+  { path: '/perhitungan', name: 'Perhitungan', component: Perhitungan, exact:true },
+
+  // user
+  { path: '/user/alternatif', name: 'Alternatif', component: UserAlternatif, exact:true },
+  { path: '/user/perhitungan', name: 'Perhitungan', component: UserPerhitungan, exact:true },
 ];
 
 export default routes;
