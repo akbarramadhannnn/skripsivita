@@ -23,6 +23,15 @@ export const userDaftar = async (data) => {
     }
 }
 
+export const getAllUser = async (req,res) => {
+    try {
+        const result = await axios.get('http://localhost:8080/user')
+        return result.data
+    } catch(e) {
+        console.log(e)
+    }
+}
+
 export const userLogout = async () => {
     localStorage.clear()
     window.location.reload()

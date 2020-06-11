@@ -13,6 +13,10 @@ const userSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
+    jenisKelamin: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         required: true

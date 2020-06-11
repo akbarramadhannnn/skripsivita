@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Row, Col, Card, CardHeader, CardBody, Table } from 'reactstrap'
+import { getAllUser } from '../../api'
+import moment from 'moment'
+import 'moment/locale/id';
 
 const Pengguna = () => {
+    const[user,setUser] = useState([])
+
+    useEffect(() => {
+        getAllUser()
+        .then(res => {
+            if(res) {
+                setUser(res.data)
+            }
+        })
+    }, [])
 
     return (
         <div className="animated fadeIn">
@@ -23,6 +36,23 @@ const Pengguna = () => {
                                         <th>E-mail</th>
                                     </tr>
                                 </thead>
+
+                                {
+                                    user && user.map((u,i) => {
+                                        return (
+                                            <tbody key={i}>
+                                                <tr>
+                                                    <td>{i + 1}</td>
+                                                    <td>{u.nama}</td>
+                                                    <td>{u.jenisKelamin}</td>
+                                                    <td>{u.tempatLahir}</td>
+                                                    <td>{moment(u.tanggalLahir).format('LL')}</td>
+                                                    <td>{u.email}</td>
+                                                </tr>
+                                            </tbody>
+                                        )
+                                    })
+                                }
                             </Table>
                         </CardBody>
                     </Card>

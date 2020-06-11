@@ -39,6 +39,7 @@
     "font-awesome": "^4.7.0",
     "formik": "^1.5.1",
     "history": "^4.10.1",
+    "moment": "^2.26.0",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",

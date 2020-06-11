@@ -43,7 +43,7 @@ const BobotKriteria = () => {
                 setStateDataKriteria(res.data)
             }
         })
-    })
+    }, [])
     return (
         <div className="animated fadeIn">
             <Row>

@@ -46,13 +46,14 @@ exports.login = async (req,res) => {
 }
 
 exports.daftar = async (req,res) => {
-    const { nama , tempatlahir, tanggallahir, email , password } = req.body
+    const { nama , tempatlahir, tanggallahir, jenisKelamin, email , password } = req.body
     try {
         const hashPassword = await bcryptjs.hash(password, 8)
         const user = new User({
             nama: nama,
             tempatLahir: tempatlahir,
             tanggalLahir: tanggallahir,
+            jenisKelamin: jenisKelamin,
             email: email,
             password: hashPassword
         })
@@ -61,6 +62,18 @@ exports.daftar = async (req,res) => {
             message: 'User berhasil ditambahkan'
         })
     } catch (e) {
+        console.log(e)
+    }
+}
+
+exports.getAllUser = async (req,res) => {
+    try {
+        const user = await User.find({role: 'user'}).select('-__v')
+        return res.status(201).json({
+            status: true,
+            data: user
+        })
+    } catch(e) {
         console.log(e)
     }
 }
