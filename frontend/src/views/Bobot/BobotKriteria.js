@@ -7,6 +7,7 @@ const BobotKriteria = () => {
     const[resolusi] = useState('Resolusi')
     const[harga]    = useState('Harga')
     const[fitur]    = useState('Fitur')
+    const[iso]      = useState('Iso')
     // Penilaian
     const[valuePenilaianPertama,setValuePenilaianPertama]           = useState('')
     const[valuePenilaianKedua,setValuePenilaianKedua]               = useState('')
@@ -22,6 +23,7 @@ const BobotKriteria = () => {
     const[valuePenilaianKeduabelas,setValuePenilaianKeduabelas]     = useState('')
     const[valuePenilaianKetigabelas,setValuePenilaianKetigabelas]   = useState('')
     const[valuePenilaianKeempatbelas,setValuePenilaianKeempatbelas]   = useState('')
+    const[valuePenilaianKelimabelas,setValuePenilaianKelimabelas]   = useState('')
     // Kriteria Kedua
     const[valueKriteriaKeduaKeSatu,setValueKriteriaKeduaKeSatu]   = useState('');
     const[valueKriteriaKeduaKedua,setValueKriteriaKeduaKedua]     = useState('');
@@ -37,6 +39,7 @@ const BobotKriteria = () => {
     const[valueKriteriaKeduaKeduabelas,setValueKriteriaKeduaKeduabelas]   = useState('');
     const[valueKriteriaKeduaKetigabelas,setValueKriteriaKeduaKetigabelas]   = useState('');
     const[valueKriteriaKeduaKeempatbelas,setValueKriteriaKeduaKeempatbelas]   = useState('');
+    const[valueKriteriaKeduaKelimabelas,setValueKriteriaKeduaKelimabelas]   = useState('');
     const[stateDataKriteria,setStateDataKriteria] = useState([])
     const[stateSkalaSaaty] = useState([
         {
@@ -146,15 +149,18 @@ const BobotKriteria = () => {
             KriteriaPertama: fitur,
             penilaian: '',
             KriteriaKeDua: '',
+        },
+        {
+            KriteriaPertama: iso,
+            penilaian: '',
+            KriteriaKeDua: '',
         }
     ])
 
     useEffect(() => {
         getDataKriteria()
         .then(res => {
-            if(res) {
-                setStateDataKriteria(res.data)
-            }
+            setStateDataKriteria(res.data)
         })
     }, [])
 
@@ -285,6 +291,15 @@ const BobotKriteria = () => {
         setValueBobotKriteria(state)
     }
 
+    const changePenilaianKelimabelas = (e) => {
+        const value = e.target.value
+        const nilai = e.target[e.target.selectedIndex].id
+        setValuePenilaianKelimabelas(value)
+        const state = [...valueBobotKriteria]
+        state[13].penilaian = nilai
+        setValueBobotKriteria(state)
+    }
+
     // Change Kriteria Ke Dua
     const changeKriteriaKeduaKeSatu = (e) => {
         const value = e.target.value
@@ -398,6 +413,14 @@ const BobotKriteria = () => {
         setValueBobotKriteria(state)
     }
 
+    const changeKriteriaKeduaKelimabelas = (e) => {
+        const value = e.target.value
+        setValueKriteriaKeduaKelimabelas(value)
+        const state = [...valueBobotKriteria]
+        state[13].KriteriaKeDua = value
+        setValueBobotKriteria(state)
+    }
+
     const klikHitung = () => {
         console.log('valueBobotKriteria', valueBobotKriteria)
     }
@@ -460,6 +483,9 @@ const BobotKriteria = () => {
                                             </div>
                                             <div style={{marginBottom: '10px'}}>
                                                 <Input type="text" value={fitur} disabled />
+                                            </div>
+                                            <div style={{marginBottom: '10px'}}>
+                                                <Input type="text" value={iso} disabled />
                                             </div>
                                     </FormGroup>
                                 </Col>
@@ -662,6 +688,20 @@ const BobotKriteria = () => {
                                                 }
                                             </Input>
                                         </div>
+                                        <div style={{marginBottom: '10px'}}>
+                                            <Input type="select" value={valuePenilaianKelimabelas} onChange={changePenilaianKelimabelas}>
+                                                <option value="">Pilih Skala Saaty</option>
+                                                {
+                                                    stateSkalaSaaty && stateSkalaSaaty.map((data,i) => {
+                                                        return (
+                                                            <Fragment key={i}>
+                                                                <option value={`${data.intensitas}. ${data.keterangan}`} id={data.intensitas}>{data.intensitas}. {data.keterangan}</option>
+                                                            </Fragment>
+                                                        )
+                                                    })
+                                                }
+                                            </Input>
+                                        </div>
                                     </FormGroup>
                                 </Col>
                                 <Col md="4">
@@ -851,6 +891,20 @@ const BobotKriteria = () => {
                                         </div>
                                         <div style={{marginBottom: '10px'}}>
                                             <Input type="select" value={valueKriteriaKeduaKeempatbelas} onChange={changeKriteriaKeduaKeempatbelas}>
+                                                <option value="">Pilih Kriteria</option>
+                                                {
+                                                    stateDataKriteria && stateDataKriteria.map((data,i) => {
+                                                        return (
+                                                            <Fragment key={i}>
+                                                                <option value={data.namaKriteria}>{data.namaKriteria}</option>
+                                                            </Fragment>
+                                                        )
+                                                    })
+                                                }
+                                            </Input>
+                                        </div>
+                                        <div style={{marginBottom: '10px'}}>
+                                            <Input type="select" value={valueKriteriaKeduaKelimabelas} onChange={changeKriteriaKeduaKelimabelas}>
                                                 <option value="">Pilih Kriteria</option>
                                                 {
                                                     stateDataKriteria && stateDataKriteria.map((data,i) => {
