@@ -1,5 +1,6 @@
 const Kriteria = require('../models/kriteria')
 const AHP = require('ahp');
+const PerhitunganKriteria = require('../utils/perhitunganKriteria');
 
 exports.getKriteria = async (req,res) => {
     try {
@@ -40,11 +41,6 @@ exports.getKriteriaById = async (req,res) => {
 }
 
 exports.perhitunganBobot = async (req,res) => {
-    const { data } = req.body
-
-    // for (let i = 0; i < data.length; i++) {
-    //     console.log(data[i])
-    // }
-    // const hitung = 1 / 4
-    // console.log(hitung)
+    let { data } = req.body
+    console.log(data)
 }

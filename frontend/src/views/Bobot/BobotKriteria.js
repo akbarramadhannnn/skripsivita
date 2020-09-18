@@ -1,6 +1,5 @@
-import React, { Fragment, useState, useEffect } from 'react'
-import { getDataKriteria } from '../../api'
-import { Row, Col, Card, CardHeader, CardBody, FormGroup, Label, Input, Button } from 'reactstrap'
+import React, { Fragment, useState, useEffect } from 'react';
+import { Row, Col, Card, CardHeader, CardBody, FormGroup, Label, Input, Button } from 'reactstrap';
 
 const BobotKriteria = () => {
     const[sensor]   = useState('Sensor')
@@ -25,22 +24,22 @@ const BobotKriteria = () => {
     const[valuePenilaianKeempatbelas,setValuePenilaianKeempatbelas]   = useState('')
     const[valuePenilaianKelimabelas,setValuePenilaianKelimabelas]   = useState('')
     // Kriteria Kedua
-    const[valueKriteriaKeduaKeSatu,setValueKriteriaKeduaKeSatu]   = useState('');
-    const[valueKriteriaKeduaKedua,setValueKriteriaKeduaKedua]     = useState('');
-    const[valueKriteriaKeduaKetiga,setValueKriteriaKeduaKetiga]   = useState('');
-    const[valueKriteriaKeduaKeempat,setValueKriteriaKeduaKeempat] = useState('');
-    const[valueKriteriaKeduaKelima,setValueKriteriaKeduaKelima]   = useState('');
-    const[valueKriteriaKeduaKeenam,setValueKriteriaKeduaKeenam]   = useState('');
-    const[valueKriteriaKeduaKetujuh,setValueKriteriaKeduaKetujuh]   = useState('');
-    const[valueKriteriaKeduaKedelapan,setValueKriteriaKeduaKedelapan]   = useState('');
-    const[valueKriteriaKeduaKesembilan,setValueKriteriaKeduaKesembilan]   = useState('');
-    const[valueKriteriaKeduaKesepuluh,setValueKriteriaKeduaKesepuluh]   = useState('');
-    const[valueKriteriaKeduaKesebelas,setValueKriteriaKeduaKesebelas]   = useState('');
-    const[valueKriteriaKeduaKeduabelas,setValueKriteriaKeduaKeduabelas]   = useState('');
-    const[valueKriteriaKeduaKetigabelas,setValueKriteriaKeduaKetigabelas]   = useState('');
-    const[valueKriteriaKeduaKeempatbelas,setValueKriteriaKeduaKeempatbelas]   = useState('');
-    const[valueKriteriaKeduaKelimabelas,setValueKriteriaKeduaKelimabelas]   = useState('');
-    const[stateDataKriteria,setStateDataKriteria] = useState([])
+    // const[valueKriteriaKeduaKeSatu,setValueKriteriaKeduaKeSatu]   = useState('');
+    // const[valueKriteriaKeduaKedua,setValueKriteriaKeduaKedua]     = useState('');
+    // const[valueKriteriaKeduaKetiga,setValueKriteriaKeduaKetiga]   = useState('');
+    // const[valueKriteriaKeduaKeempat,setValueKriteriaKeduaKeempat] = useState('');
+    // const[valueKriteriaKeduaKelima,setValueKriteriaKeduaKelima]   = useState('');
+    // const[valueKriteriaKeduaKeenam,setValueKriteriaKeduaKeenam]   = useState('');
+    // const[valueKriteriaKeduaKetujuh,setValueKriteriaKeduaKetujuh]   = useState('');
+    // const[valueKriteriaKeduaKedelapan,setValueKriteriaKeduaKedelapan]   = useState('');
+    // const[valueKriteriaKeduaKesembilan,setValueKriteriaKeduaKesembilan]   = useState('');
+    // const[valueKriteriaKeduaKesepuluh,setValueKriteriaKeduaKesepuluh]   = useState('');
+    // const[valueKriteriaKeduaKesebelas,setValueKriteriaKeduaKesebelas]   = useState('');
+    // const[valueKriteriaKeduaKeduabelas,setValueKriteriaKeduaKeduabelas]   = useState('');
+    // const[valueKriteriaKeduaKetigabelas,setValueKriteriaKeduaKetigabelas]   = useState('');
+    // const[valueKriteriaKeduaKeempatbelas,setValueKriteriaKeduaKeempatbelas]   = useState('');
+    // const[valueKriteriaKeduaKelimabelas,setValueKriteriaKeduaKelimabelas]   = useState('');
+    // const[stateDataKriteria,setStateDataKriteria] = useState([])
     const[stateSkalaSaaty] = useState([
         {
             intensitas: '1',
@@ -83,86 +82,119 @@ const BobotKriteria = () => {
         {
             KriteriaPertama: sensor,
             penilaian: '',
-            KriteriaKeDua: '',
+            KriteriaKeDua: sensor,
         },
         {
             KriteriaPertama: sensor,
             penilaian: '',
-            KriteriaKeDua: '',
+            KriteriaKeDua: resolusi,
         },
         {
             KriteriaPertama: sensor,
             penilaian: '',
-            KriteriaKeDua: '',
+            KriteriaKeDua: harga,
         },
         {
             KriteriaPertama: sensor,
             penilaian: '',
-            KriteriaKeDua: '',
+            KriteriaKeDua: fitur,
         },
         {
             KriteriaPertama: sensor,
             penilaian: '',
-            KriteriaKeDua: '',
+            KriteriaKeDua: iso,
         },
         {
             KriteriaPertama: resolusi,
             penilaian: '',
-            KriteriaKeDua: '',
+            KriteriaKeDua: resolusi,
         },
         {
             KriteriaPertama: resolusi,
             penilaian: '',
-            KriteriaKeDua: '',
+            KriteriaKeDua: harga,
         },
         {
             KriteriaPertama: resolusi,
             penilaian: '',
-            KriteriaKeDua: '',
+            KriteriaKeDua: fitur,
         },
         {
             KriteriaPertama: resolusi,
             penilaian: '',
-            KriteriaKeDua: '',
+            KriteriaKeDua: iso,
         },
         {
             KriteriaPertama: harga,
             penilaian: '',
-            KriteriaKeDua: '',
+            KriteriaKeDua: harga,
         },
         {
             KriteriaPertama: harga,
             penilaian: '',
-            KriteriaKeDua: '',
+            KriteriaKeDua: fitur,
         },
         {
             KriteriaPertama: harga,
             penilaian: '',
-            KriteriaKeDua: '',
+            KriteriaKeDua: iso,
         },
         {
             KriteriaPertama: fitur,
             penilaian: '',
-            KriteriaKeDua: '',
+            KriteriaKeDua: fitur,
         },
         {
             KriteriaPertama: fitur,
             penilaian: '',
-            KriteriaKeDua: '',
+            KriteriaKeDua: iso,
         },
         {
             KriteriaPertama: iso,
             penilaian: '',
-            KriteriaKeDua: '',
+            KriteriaKeDua: iso,
         }
-    ])
-
+    ]);
+    const[disabledButton,setDisabledButton] = useState(true)
     useEffect(() => {
-        getDataKriteria()
-        .then(res => {
-            setStateDataKriteria(res.data)
-        })
-    }, [])
+        if(
+            valuePenilaianPertama === '' &&
+            valuePenilaianKedua === '' &&
+            valuePenilaianKetiga === '' &&
+            valuePenilaianKeempat === '' &&
+            valuePenilaianKelima === '' &&
+            valuePenilaianKeenam === '' &&
+            valuePenilaianKetujuh === '' &&
+            valuePenilaianKedelepan === '' &&
+            valuePenilaianKesembilan === '' &&
+            valuePenilaianKesepuluh === '' &&
+            valuePenilaianKesebelas === '' &&
+            valuePenilaianKeduabelas === '' &&
+            valuePenilaianKetigabelas === '' &&
+            valuePenilaianKeempatbelas === '' &&
+            valuePenilaianKelimabelas === ''
+        ) {
+            setDisabledButton(true)
+        } else {
+            setDisabledButton(false)
+        }
+    }, [
+        valuePenilaianPertama,
+        valuePenilaianKedua,
+        valuePenilaianKetiga,
+        valuePenilaianKeempat,
+        valuePenilaianKelima,
+        valuePenilaianKeenam,
+        valuePenilaianKetujuh,
+        valuePenilaianKedelepan,
+        valuePenilaianKesembilan,
+        valuePenilaianKesepuluh,
+        valuePenilaianKesebelas,
+        valuePenilaianKeduabelas,
+        valuePenilaianKetigabelas,
+        valuePenilaianKeempatbelas,
+        valuePenilaianKelimabelas
+    ])
 
     // Change Penilaian
     const changePenilaianPertama = (e) => {
@@ -301,125 +333,125 @@ const BobotKriteria = () => {
     }
 
     // Change Kriteria Ke Dua
-    const changeKriteriaKeduaKeSatu = (e) => {
-        const value = e.target.value
-        setValueKriteriaKeduaKeSatu(value)
-        const state = [...valueBobotKriteria]
-        state[0].KriteriaKeDua = value
-        setValueBobotKriteria(state)
-    }
+    // const changeKriteriaKeduaKeSatu = (e) => {
+    //     const value = e.target.value
+    //     setValueKriteriaKeduaKeSatu(value)
+    //     const state = [...valueBobotKriteria]
+    //     state[0].KriteriaKeDua = value
+    //     setValueBobotKriteria(state)
+    // }
 
-    const changeKriteriaKeduaKeDua = (e) => {
-        const value = e.target.value
-        setValueKriteriaKeduaKedua(value)
-        const state = [...valueBobotKriteria]
-        state[1].KriteriaKeDua = value
-        setValueBobotKriteria(state)
-    }
+    // const changeKriteriaKeduaKeDua = (e) => {
+    //     const value = e.target.value
+    //     setValueKriteriaKeduaKedua(value)
+    //     const state = [...valueBobotKriteria]
+    //     state[1].KriteriaKeDua = value
+    //     setValueBobotKriteria(state)
+    // }
 
-    const changeKriteriaKeduaKeTiga = (e) => {
-        const value = e.target.value
-        setValueKriteriaKeduaKetiga(value)
-        const state = [...valueBobotKriteria]
-        state[2].KriteriaKeDua = value
-        setValueBobotKriteria(state)
-    }
+    // const changeKriteriaKeduaKeTiga = (e) => {
+    //     const value = e.target.value
+    //     setValueKriteriaKeduaKetiga(value)
+    //     const state = [...valueBobotKriteria]
+    //     state[2].KriteriaKeDua = value
+    //     setValueBobotKriteria(state)
+    // }
 
-    const changeKriteriaKeduaKeEmpat = (e) => {
-        const value = e.target.value
-        setValueKriteriaKeduaKeempat(value)
-        const state = [...valueBobotKriteria]
-        state[3].KriteriaKeDua = value
-        setValueBobotKriteria(state)
-    }
+    // const changeKriteriaKeduaKeEmpat = (e) => {
+    //     const value = e.target.value
+    //     setValueKriteriaKeduaKeempat(value)
+    //     const state = [...valueBobotKriteria]
+    //     state[3].KriteriaKeDua = value
+    //     setValueBobotKriteria(state)
+    // }
 
-    const changeKriteriaKeduaKeLima = (e) => {
-        const value = e.target.value
-        setValueKriteriaKeduaKelima(value)
-        const state = [...valueBobotKriteria]
-        state[4].KriteriaKeDua = value
-        setValueBobotKriteria(state)
-    }
+    // const changeKriteriaKeduaKeLima = (e) => {
+    //     const value = e.target.value
+    //     setValueKriteriaKeduaKelima(value)
+    //     const state = [...valueBobotKriteria]
+    //     state[4].KriteriaKeDua = value
+    //     setValueBobotKriteria(state)
+    // }
 
-    const changeKriteriaKeduaKeenam = (e) => {
-        const value = e.target.value
-        setValueKriteriaKeduaKeenam(value)
-        const state = [...valueBobotKriteria]
-        state[5].KriteriaKeDua = value
-        setValueBobotKriteria(state)
-    }
+    // const changeKriteriaKeduaKeenam = (e) => {
+    //     const value = e.target.value
+    //     setValueKriteriaKeduaKeenam(value)
+    //     const state = [...valueBobotKriteria]
+    //     state[5].KriteriaKeDua = value
+    //     setValueBobotKriteria(state)
+    // }
 
-    const changeKriteriaKeduaKetujuh = (e) => {
-        const value = e.target.value
-        setValueKriteriaKeduaKetujuh(value)
-        const state = [...valueBobotKriteria]
-        state[6].KriteriaKeDua = value
-        setValueBobotKriteria(state)
-    }
+    // const changeKriteriaKeduaKetujuh = (e) => {
+    //     const value = e.target.value
+    //     setValueKriteriaKeduaKetujuh(value)
+    //     const state = [...valueBobotKriteria]
+    //     state[6].KriteriaKeDua = value
+    //     setValueBobotKriteria(state)
+    // }
 
-    const changeKriteriaKeduaKedelapan = (e) => {
-        const value = e.target.value
-        setValueKriteriaKeduaKedelapan(value)
-        const state = [...valueBobotKriteria]
-        state[7].KriteriaKeDua = value
-        setValueBobotKriteria(state)
-    }
+    // const changeKriteriaKeduaKedelapan = (e) => {
+    //     const value = e.target.value
+    //     setValueKriteriaKeduaKedelapan(value)
+    //     const state = [...valueBobotKriteria]
+    //     state[7].KriteriaKeDua = value
+    //     setValueBobotKriteria(state)
+    // }
 
-    const changeKriteriaKeduaKesembilan = (e) => {
-        const value = e.target.value
-        setValueKriteriaKeduaKesembilan(value)
-        const state = [...valueBobotKriteria]
-        state[8].KriteriaKeDua = value
-        setValueBobotKriteria(state)
-    }
+    // const changeKriteriaKeduaKesembilan = (e) => {
+    //     const value = e.target.value
+    //     setValueKriteriaKeduaKesembilan(value)
+    //     const state = [...valueBobotKriteria]
+    //     state[8].KriteriaKeDua = value
+    //     setValueBobotKriteria(state)
+    // }
 
-    const changeKriteriaKeduaKesepuluh = (e) => {
-        const value = e.target.value
-        setValueKriteriaKeduaKesepuluh(value)
-        const state = [...valueBobotKriteria]
-        state[9].KriteriaKeDua = value
-        setValueBobotKriteria(state)
-    }
+    // const changeKriteriaKeduaKesepuluh = (e) => {
+    //     const value = e.target.value
+    //     setValueKriteriaKeduaKesepuluh(value)
+    //     const state = [...valueBobotKriteria]
+    //     state[9].KriteriaKeDua = value
+    //     setValueBobotKriteria(state)
+    // }
 
-    const changeKriteriaKeduaKesebelas = (e) => {
-        const value = e.target.value
-        setValueKriteriaKeduaKesebelas(value)
-        const state = [...valueBobotKriteria]
-        state[10].KriteriaKeDua = value
-        setValueBobotKriteria(state)
-    }
+    // const changeKriteriaKeduaKesebelas = (e) => {
+    //     const value = e.target.value
+    //     setValueKriteriaKeduaKesebelas(value)
+    //     const state = [...valueBobotKriteria]
+    //     state[10].KriteriaKeDua = value
+    //     setValueBobotKriteria(state)
+    // }
 
-    const changeKriteriaKeduaKeduabelas = (e) => {
-        const value = e.target.value
-        setValueKriteriaKeduaKeduabelas(value)
-        const state = [...valueBobotKriteria]
-        state[11].KriteriaKeDua = value
-        setValueBobotKriteria(state)
-    }
+    // const changeKriteriaKeduaKeduabelas = (e) => {
+    //     const value = e.target.value
+    //     setValueKriteriaKeduaKeduabelas(value)
+    //     const state = [...valueBobotKriteria]
+    //     state[11].KriteriaKeDua = value
+    //     setValueBobotKriteria(state)
+    // }
 
-    const changeKriteriaKeduaKetigabelas = (e) => {
-        const value = e.target.value
-        setValueKriteriaKeduaKetigabelas(value)
-        const state = [...valueBobotKriteria]
-        state[12].KriteriaKeDua = value
-        setValueBobotKriteria(state)
-    }
+    // const changeKriteriaKeduaKetigabelas = (e) => {
+    //     const value = e.target.value
+    //     setValueKriteriaKeduaKetigabelas(value)
+    //     const state = [...valueBobotKriteria]
+    //     state[12].KriteriaKeDua = value
+    //     setValueBobotKriteria(state)
+    // }
 
-    const changeKriteriaKeduaKeempatbelas = (e) => {
-        const value = e.target.value
-        setValueKriteriaKeduaKeempatbelas(value)
-        const state = [...valueBobotKriteria]
-        state[13].KriteriaKeDua = value
-        setValueBobotKriteria(state)
-    }
+    // const changeKriteriaKeduaKeempatbelas = (e) => {
+    //     const value = e.target.value
+    //     setValueKriteriaKeduaKeempatbelas(value)
+    //     const state = [...valueBobotKriteria]
+    //     state[13].KriteriaKeDua = value
+    //     setValueBobotKriteria(state)
+    // }
 
-    const changeKriteriaKeduaKelimabelas = (e) => {
-        const value = e.target.value
-        setValueKriteriaKeduaKelimabelas(value)
-        const state = [...valueBobotKriteria]
-        state[13].KriteriaKeDua = value
-        setValueBobotKriteria(state)
-    }
+    // const changeKriteriaKeduaKelimabelas = (e) => {
+    //     const value = e.target.value
+    //     setValueKriteriaKeduaKelimabelas(value)
+    //     const state = [...valueBobotKriteria]
+    //     state[13].KriteriaKeDua = value
+    //     setValueBobotKriteria(state)
+    // }
 
     const klikHitung = () => {
         console.log('valueBobotKriteria', valueBobotKriteria)
@@ -438,7 +470,6 @@ const BobotKriteria = () => {
                                 <Col md="4">
                                     <FormGroup >
                                         <Label style={{fontSize: '20px'}}>Kriteria Pertama</Label>
-                                            {/* Sensir */}
                                             <div style={{marginBottom: '10px'}}>
                                                 <Input type="text" value={sensor} disabled />
                                             </div>
@@ -707,216 +738,51 @@ const BobotKriteria = () => {
                                 <Col md="4">
                                     <FormGroup>
                                         <Label style={{fontSize: '20px'}}>Kriteria Kedua</Label>
-                                        <div style={{marginBottom: '10px'}}>
-                                            <Input type="select" value={valueKriteriaKeduaKeSatu} onChange={changeKriteriaKeduaKeSatu}>
-                                                <option value="">Pilih Kriteria</option>
-                                                {
-                                                    stateDataKriteria && stateDataKriteria.map((data,i) => {
-                                                        return (
-                                                            <Fragment key={i}>
-                                                                <option value={data.namaKriteria} >{data.namaKriteria}</option>
-                                                            </Fragment>
-                                                        )
-                                                    })
-                                                }
-                                            </Input>
-                                        </div>
-                                        <div style={{marginBottom: '10px'}}>
-                                            <Input type="select" value={valueKriteriaKeduaKedua} onChange={changeKriteriaKeduaKeDua}>
-                                                <option value="">Pilih Kriteria</option>
-                                                {
-                                                    stateDataKriteria && stateDataKriteria.map((data,i) => {
-                                                        return (
-                                                            <Fragment key={i}>
-                                                                <option value={data.namaKriteria}>{data.namaKriteria}</option>
-                                                            </Fragment>
-                                                        )
-                                                    })
-                                                }
-                                            </Input>
-                                        </div>
-                                        <div style={{marginBottom: '10px'}}>
-                                            <Input type="select" value={valueKriteriaKeduaKetiga} onChange={changeKriteriaKeduaKeTiga}>
-                                                <option value="">Pilih Kriteria</option>
-                                                {
-                                                    stateDataKriteria && stateDataKriteria.map((data,i) => {
-                                                        return (
-                                                            <Fragment key={i}>
-                                                                <option value={data.namaKriteria}>{data.namaKriteria}</option>
-                                                            </Fragment>
-                                                        )
-                                                    })
-                                                }
-                                            </Input>
-                                        </div>
-                                        <div style={{marginBottom: '10px'}}>
-                                            <Input type="select" value={valueKriteriaKeduaKeempat} onChange={changeKriteriaKeduaKeEmpat}>
-                                                <option value="">Pilih Kriteria</option>
-                                                {
-                                                    stateDataKriteria && stateDataKriteria.map((data,i) => {
-                                                        return (
-                                                            <Fragment key={i}>
-                                                                <option value={data.namaKriteria}>{data.namaKriteria}</option>
-                                                            </Fragment>
-                                                        )
-                                                    })
-                                                }
-                                            </Input>
-                                        </div>
-                                        <div style={{marginBottom: '10px'}}>
-                                            <Input type="select" value={valueKriteriaKeduaKelima} onChange={changeKriteriaKeduaKeLima}>
-                                                <option value="">Pilih Kriteria</option>
-                                                {
-                                                    stateDataKriteria && stateDataKriteria.map((data,i) => {
-                                                        return (
-                                                            <Fragment key={i}>
-                                                                <option value={data.namaKriteria}>{data.namaKriteria}</option>
-                                                            </Fragment>
-                                                        )
-                                                    })
-                                                }
-                                            </Input>
-                                        </div>
-                                        <div style={{marginBottom: '10px'}}>
-                                            <Input type="select" value={valueKriteriaKeduaKeenam} onChange={changeKriteriaKeduaKeenam}>
-                                                <option value="">Pilih Kriteria</option>
-                                                {
-                                                    stateDataKriteria && stateDataKriteria.map((data,i) => {
-                                                        return (
-                                                            <Fragment key={i}>
-                                                                <option value={data.namaKriteria}>{data.namaKriteria}</option>
-                                                            </Fragment>
-                                                        )
-                                                    })
-                                                }
-                                            </Input>
-                                        </div>
-                                        <div style={{marginBottom: '10px'}}>
-                                            <Input type="select" value={valueKriteriaKeduaKetujuh} onChange={changeKriteriaKeduaKetujuh}>
-                                                <option value="">Pilih Kriteria</option>
-                                                {
-                                                    stateDataKriteria && stateDataKriteria.map((data,i) => {
-                                                        return (
-                                                            <Fragment key={i}>
-                                                                <option value={data.namaKriteria}>{data.namaKriteria}</option>
-                                                            </Fragment>
-                                                        )
-                                                    })
-                                                }
-                                            </Input>
-                                        </div>
-                                        <div style={{marginBottom: '10px'}}>
-                                            <Input type="select" value={valueKriteriaKeduaKedelapan} onChange={changeKriteriaKeduaKedelapan}>
-                                                <option value="">Pilih Kriteria</option>
-                                                {
-                                                    stateDataKriteria && stateDataKriteria.map((data,i) => {
-                                                        return (
-                                                            <Fragment key={i}>
-                                                                <option value={data.namaKriteria}>{data.namaKriteria}</option>
-                                                            </Fragment>
-                                                        )
-                                                    })
-                                                }
-                                            </Input>
-                                        </div>
-                                        <div style={{marginBottom: '10px'}}>
-                                            <Input type="select" value={valueKriteriaKeduaKesembilan} onChange={changeKriteriaKeduaKesembilan}>
-                                                <option value="">Pilih Kriteria</option>
-                                                {
-                                                    stateDataKriteria && stateDataKriteria.map((data,i) => {
-                                                        return (
-                                                            <Fragment key={i}>
-                                                                <option value={data.namaKriteria}>{data.namaKriteria}</option>
-                                                            </Fragment>
-                                                        )
-                                                    })
-                                                }
-                                            </Input>
-                                        </div>
-                                        <div style={{marginBottom: '10px'}}>
-                                            <Input type="select" value={valueKriteriaKeduaKesepuluh} onChange={changeKriteriaKeduaKesepuluh}>
-                                                <option value="">Pilih Kriteria</option>
-                                                {
-                                                    stateDataKriteria && stateDataKriteria.map((data,i) => {
-                                                        return (
-                                                            <Fragment key={i}>
-                                                                <option value={data.namaKriteria}>{data.namaKriteria}</option>
-                                                            </Fragment>
-                                                        )
-                                                    })
-                                                }
-                                            </Input>
-                                        </div>
-                                        <div style={{marginBottom: '10px'}}>
-                                            <Input type="select" value={valueKriteriaKeduaKesebelas} onChange={changeKriteriaKeduaKesebelas}>
-                                                <option value="">Pilih Kriteria</option>
-                                                {
-                                                    stateDataKriteria && stateDataKriteria.map((data,i) => {
-                                                        return (
-                                                            <Fragment key={i}>
-                                                                <option value={data.namaKriteria}>{data.namaKriteria}</option>
-                                                            </Fragment>
-                                                        )
-                                                    })
-                                                }
-                                            </Input>
-                                        </div>
-                                        <div style={{marginBottom: '10px'}}>
-                                            <Input type="select" value={valueKriteriaKeduaKeduabelas} onChange={changeKriteriaKeduaKeduabelas}>
-                                                <option value="">Pilih Kriteria</option>
-                                                {
-                                                    stateDataKriteria && stateDataKriteria.map((data,i) => {
-                                                        return (
-                                                            <Fragment key={i}>
-                                                                <option value={data.namaKriteria}>{data.namaKriteria}</option>
-                                                            </Fragment>
-                                                        )
-                                                    })
-                                                }
-                                            </Input>
-                                        </div>
-                                        <div style={{marginBottom: '10px'}}>
-                                            <Input type="select" value={valueKriteriaKeduaKetigabelas} onChange={changeKriteriaKeduaKetigabelas}>
-                                                <option value="">Pilih Kriteria</option>
-                                                {
-                                                    stateDataKriteria && stateDataKriteria.map((data,i) => {
-                                                        return (
-                                                            <Fragment key={i}>
-                                                                <option value={data.namaKriteria}>{data.namaKriteria}</option>
-                                                            </Fragment>
-                                                        )
-                                                    })
-                                                }
-                                            </Input>
-                                        </div>
-                                        <div style={{marginBottom: '10px'}}>
-                                            <Input type="select" value={valueKriteriaKeduaKeempatbelas} onChange={changeKriteriaKeduaKeempatbelas}>
-                                                <option value="">Pilih Kriteria</option>
-                                                {
-                                                    stateDataKriteria && stateDataKriteria.map((data,i) => {
-                                                        return (
-                                                            <Fragment key={i}>
-                                                                <option value={data.namaKriteria}>{data.namaKriteria}</option>
-                                                            </Fragment>
-                                                        )
-                                                    })
-                                                }
-                                            </Input>
-                                        </div>
-                                        <div style={{marginBottom: '10px'}}>
-                                            <Input type="select" value={valueKriteriaKeduaKelimabelas} onChange={changeKriteriaKeduaKelimabelas}>
-                                                <option value="">Pilih Kriteria</option>
-                                                {
-                                                    stateDataKriteria && stateDataKriteria.map((data,i) => {
-                                                        return (
-                                                            <Fragment key={i}>
-                                                                <option value={data.namaKriteria}>{data.namaKriteria}</option>
-                                                            </Fragment>
-                                                        )
-                                                    })
-                                                }
-                                            </Input>
-                                        </div>
+                                            <div style={{marginBottom: '10px'}}>
+                                                <Input type="text" value={sensor} disabled />
+                                            </div>
+                                            <div style={{marginBottom: '10px'}}>
+                                                <Input type="text" value={resolusi} disabled />
+                                            </div>
+                                            <div style={{marginBottom: '10px'}}>
+                                                <Input type="text" value={harga} disabled />
+                                            </div>
+                                            <div style={{marginBottom: '10px'}}>
+                                                <Input type="text" value={fitur} disabled />
+                                            </div>
+                                            <div style={{marginBottom: '10px'}}>
+                                                <Input type="text" value={iso} disabled />
+                                            </div>
+                                            <div style={{marginBottom: '10px'}}>
+                                                <Input type="text" value={resolusi} disabled />
+                                            </div>
+                                            <div style={{marginBottom: '10px'}}>
+                                                <Input type="text" value={harga} disabled />
+                                            </div>
+                                            <div style={{marginBottom: '10px'}}>
+                                                <Input type="text" value={fitur} disabled />
+                                            </div>
+                                            <div style={{marginBottom: '10px'}}>
+                                                <Input type="text" value={iso} disabled />
+                                            </div>
+                                            <div style={{marginBottom: '10px'}}>
+                                                <Input type="text" value={harga} disabled />
+                                            </div>
+                                            <div style={{marginBottom: '10px'}}>
+                                                <Input type="text" value={fitur} disabled />
+                                            </div>
+                                            <div style={{marginBottom: '10px'}}>
+                                                <Input type="text" value={iso} disabled />
+                                            </div>
+                                            <div style={{marginBottom: '10px'}}>
+                                                <Input type="text" value={fitur} disabled />
+                                            </div>
+                                            <div style={{marginBottom: '10px'}}>
+                                                <Input type="text" value={iso} disabled />
+                                            </div>
+                                            <div style={{marginBottom: '10px'}}>
+                                                <Input type="text" value={iso} disabled />
+                                            </div>
                                     </FormGroup>
                                 </Col>
                             </Row>
@@ -924,6 +790,7 @@ const BobotKriteria = () => {
                             <Button 
                                 color="primary"
                                 onClick={klikHitung}
+                                disabled={disabledButton}
                             >
                                 Hitung
                             </Button>
