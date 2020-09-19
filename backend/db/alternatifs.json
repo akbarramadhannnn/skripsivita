@@ -1,0 +1,163 @@
+[{
+  "_id": {
+    "$oid": "5ee0cb4840259e8f8382757f"
+  },
+  "kode": "A01",
+  "merk": "Cannon 700 D",
+  "sensor": "APS-C",
+  "resolusi": 18,
+  "harga": 6250000,
+  "fitur": [
+    {
+      "_id": {
+        "$oid": "5ee0cb4840259e8f83827580"
+      },
+      "namaFitur": "Toucscreen"
+    },
+    {
+      "_id": {
+        "$oid": "5ee0cb4840259e8f83827581"
+      },
+      "namaFitur": "Off Mode"
+    },
+    {
+      "_id": {
+        "$oid": "5ee0cb4840259e8f83827582"
+      },
+      "namaFitur": "Live View"
+    },
+    {
+      "_id": {
+        "$oid": "5ee0cb4840259e8f83827583"
+      },
+      "namaFitur": "View Finder"
+    },
+    {
+      "_id": {
+        "$oid": "5ee0cb4840259e8f83827584"
+      },
+      "namaFitur": "Full HD"
+    },
+    {
+      "_id": {
+        "$oid": "5ee0cb4840259e8f83827585"
+      },
+      "namaFitur": "C. Drive"
+    },
+    {
+      "_id": {
+        "$oid": "5ee0cb4840259e8f83827586"
+      },
+      "namaFitur": "Homi"
+    },
+    {
+      "_id": {
+        "$oid": "5ee0cb4840259e8f83827587"
+      },
+      "namaFitur": "USB"
+    }
+  ],
+  "iso": 12800,
+  "keterangan": "ini adalah kamera cannon 700 D",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ee0cbc140259e8f83827588"
+  },
+  "kode": "A02",
+  "merk": "Nikon D 3200",
+  "sensor": "APS-C",
+  "resolusi": 24,
+  "harga": 6200000,
+  "fitur": [
+    {
+      "_id": {
+        "$oid": "5ee0cbc140259e8f83827589"
+      },
+      "namaFitur": "Off Mode"
+    },
+    {
+      "_id": {
+        "$oid": "5ee0cbc140259e8f8382758a"
+      },
+      "namaFitur": "Live View"
+    },
+    {
+      "_id": {
+        "$oid": "5ee0cbc140259e8f8382758b"
+      },
+      "namaFitur": "View FInder"
+    },
+    {
+      "_id": {
+        "$oid": "5ee0cbc140259e8f8382758c"
+      },
+      "namaFitur": "Full HD"
+    },
+    {
+      "_id": {
+        "$oid": "5ee0cbc140259e8f8382758d"
+      },
+      "namaFitur": "C. Drive"
+    },
+    {
+      "_id": {
+        "$oid": "5ee0cbc140259e8f8382758e"
+      },
+      "namaFitur": "Homi"
+    },
+    {
+      "_id": {
+        "$oid": "5ee0cbc140259e8f8382758f"
+      },
+      "namaFitur": "USB"
+    }
+  ],
+  "iso": 12800,
+  "keterangan": "ini adalah kamera nikon D 3200",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ee0f51568b10998adadd1c7"
+  },
+  "kode": "A03",
+  "merk": "Sony A58",
+  "sensor": "APS-C",
+  "resolusi": 20,
+  "harga": 5600000,
+  "fitur": [
+    {
+      "_id": {
+        "$oid": "5ee0f51568b10998adadd1c8"
+      },
+      "namaFitur": "Live View"
+    },
+    {
+      "_id": {
+        "$oid": "5ee0f5a068b10998adadd1cb"
+      },
+      "namaFitur": "View Finder"
+    },
+    {
+      "_id": {
+        "$oid": "5ee0f5a068b10998adadd1cc"
+      },
+      "namaFitur": "Homi"
+    },
+    {
+      "_id": {
+        "$oid": "5ee0f5a068b10998adadd1cd"
+      },
+      "namaFitur": "USB"
+    },
+    {
+      "_id": {
+        "$oid": "5ee0f5a068b10998adadd1ce"
+      },
+      "namaFitur": "Wifi"
+    }
+  ],
+  "iso": 20,
+  "keterangan": "ini adalah kamera sony A58",
+  "__v": 2
+}]

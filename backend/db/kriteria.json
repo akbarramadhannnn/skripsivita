@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "5ee0c85240259e8f8382757a"
+  },
+  "kodeKriteria": "K01",
+  "namaKriteria": "Sensor",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ee0c85c40259e8f8382757b"
+  },
+  "kodeKriteria": "K02",
+  "namaKriteria": "Resolusi",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ee0c86440259e8f8382757c"
+  },
+  "kodeKriteria": "K03",
+  "namaKriteria": "Harga",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ee0c86c40259e8f8382757d"
+  },
+  "kodeKriteria": "K04",
+  "namaKriteria": "Fitur",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ee0c87340259e8f8382757e"
+  },
+  "kodeKriteria": "K05",
+  "namaKriteria": "Iso",
+  "__v": 0
+}]

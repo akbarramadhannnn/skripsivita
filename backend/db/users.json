@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "5ee0a70d9baec1899fa41ad9"
+  },
+  "role": "admin",
+  "nama": "admin",
+  "tempatLahir": "yogyakarta",
+  "tanggalLahir": {
+    "$date": "1996-02-19T17:00:00Z"
+  },
+  "email": "admin@gmail.com",
+  "password": "$2a$08$OWzzo05.YaPA4TQnMoVQ1Oug29JwYf0tQakXHCvTqKnqrq7gtDAWi",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ee1bc84565746060ac8fa00"
+  },
+  "role": "user",
+  "nama": "User 1",
+  "tempatLahir": "Jakarta",
+  "tanggalLahir": {
+    "$date": "2020-06-20T00:00:00Z"
+  },
+  "email": "user1@gmail.com",
+  "password": "$2a$08$reGGe01sqUsrgYhoadNONO78nzHOv6hvrJ5/HuWLGcPyvsWDn8jiy",
+  "__v": 0
+}]

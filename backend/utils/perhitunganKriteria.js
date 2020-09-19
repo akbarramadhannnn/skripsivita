@@ -1,46 +1,60 @@
+function ArrayDuaDimensi(rows) {
+  var arr = [];
 
-const perhitunganKriteria = (data) => {
-    const hasilHitung = []
-    const hitung1 = data[0].penilaian / 1
-    const hitung2 = data[1].penilaian / 1
-    const hitung3 = data[2].penilaian / 1
-    const hitung4 = data[3].penilaian / 1
-    const hitung5 = data[4].penilaian / 1
+  for (var i = 0; i < rows; i++) {
+    arr[i] = [];
+  }
 
-
-    // const hitung6 =  1 / data[5].penilaian
-    // const hitung7 = data[6].penilaian / 1
-    // const hitung8 = data[7].penilaian / 1
-    // const hitung9 = data[8].penilaian / 1
-    // const hitung10 = data[9].penilaian / 1
-
-    // const hitung11 =  1 / data[10].penilaian
-    // const hitung12 =  1 / data[11].penilaian
-    // const hitung13 = data[12].penilaian / 1
-    // const hitung14 = data[13].penilaian / 1
-    // const hitung15 = data[14].penilaian / 1
-
-    hasilHitung.push(hitung1)
-    hasilHitung.push(hitung2)
-    hasilHitung.push(hitung3)
-    hasilHitung.push(hitung4)
-    hasilHitung.push(hitung5)
-    // hasilHitung.push(hitung6)
-    // hasilHitung.push(hitung7)
-    // hasilHitung.push(hitung8)
-    // hasilHitung.push(hitung9)
-    // hasilHitung.push(hitung10)
-    // hasilHitung.push(hitung11)
-    // hasilHitung.push(hitung12)
-    // hasilHitung.push(hitung13)
-    // hasilHitung.push(hitung14)
-    // hasilHitung.push(hitung15)
-
-    return hasilHitung
+  return arr;
 }
 
-module.exports = perhitunganKriteria
+const perhitunganKriteria = (bobot_kriteria, kriteria) => {
+  let result = [];
+  let array_bobot = [];
+  //   console.log('bobot', bobot_kriteria.length);
+  //   console.log('kriteria', kriteria.length);
+  for (var i = 0; i < kriteria.length; i++) {
+    array_bobot[i] = [];
+    for (var j = 0; j < bobot_kriteria.length; j++) {
+      if (kriteria[i].namaKriteria === bobot_kriteria[j].KriteriaKeDua) {
+        // console.log(kriteria[i]);
+        array_bobot[i] = [1, 2, 3, 4, 5, 2, 2, 2, 3, 2, 2, 3, 1, 2, 1];
+      }
+    }
+  }
+  //   kriteria.forEach((dataKriteria, indexKriteria) => {
+  //     bobot_kriteria.forEach((dataBobotKriteria, indexBobotKriteria) => {
+  //       if (dataKriteria.namaKriteria == dataBobotKriteria.KriteriaKeDua) {
+  //         // const bobot = Number(dataBobotKriteria.penilaian);
+  //         array_bobot.push(indexKriteria);
+  //         for (let i = 0; i < array_bobot.length; i++) {
+  //           array_bobot[i] = [1, 2, 3, 4, 5, 1, 2, 3, 4, 1, 2, 3, 1, 2, 1];
+  //         }
+  //         // console.log(bobot);
+  //       }
+  //     });
+  //   });
 
+  //   console.log(array_bobot);
+  kriteria.forEach((dataKriteria1, indexKriteria1) => {
+    kriteria.forEach((dataKriteria2, indexKriteria2) => {
+      let nilai = 1;
+      if (indexKriteria1 === indexKriteria2) {
+        nilai = 1;
+      }
+      if (indexKriteria1 > indexKriteria2) {
+        nilai = 1 / array_bobot[indexKriteria1][indexKriteria2];
+      } else {
+        nilai = array_bobot[indexKriteria2][indexKriteria1];
+      }
+      console.log(nilai);
+      //   result = nilai;
+      //   console.log(result);
+    });
+  });
+};
+
+module.exports = perhitunganKriteria;
 
 // Hitungan Kriteria
 // const hasil = PerhitunganKriteria(data)

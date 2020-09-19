@@ -1,0 +1,136 @@
+[{
+  "_id": {
+    "$oid": "5f40c6d5ab60714232dd85be"
+  },
+  "idKriteria": {
+    "$oid": "5ee0c85240259e8f8382757a"
+  },
+  "namaSubKriteria": "full frame",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f40c6e9ab60714232dd85bf"
+  },
+  "idKriteria": {
+    "$oid": "5ee0c85240259e8f8382757a"
+  },
+  "namaSubKriteria": "aps-C",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f40c6f7ab60714232dd85c0"
+  },
+  "idKriteria": {
+    "$oid": "5ee0c85240259e8f8382757a"
+  },
+  "namaSubKriteria": "APS-H",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f40c713ab60714232dd85c1"
+  },
+  "idKriteria": {
+    "$oid": "5ee0c85c40259e8f8382757b"
+  },
+  "namaSubKriteria": "TINGGI",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f40c721ab60714232dd85c2"
+  },
+  "idKriteria": {
+    "$oid": "5ee0c85c40259e8f8382757b"
+  },
+  "namaSubKriteria": "SEDANG",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f40c72eab60714232dd85c3"
+  },
+  "idKriteria": {
+    "$oid": "5ee0c85c40259e8f8382757b"
+  },
+  "namaSubKriteria": "RENDAH",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f40c751ab60714232dd85c4"
+  },
+  "idKriteria": {
+    "$oid": "5ee0c86440259e8f8382757c"
+  },
+  "namaSubKriteria": "MAHAL",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f40c77aab60714232dd85c5"
+  },
+  "idKriteria": {
+    "$oid": "5ee0c86440259e8f8382757c"
+  },
+  "namaSubKriteria": "SEDANG",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f40c7a1ab60714232dd85c6"
+  },
+  "idKriteria": {
+    "$oid": "5ee0c86440259e8f8382757c"
+  },
+  "namaSubKriteria": "RENDAH",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f40c805ab60714232dd85c7"
+  },
+  "idKriteria": {
+    "$oid": "5ee0c86c40259e8f8382757d"
+  },
+  "namaSubKriteria": "SANGAT LENGKAP",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f40c811ab60714232dd85c8"
+  },
+  "idKriteria": {
+    "$oid": "5ee0c86c40259e8f8382757d"
+  },
+  "namaSubKriteria": "LENGKAP",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f40c846ab60714232dd85c9"
+  },
+  "idKriteria": {
+    "$oid": "5ee0c86c40259e8f8382757d"
+  },
+  "namaSubKriteria": "TIDAK LENGKAP",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f40c869ab60714232dd85ca"
+  },
+  "idKriteria": {
+    "$oid": "5ee0c87340259e8f8382757e"
+  },
+  "namaSubKriteria": "TINGGI",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f40c887ab60714232dd85cb"
+  },
+  "idKriteria": {
+    "$oid": "5ee0c87340259e8f8382757e"
+  },
+  "namaSubKriteria": "SEDANG",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f40c897ab60714232dd85cc"
+  },
+  "idKriteria": {
+    "$oid": "5ee0c87340259e8f8382757e"
+  },
+  "namaSubKriteria": "RENDAH",
+  "__v": 0
+}]
