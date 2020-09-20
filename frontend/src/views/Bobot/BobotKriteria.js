@@ -11,35 +11,13 @@ import {
   Button,
   Table,
 } from "reactstrap";
-
+import axios from "axios";
 const BobotKriteria = () => {
   const [sensor] = useState("Sensor");
   const [resolusi] = useState("Resolusi");
   const [harga] = useState("Harga");
   const [fitur] = useState("Fitur");
   const [iso] = useState("Iso");
-  const [arr] = useState([
-    {
-      kriteria: "Sensor",
-      perhitungan: [1, 2, 3, 4, 5],
-    },
-    {
-      kriteria: "Resolusi",
-      perhitungan: [1 / 2, 1, 2, 3, 4],
-    },
-    {
-      kriteria: "Harga",
-      perhitungan: [1 / 3, 1 / 2, 1, 2, 3],
-    },
-    {
-      kriteria: "Fitur",
-      perhitungan: [1 / 4, 1 / 3, 1 / 2, 1, 2],
-    },
-    {
-      kriteria: "Iso",
-      perhitungan: [1 / 5, 1 / 4, 1 / 3, 1 / 2, 1],
-    },
-  ]);
   // Penilaian
   const [valuePenilaianPertama, setValuePenilaianPertama] = useState("");
   const [valuePenilaianKedua, setValuePenilaianKedua] = useState("");
@@ -62,23 +40,7 @@ const BobotKriteria = () => {
   const [valuePenilaianKelimabelas, setValuePenilaianKelimabelas] = useState(
     ""
   );
-  // Kriteria Kedua
-  // const[valueKriteriaKeduaKeSatu,setValueKriteriaKeduaKeSatu]   = useState('');
-  // const[valueKriteriaKeduaKedua,setValueKriteriaKeduaKedua]     = useState('');
-  // const[valueKriteriaKeduaKetiga,setValueKriteriaKeduaKetiga]   = useState('');
-  // const[valueKriteriaKeduaKeempat,setValueKriteriaKeduaKeempat] = useState('');
-  // const[valueKriteriaKeduaKelima,setValueKriteriaKeduaKelima]   = useState('');
-  // const[valueKriteriaKeduaKeenam,setValueKriteriaKeduaKeenam]   = useState('');
-  // const[valueKriteriaKeduaKetujuh,setValueKriteriaKeduaKetujuh]   = useState('');
-  // const[valueKriteriaKeduaKedelapan,setValueKriteriaKeduaKedelapan]   = useState('');
-  // const[valueKriteriaKeduaKesembilan,setValueKriteriaKeduaKesembilan]   = useState('');
-  // const[valueKriteriaKeduaKesepuluh,setValueKriteriaKeduaKesepuluh]   = useState('');
-  // const[valueKriteriaKeduaKesebelas,setValueKriteriaKeduaKesebelas]   = useState('');
-  // const[valueKriteriaKeduaKeduabelas,setValueKriteriaKeduaKeduabelas]   = useState('');
-  // const[valueKriteriaKeduaKetigabelas,setValueKriteriaKeduaKetigabelas]   = useState('');
-  // const[valueKriteriaKeduaKeempatbelas,setValueKriteriaKeduaKeempatbelas]   = useState('');
-  // const[valueKriteriaKeduaKelimabelas,setValueKriteriaKeduaKelimabelas]   = useState('');
-  // const[stateDataKriteria,setStateDataKriteria] = useState([])
+
   const [stateSkalaSaaty] = useState([
     {
       intensitas: "1",
@@ -195,22 +157,24 @@ const BobotKriteria = () => {
     },
   ]);
   const [disabledButton, setDisabledButton] = useState(true);
+  const [hasilPerhitungan, setHasilPerhitungan] = useState([]);
+
   useEffect(() => {
     if (
-      valuePenilaianPertama === "" &&
-      valuePenilaianKedua === "" &&
-      valuePenilaianKetiga === "" &&
-      valuePenilaianKeempat === "" &&
-      valuePenilaianKelima === "" &&
-      valuePenilaianKeenam === "" &&
-      valuePenilaianKetujuh === "" &&
-      valuePenilaianKedelepan === "" &&
-      valuePenilaianKesembilan === "" &&
-      valuePenilaianKesepuluh === "" &&
-      valuePenilaianKesebelas === "" &&
-      valuePenilaianKeduabelas === "" &&
-      valuePenilaianKetigabelas === "" &&
-      valuePenilaianKeempatbelas === "" &&
+      valuePenilaianPertama === "" ||
+      valuePenilaianKedua === "" ||
+      valuePenilaianKetiga === "" ||
+      valuePenilaianKeempat === "" ||
+      valuePenilaianKelima === "" ||
+      valuePenilaianKeenam === "" ||
+      valuePenilaianKetujuh === "" ||
+      valuePenilaianKedelepan === "" ||
+      valuePenilaianKesembilan === "" ||
+      valuePenilaianKesepuluh === "" ||
+      valuePenilaianKesebelas === "" ||
+      valuePenilaianKeduabelas === "" ||
+      valuePenilaianKetigabelas === "" ||
+      valuePenilaianKeempatbelas === "" ||
       valuePenilaianKelimabelas === ""
     ) {
       setDisabledButton(true);
@@ -367,133 +331,18 @@ const BobotKriteria = () => {
     const nilai = e.target[e.target.selectedIndex].id;
     setValuePenilaianKelimabelas(value);
     const state = [...valueBobotKriteria];
-    state[13].penilaian = nilai;
+    state[14].penilaian = nilai;
     setValueBobotKriteria(state);
   };
 
-  // Change Kriteria Ke Dua
-  // const changeKriteriaKeduaKeSatu = (e) => {
-  //     const value = e.target.value
-  //     setValueKriteriaKeduaKeSatu(value)
-  //     const state = [...valueBobotKriteria]
-  //     state[0].KriteriaKeDua = value
-  //     setValueBobotKriteria(state)
-  // }
-
-  // const changeKriteriaKeduaKeDua = (e) => {
-  //     const value = e.target.value
-  //     setValueKriteriaKeduaKedua(value)
-  //     const state = [...valueBobotKriteria]
-  //     state[1].KriteriaKeDua = value
-  //     setValueBobotKriteria(state)
-  // }
-
-  // const changeKriteriaKeduaKeTiga = (e) => {
-  //     const value = e.target.value
-  //     setValueKriteriaKeduaKetiga(value)
-  //     const state = [...valueBobotKriteria]
-  //     state[2].KriteriaKeDua = value
-  //     setValueBobotKriteria(state)
-  // }
-
-  // const changeKriteriaKeduaKeEmpat = (e) => {
-  //     const value = e.target.value
-  //     setValueKriteriaKeduaKeempat(value)
-  //     const state = [...valueBobotKriteria]
-  //     state[3].KriteriaKeDua = value
-  //     setValueBobotKriteria(state)
-  // }
-
-  // const changeKriteriaKeduaKeLima = (e) => {
-  //     const value = e.target.value
-  //     setValueKriteriaKeduaKelima(value)
-  //     const state = [...valueBobotKriteria]
-  //     state[4].KriteriaKeDua = value
-  //     setValueBobotKriteria(state)
-  // }
-
-  // const changeKriteriaKeduaKeenam = (e) => {
-  //     const value = e.target.value
-  //     setValueKriteriaKeduaKeenam(value)
-  //     const state = [...valueBobotKriteria]
-  //     state[5].KriteriaKeDua = value
-  //     setValueBobotKriteria(state)
-  // }
-
-  // const changeKriteriaKeduaKetujuh = (e) => {
-  //     const value = e.target.value
-  //     setValueKriteriaKeduaKetujuh(value)
-  //     const state = [...valueBobotKriteria]
-  //     state[6].KriteriaKeDua = value
-  //     setValueBobotKriteria(state)
-  // }
-
-  // const changeKriteriaKeduaKedelapan = (e) => {
-  //     const value = e.target.value
-  //     setValueKriteriaKeduaKedelapan(value)
-  //     const state = [...valueBobotKriteria]
-  //     state[7].KriteriaKeDua = value
-  //     setValueBobotKriteria(state)
-  // }
-
-  // const changeKriteriaKeduaKesembilan = (e) => {
-  //     const value = e.target.value
-  //     setValueKriteriaKeduaKesembilan(value)
-  //     const state = [...valueBobotKriteria]
-  //     state[8].KriteriaKeDua = value
-  //     setValueBobotKriteria(state)
-  // }
-
-  // const changeKriteriaKeduaKesepuluh = (e) => {
-  //     const value = e.target.value
-  //     setValueKriteriaKeduaKesepuluh(value)
-  //     const state = [...valueBobotKriteria]
-  //     state[9].KriteriaKeDua = value
-  //     setValueBobotKriteria(state)
-  // }
-
-  // const changeKriteriaKeduaKesebelas = (e) => {
-  //     const value = e.target.value
-  //     setValueKriteriaKeduaKesebelas(value)
-  //     const state = [...valueBobotKriteria]
-  //     state[10].KriteriaKeDua = value
-  //     setValueBobotKriteria(state)
-  // }
-
-  // const changeKriteriaKeduaKeduabelas = (e) => {
-  //     const value = e.target.value
-  //     setValueKriteriaKeduaKeduabelas(value)
-  //     const state = [...valueBobotKriteria]
-  //     state[11].KriteriaKeDua = value
-  //     setValueBobotKriteria(state)
-  // }
-
-  // const changeKriteriaKeduaKetigabelas = (e) => {
-  //     const value = e.target.value
-  //     setValueKriteriaKeduaKetigabelas(value)
-  //     const state = [...valueBobotKriteria]
-  //     state[12].KriteriaKeDua = value
-  //     setValueBobotKriteria(state)
-  // }
-
-  // const changeKriteriaKeduaKeempatbelas = (e) => {
-  //     const value = e.target.value
-  //     setValueKriteriaKeduaKeempatbelas(value)
-  //     const state = [...valueBobotKriteria]
-  //     state[13].KriteriaKeDua = value
-  //     setValueBobotKriteria(state)
-  // }
-
-  // const changeKriteriaKeduaKelimabelas = (e) => {
-  //     const value = e.target.value
-  //     setValueKriteriaKeduaKelimabelas(value)
-  //     const state = [...valueBobotKriteria]
-  //     state[13].KriteriaKeDua = value
-  //     setValueBobotKriteria(state)
-  // }
-
   const klikHitung = () => {
-    console.log("valueBobotKriteria", valueBobotKriteria);
+    axios
+      .post("http://localhost:8080/kriteria/perhitunganbobot", {
+        data: valueBobotKriteria,
+      })
+      .then((res) => {
+        setHasilPerhitungan(res.data.kriteria_bobot);
+      });
   };
 
   return (
@@ -968,14 +817,14 @@ const BobotKriteria = () => {
                   </tr>
                 </thead>
 
-                {arr.map((arr1, i) => {
+                {hasilPerhitungan.map((d, i) => {
                   return (
-                    <Fragment>
-                      <tbody key={i}>
+                    <Fragment key={i}>
+                      <tbody>
                         <tr>
-                          <td>{arr1.kriteria}</td>
-                          {arr1.perhitungan.map((arr2, i2) => {
-                            return <td key={i2}>{arr2}</td>;
+                          <td>{d.namaKriteria}</td>
+                          {d.bobot.map((b, i1) => {
+                            return <td key={i1}>{b}</td>;
                           })}
                         </tr>
                       </tbody>

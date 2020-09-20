@@ -47,8 +47,6 @@ exports.perhitunganBobot = async (req, res) => {
     const hasilPerhitungan = perhitunganKriteria(data, kriteria);
 
     return res.status(200).json({
-      data,
-      kriteria,
       kriteria_bobot: hasilPerhitungan,
     });
   } catch (e) {
