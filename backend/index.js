@@ -7,9 +7,9 @@ const dotenv            = require('dotenv')
 
 dotenv.config()
 
-mongoose.connect('mongodb://localhost:27017/vitaskripsi', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost:27017/skripsivita', { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => {
-    console.log("Database terhubung.. nama database 'vitaskripsi' ")
+    console.log("Database terhubung.. nama database 'skripsivita' ")
 })
 
 mongoose.connection.on('error', err => {

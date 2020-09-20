@@ -41,14 +41,15 @@ exports.getKriteriaById = async (req, res) => {
 };
 
 exports.perhitunganBobot = async (req, res) => {
-  let { bobot_kriteria } = req.body;
+  let { data } = req.body;
   try {
     const kriteria = await Kriteria.find().select('-__v');
-    const hasilPerhitungan = perhitunganKriteria(bobot_kriteria, kriteria);
+    const hasilPerhitungan = perhitunganKriteria(data, kriteria);
 
     return res.status(200).json({
-      bobot_kriteria,
+      data,
       kriteria,
+      kriteria_bobot: hasilPerhitungan,
     });
   } catch (e) {
     console.log(e);
