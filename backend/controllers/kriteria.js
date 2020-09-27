@@ -50,6 +50,7 @@ exports.perhitunganBobot = async (req, res) => {
       data,
       kriteria,
       kriteria_bobot: hasilPerhitungan,
+      
     });
   } catch (e) {
     console.log(e);
