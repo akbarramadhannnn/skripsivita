@@ -49,6 +49,7 @@ exports.perhitunganBobot = async (req, res) => {
     const normalisasi = normalisasiBobotKriteria(hasilPerhitungan);
     return res.status(200).json({
       kriteria_bobot: hasilPerhitungan,
+      normalisasi_bobot_kriteria: normalisasi,
     });
   } catch (e) {
     console.log(e);

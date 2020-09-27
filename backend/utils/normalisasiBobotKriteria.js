@@ -17,6 +17,7 @@ const normalisasiBobotKriteria = (databobotKriteria) => {
 
     console.log(sumBoboKriteria);
     console.log(bobotKriteria);
+    return bobotKriteria;
 }
 
 module.exports = normalisasiBobotKriteria;
