@@ -46,10 +46,11 @@ exports.perhitunganBobot = async (req, res) => {
   try {
     const kriteria = await Kriteria.find().select('-__v');
     const hasilPerhitungan = perhitunganKriteria(data, kriteria);
-    const normalisasi = normalisasiBobotKriteria(hasilPerhitungan);
+    const {bobotKriteria, bobotPrioritas} = normalisasiBobotKriteria(hasilPerhitungan);
     return res.status(200).json({
       kriteria_bobot: hasilPerhitungan,
-      normalisasi_bobot_kriteria: normalisasi,
+      normalisasi_bobot_kriteria: bobotKriteria,
+      total_bobot_prioritas: bobotPrioritas,
     });
   } catch (e) {
     console.log(e);
