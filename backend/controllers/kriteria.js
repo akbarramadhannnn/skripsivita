@@ -1,6 +1,7 @@
 const Kriteria = require('../models/kriteria');
 const AHP = require('ahp');
 const perhitunganKriteria = require('../utils/perhitunganKriteria');
+const normalisasiBobotKriteria = require('../utils/normalisasiBobotKriteria');
 
 exports.getKriteria = async (req, res) => {
   try {
@@ -45,10 +46,9 @@ exports.perhitunganBobot = async (req, res) => {
   try {
     const kriteria = await Kriteria.find().select('-__v');
     const hasilPerhitungan = perhitunganKriteria(data, kriteria);
-
+    const normalisasi = normalisasiBobotKriteria(hasilPerhitungan);
     return res.status(200).json({
       kriteria_bobot: hasilPerhitungan,
-      
     });
   } catch (e) {
     console.log(e);
