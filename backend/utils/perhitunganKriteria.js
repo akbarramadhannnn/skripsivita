@@ -27,7 +27,22 @@ const perhitunganKriteria = (bobot_kriteria, kriteria) => {
       }
     }
   }
-  console.log(kriteria_bobot);
+
+  const arraySumBobot = [];
+  for (const i in kriteria_bobot) {
+    let sumBobot = 0;
+    for(const j in kriteria_bobot[i].bobot) {
+      sumBobot += kriteria_bobot[j].bobot[i];
+    }
+    arraySumBobot.push(sumBobot);
+  }
+
+  kriteria_bobot.push({
+    "kodeKriteria": "sumall",
+    "namaKriteria": "Sum",
+    "bobot": arraySumBobot,
+  });
+
   return kriteria_bobot;
 };
 
