@@ -1,15 +1,14 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const kriteriaSchema = new mongoose.Schema({
-    kodeKriteria: {
-        type: String,
-        required: true
-    },
-    namaKriteria: {
-        type: String,
-        required: true
-    },
-})
+  kodeKriteria: {
+    type: String,
+    required: true,
+  },
+  namaKriteria: {
+    type: String,
+    required: true,
+  },
+});
 
-module.exports = mongoose.model("Kriteria", kriteriaSchema)
-
+module.exports = mongoose.model('Kriteria', kriteriaSchema);
