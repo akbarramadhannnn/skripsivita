@@ -18,9 +18,6 @@ const normalisasiBobotKriteria = (databobotKriteria) => {
     }
 
     // hitung bobot prioritas
-
-    console.log(sumBoboKriteria);
-    console.log(bobotKriteria);
     return {
         bobotKriteria,
         bobotPrioritas,
