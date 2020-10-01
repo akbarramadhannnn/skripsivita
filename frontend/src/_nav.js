@@ -1,36 +1,36 @@
-import { getRole } from './utils/token'
+import { getRole } from "./utils/token";
 
-let nav
+let nav;
 
-if(getRole() && getRole() === 'admin') {
+if (getRole() && getRole() === "admin") {
   nav = {
     items: [
       {
-        name: 'Dashboard',
-        url: '/dashboard',
-        icon: 'icon-speedometer',
+        name: "Dashboard",
+        url: "/dashboard",
+        icon: "icon-speedometer",
       },
       {
-        name: 'Alternatif',
-        url: '/alternatif',
-        icon: 'fa fa-archive',
+        name: "Alternatif",
+        url: "/alternatif",
+        icon: "fa fa-archive",
         children: [
           {
-            name: 'Data Alternatif',
-            url: '/alternatif',
-            icon: 'fa fa-list-ul'
+            name: "Data Alternatif",
+            url: "/alternatif",
+            icon: "fa fa-list-ul",
           },
           {
-            name: 'Tambah Alternatif',
-            url: '/alternatif/tambah',
-            icon: 'fa fa-plus'
-          }
-        ]
+            name: "Tambah Alternatif",
+            url: "/alternatif/tambah",
+            icon: "fa fa-plus",
+          },
+        ],
       },
       {
-        name: 'Kriteria',
-        url: '/kriteria',
-        icon: 'fa fa-archive',
+        name: "Kriteria",
+        url: "/kriteria",
+        icon: "fa fa-archive",
       },
       // {
       //   name: 'Sub Kriteria',
@@ -38,56 +38,44 @@ if(getRole() && getRole() === 'admin') {
       //   icon: 'fa fa-archive',
       // },
       {
-        name: 'Nilai Bobot',
-        url: '/bobot',
-        icon: 'fa fa-archive',
-        children: [
-          {
-            name: 'Kriteria',
-            url: '/bobotkriteria',
-            icon: 'fa fa-list-ul'
-          },
-          {
-            name: 'Subkriteria',
-            url: '/bobotsubkriteria',
-            icon: 'fa fa-list-ul'
-          }
-        ]
+        name: "Nilai Bobot",
+        url: "/bobot",
+        icon: "fa fa-archive",
       },
       {
-        name: 'Perhitungan',
-        url: '/perhitungan',
-        icon: 'fa fa-archive',
+        name: "Perhitungan",
+        url: "/perhitungan",
+        icon: "fa fa-archive",
       },
       {
-        name: 'Pengguna',
-        url: '/pengguna',
-        icon: 'fa fa-user',
+        name: "Pengguna",
+        url: "/pengguna",
+        icon: "fa fa-user",
       },
-    ]
-  }
+    ],
+  };
 }
 
-if(getRole() && getRole() === 'user') {
+if (getRole() && getRole() === "user") {
   nav = {
     items: [
       {
-        name: 'Dashboard',
-        url: '/dashboard',
-        icon: 'icon-speedometer',
+        name: "Dashboard",
+        url: "/dashboard",
+        icon: "icon-speedometer",
       },
       {
-        name: 'Alternatif',
-        url: '/user/alternatif',
-        icon: 'fa fa-archive',
+        name: "Alternatif",
+        url: "/user/alternatif",
+        icon: "fa fa-archive",
       },
       {
-        name: 'Perhitungan',
-        url: '/user/perhitungan',
-        icon: 'fa fa-archive',
+        name: "Perhitungan",
+        url: "/user/perhitungan",
+        icon: "fa fa-archive",
       },
-    ]
-  }
+    ],
+  };
 }
 
-export default nav
+export default nav;

@@ -9,11 +9,7 @@ function ArrayDuaDimensi(rows) {
 }
 
 const perhitunganKriteria = (bobot_kriteria, kriteria) => {
-  let result = [];
-  let array_bobot = [];
   let kriteria_bobot = [];
-  // console.log('bobot', bobot_kriteria.length);
-  // console.log('kriteria', kriteria.length);
   for (const i in kriteria) {
     kriteria_bobot.push({
       ...kriteria[i]._doc,
@@ -34,16 +30,17 @@ const perhitunganKriteria = (bobot_kriteria, kriteria) => {
   const arraySumBobot = [];
   for (const i in kriteria_bobot) {
     let sumBobot = 0;
-    for(const j in kriteria_bobot[i].bobot) {
+    for (const j in kriteria_bobot[i].bobot) {
       sumBobot += kriteria_bobot[j].bobot[i];
     }
     arraySumBobot.push(sumBobot);
   }
 
   kriteria_bobot.push({
-    "kodeKriteria": "sumall",
-    "namaKriteria": "Sum",
-    "bobot": arraySumBobot,
+    id: '5598954tjnvfjdj458u',
+    kodeKriteria: 'jumlah',
+    namaKriteria: 'Jumlah',
+    bobot: arraySumBobot,
   });
 
   return kriteria_bobot;

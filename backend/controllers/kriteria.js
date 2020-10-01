@@ -46,9 +46,15 @@ exports.perhitunganBobot = async (req, res) => {
   try {
     const kriteria = await Kriteria.find().select('-__v');
     const hasilPerhitungan = perhitunganKriteria(data, kriteria);
-    const {bobotKriteria, bobotPrioritas} = normalisasiBobotKriteria(hasilPerhitungan);
-    const { lamdaMaks, consistencyIndex, consistencyRatio, isConsistent } = ujiKonsistensi(bobotKriteria, bobotPrioritas);
-
+    const { bobotKriteria, bobotPrioritas } = normalisasiBobotKriteria(
+      hasilPerhitungan
+    );
+    const {
+      lamdaMaks,
+      consistencyIndex,
+      consistencyRatio,
+      isConsistent,
+    } = ujiKonsistensi(bobotKriteria, bobotPrioritas);
     return res.status(200).json({
       kriteria_bobot: hasilPerhitungan,
       normalisasi_bobot_kriteria: bobotKriteria,
