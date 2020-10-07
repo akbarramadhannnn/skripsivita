@@ -10,6 +10,7 @@ function ArrayDuaDimensi(rows) {
 
 const perhitunganKriteria = (bobot_kriteria, kriteria) => {
   let kriteria_bobot = [];
+  
   for (const i in kriteria) {
     kriteria_bobot.push({
       ...kriteria[i]._doc,
@@ -17,16 +18,16 @@ const perhitunganKriteria = (bobot_kriteria, kriteria) => {
     });
     for (const bk of bobot_kriteria) {
       if (
-        kriteria[i].namaKriteria === bk.KriteriaKeDua &&
-        bk.KriteriaPertama !== bk.KriteriaKeDua
+        (kriteria[i].namaKriteria || kriteria[i].namaSubKriteria).toLowerCase() === bk.KriteriaKeDua.toLowerCase() &&
+        bk.KriteriaPertama.toLowerCase() !== bk.KriteriaKeDua.toLowerCase()
       ) {
         kriteria_bobot[i].bobot.push(parseFloat(1 / parseInt(bk.penilaian)));
-      } else if (kriteria[i].namaKriteria === bk.KriteriaPertama) {
+      } else if ((kriteria[i].namaKriteria || kriteria[i].namaSubKriteria).toLowerCase() === bk.KriteriaPertama.toLowerCase()) {
         kriteria_bobot[i].bobot.push(parseInt(bk.penilaian));
       }
     }
   }
-
+  
   const arraySumBobot = [];
   for (const i in kriteria_bobot) {
     let sumBobot = 0;
@@ -37,7 +38,7 @@ const perhitunganKriteria = (bobot_kriteria, kriteria) => {
   }
 
   kriteria_bobot.push({
-    id: '5598954tjnvfjdj458u',
+    // id: '5598954tjnvfjdj458u',
     kodeKriteria: 'jumlah',
     namaKriteria: 'Jumlah',
     bobot: arraySumBobot,
