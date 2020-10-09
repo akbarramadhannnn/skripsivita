@@ -6,7 +6,7 @@ import SubKriteriaResolusi from "./SubKriteriaResolusi";
 import SubKriteriaHarga from "./SubKriteriaHarga";
 import SubKriteriaFitur from "./SubKriteriaFitur";
 import SubKriteriaIso from "./SubKriteriaIso";
-// import axios from "axios";
+import axios from "axios";
 import { withRouter } from "react-router-dom";
 
 const Bobot = (props) => {
@@ -464,24 +464,42 @@ const Bobot = (props) => {
   ]);
 
   const klikHitung = () => {
-    console.log("valueBobotKriteria", valueBobotKriteria);
-    console.log("valueBobotSubKriteriaSensor", valueBobotSubKriteriaSensor);
-    console.log("valueBobotSubKriteriaResolusi", valueBobotSubKriteriaResolusi);
-    console.log("valueBobotSubKriteriaHarga", valueBobotSubKriteriaHarga);
-    console.log("valueBobotSubKriteriaFitur", valueBobotSubKriteriaFitur);
-    console.log("valueBobotSubKriteriaIso", valueBobotSubKriteriaIso);
-    // axios
-    //   .post("http://localhost:8080/kriteria/perhitunganbobot", {
-    //     data: valueBobotKriteria,
-    //   })
-    //   .then((res) => {
-    //     console.log("res", res.data);
-    //     props.history.push("/hasil-perhitungan-bobot", {
-    //       state: {
-    //         bobotKriteria: res.data,
-    //       },
-    //     });
-    //   });
+    // console.log("valueBobotKriteria", valueBobotKriteria);
+    // console.log("valueBobotSubKriteriaSensor", valueBobotSubKriteriaSensor);
+    // console.log("valueBobotSubKriteriaResolusi", valueBobotSubKriteriaResolusi);
+    // console.log("valueBobotSubKriteriaHarga", valueBobotSubKriteriaHarga);
+    // console.log("valueBobotSubKriteriaFitur", valueBobotSubKriteriaFitur);
+    // console.log("valueBobotSubKriteriaIso", valueBobotSubKriteriaIso);
+    const data = {
+      kriteria: valueBobotKriteria,
+      subKriteriaSensor: {
+        nama: "sensor",
+        bobot: valueBobotSubKriteriaSensor,
+      },
+      subKriteriaResolusi: {
+        nama: "resolusi",
+        bobot: valueBobotSubKriteriaResolusi,
+      },
+      subKriteriaHarga: {
+        nama: "harga",
+        bobot: valueBobotSubKriteriaHarga,
+      },
+      subKriteriaFitur: {
+        nama: "fitur",
+        bobot: valueBobotSubKriteriaFitur,
+      },
+      subKriteriaIso: {
+        nama: "iso",
+        bobot: valueBobotSubKriteriaIso,
+      },
+    };
+    axios
+      .post("http://localhost:8080/kriteria/perhitunganbobot", data)
+      .then((response) => {
+        props.history.push("/hasil-perhitungan-bobot", {
+          bobot: response.data,
+        });
+      });
   };
 
   return (

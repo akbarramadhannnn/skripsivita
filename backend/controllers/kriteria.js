@@ -43,7 +43,7 @@ exports.getKriteriaById = async (req, res) => {
 };
 
 exports.perhitunganBobot = async (req, res) => {
-  let { 
+  let {
     subKriteriaSensor: reqSubkriteriaSensor,
     subKriteriaResolusi: reqSubkriteriaResolusi,
     subKriteriaHarga: reqSubkriteriaHarga,
@@ -72,22 +72,45 @@ exports.perhitunganBobot = async (req, res) => {
           from: 'subkriterias',
           localField: '_id',
           foreignField: 'idKriteria',
-          as: 'subkriteria'
-        }
-      }
+          as: 'subkriteria',
+        },
+      },
     ]);
-    
-    const subKriteriaSensor = subKriteria.find((item) => item.namaKriteria.toLowerCase() === reqSubkriteriaSensor.nama.toLowerCase());
-    const subKriteriaResolusi = subKriteria.find((item) => item.namaKriteria.toLowerCase() === reqSubkriteriaResolusi.nama.toLowerCase());
-    const subKriteriaHarga = subKriteria.find((item) => item.namaKriteria.toLowerCase() === reqSubkriteriaHarga.nama.toLowerCase());
-    const subKriteriaFitur = subKriteria.find((item) => item.namaKriteria.toLowerCase() === reqSubkriteriaFitur.nama.toLowerCase());
-    const subKriteriaIso = subKriteria.find((item) => item.namaKriteria.toLowerCase() === reqSubkriteriaIso.nama.toLowerCase());
-    
-    // sensor
-    const hasilPerhitunganSensor = perhitunganKriteria(reqSubkriteriaSensor.bobot, subKriteriaSensor.subkriteria);
-    const { bobotKriteria: bobotKriteriaSensor, bobotPrioritas: bobotPrioritasSensor } = normalisasiBobotKriteria(
-      hasilPerhitunganSensor
+
+    const subKriteriaSensor = subKriteria.find(
+      (item) =>
+        item.namaKriteria.toLowerCase() ===
+        reqSubkriteriaSensor.nama.toLowerCase()
     );
+    const subKriteriaResolusi = subKriteria.find(
+      (item) =>
+        item.namaKriteria.toLowerCase() ===
+        reqSubkriteriaResolusi.nama.toLowerCase()
+    );
+    const subKriteriaHarga = subKriteria.find(
+      (item) =>
+        item.namaKriteria.toLowerCase() ===
+        reqSubkriteriaHarga.nama.toLowerCase()
+    );
+    const subKriteriaFitur = subKriteria.find(
+      (item) =>
+        item.namaKriteria.toLowerCase() ===
+        reqSubkriteriaFitur.nama.toLowerCase()
+    );
+    const subKriteriaIso = subKriteria.find(
+      (item) =>
+        item.namaKriteria.toLowerCase() === reqSubkriteriaIso.nama.toLowerCase()
+    );
+
+    // sensor
+    const hasilPerhitunganSensor = perhitunganKriteria(
+      reqSubkriteriaSensor.bobot,
+      subKriteriaSensor.subkriteria
+    );
+    const {
+      bobotKriteria: bobotKriteriaSensor,
+      bobotPrioritas: bobotPrioritasSensor,
+    } = normalisasiBobotKriteria(hasilPerhitunganSensor);
     const {
       lamdaMaks: lamdaMaksSensor,
       consistencyIndex: consistencyIndexSensor,
@@ -96,10 +119,14 @@ exports.perhitunganBobot = async (req, res) => {
     } = ujiKonsistensi(bobotKriteriaSensor, bobotPrioritasSensor);
 
     // resolusi
-    const hasilPerhitunganResolusi = perhitunganKriteria(reqSubkriteriaResolusi.bobot, subKriteriaResolusi.subkriteria);
-    const { bobotKriteria: bobotKriteriaResolusi, bobotPrioritas: bobotPrioritasResolusi } = normalisasiBobotKriteria(
-      hasilPerhitunganResolusi
+    const hasilPerhitunganResolusi = perhitunganKriteria(
+      reqSubkriteriaResolusi.bobot,
+      subKriteriaResolusi.subkriteria
     );
+    const {
+      bobotKriteria: bobotKriteriaResolusi,
+      bobotPrioritas: bobotPrioritasResolusi,
+    } = normalisasiBobotKriteria(hasilPerhitunganResolusi);
     const {
       lamdaMaks: lamdaMaksResolusi,
       consistencyIndex: consistencyIndexResolusi,
@@ -108,13 +135,14 @@ exports.perhitunganBobot = async (req, res) => {
     } = ujiKonsistensi(bobotKriteriaResolusi, bobotPrioritasResolusi);
 
     // harga
-    const hasilPerhitunganHarga = perhitunganKriteria(reqSubkriteriaHarga.bobot, subKriteriaHarga.subkriteria);
-    console.log(reqSubkriteriaHarga);
-    console.log(subKriteriaHarga);
-    console.log(hasilPerhitunganHarga);
-    const { bobotKriteria: bobotKriteriaHarga, bobotPrioritas: bobotPrioritasHarga } = normalisasiBobotKriteria(
-      hasilPerhitunganHarga
+    const hasilPerhitunganHarga = perhitunganKriteria(
+      reqSubkriteriaHarga.bobot,
+      subKriteriaHarga.subkriteria
     );
+    const {
+      bobotKriteria: bobotKriteriaHarga,
+      bobotPrioritas: bobotPrioritasHarga,
+    } = normalisasiBobotKriteria(hasilPerhitunganHarga);
     const {
       lamdaMaks: lamdaMaksHarga,
       consistencyIndex: consistencyIndexHarga,
@@ -123,10 +151,14 @@ exports.perhitunganBobot = async (req, res) => {
     } = ujiKonsistensi(bobotKriteriaHarga, bobotPrioritasHarga);
 
     // fitur
-    const hasilPerhitunganFitur = perhitunganKriteria(reqSubkriteriaFitur.bobot, subKriteriaFitur.subkriteria);
-    const { bobotKriteria: bobotKriteriaFitur, bobotPrioritas: bobotPrioritasFitur } = normalisasiBobotKriteria(
-      hasilPerhitunganFitur
+    const hasilPerhitunganFitur = perhitunganKriteria(
+      reqSubkriteriaFitur.bobot,
+      subKriteriaFitur.subkriteria
     );
+    const {
+      bobotKriteria: bobotKriteriaFitur,
+      bobotPrioritas: bobotPrioritasFitur,
+    } = normalisasiBobotKriteria(hasilPerhitunganFitur);
     const {
       lamdaMaks: lamdaMaksFitur,
       consistencyIndex: consistencyIndexFitur,
@@ -135,16 +167,29 @@ exports.perhitunganBobot = async (req, res) => {
     } = ujiKonsistensi(bobotKriteriaFitur, bobotPrioritasFitur);
 
     // iso
-    const hasilPerhitunganIso = perhitunganKriteria(reqSubkriteriaIso.bobot, subKriteriaIso.subkriteria);
-    const { bobotKriteria: bobotKriteriaIso, bobotPrioritas: bobotPrioritasIso } = normalisasiBobotKriteria(
-      hasilPerhitunganIso
+    const hasilPerhitunganIso = perhitunganKriteria(
+      reqSubkriteriaIso.bobot,
+      subKriteriaIso.subkriteria
     );
+
+    const {
+      bobotKriteria: bobotKriteriaIso,
+      bobotPrioritas: bobotPrioritasIso,
+    } = normalisasiBobotKriteria(hasilPerhitunganIso);
+
     const {
       lamdaMaks: lamdaMaksIso,
       consistencyIndex: consistencyIndexIso,
       consistencyRatio: consistencyRatioIso,
       isConsistent: isConsistentsIso,
     } = ujiKonsistensi(bobotKriteriaIso, bobotPrioritasIso);
+
+    console.log('isConsistent', isConsistent);
+    console.log('isConsistentsSensor', isConsistentsSensor);
+    console.log('isConsistentsResolusi', isConsistentsResolusi);
+    console.log('isConsistentsHarga', isConsistentsHarga);
+    console.log('isConsistentsFitur', isConsistentsFitur);
+    console.log('isConsistentsIso', isConsistentsIso);
 
     return res.status(200).json({
       kriteria: {
@@ -202,7 +247,7 @@ exports.perhitunganBobot = async (req, res) => {
           consistency_ratio: consistencyRatioIso,
           is_consistent: isConsistentsIso,
         },
-      }
+      },
     });
   } catch (e) {
     console.log(e);
