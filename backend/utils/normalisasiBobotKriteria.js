@@ -1,3 +1,4 @@
+const parseNumber = require('./parseNumber');
 /**
  *
  * @param {{kodeKriteria: string, namaKriteria: string, bobot: number[]}[]} databobotKriteria
@@ -16,11 +17,11 @@ const normalisasiBobotKriteria = (databobotKriteria) => {
     for (const j in bobotKriteria[i].bobot) {
       const sumNormalisasi =
         bobotKriteria[i].bobot[j] / sumBoboKriteria.bobot[j];
-      bobotKriteria[i].normalisasi.push(sumNormalisasi);
+        bobotKriteria[i].normalisasi.push(parseNumber(sumNormalisasi, 2));
     }
     bobotPrioritas.push(
       bobotKriteria[i].normalisasi.reduce((a, b) => a + b) /
-        bobotKriteria[i].normalisasi.length
+      bobotKriteria[i].normalisasi.length
     );
   }
 
@@ -28,12 +29,12 @@ const normalisasiBobotKriteria = (databobotKriteria) => {
     const bobotNormalisasi =
       bobotKriteria[i].normalisasi.reduce((a, b) => a + b) /
       bobotKriteria[i].normalisasi.length;
-    bobotKriteria[i].bobotNormalisasi = bobotNormalisasi;
+      bobotKriteria[i].bobotNormalisasi = parseNumber(bobotNormalisasi, 2);
   }
 
   for (const i in bobotKriteria) {
     const jumlah = bobotKriteria[i].normalisasi.reduce((a, b) => a + b);
-    bobotKriteria[i].jumlahNormalisasi = jumlah;
+    bobotKriteria[i].jumlahNormalisasi = parseNumber(jumlah, 2);
   }
 
   // hitung bobot prioritas

@@ -1,12 +1,4 @@
-function ArrayDuaDimensi(rows) {
-  var arr = [];
-
-  for (var i = 0; i < rows; i++) {
-    arr[i] = [];
-  }
-
-  return arr;
-}
+const parseNumber = require('./parseNumber');
 
 const perhitunganKriteria = (bobot_kriteria, kriteria) => {
   let kriteria_bobot = [];
@@ -21,7 +13,7 @@ const perhitunganKriteria = (bobot_kriteria, kriteria) => {
         (kriteria[i].namaKriteria || kriteria[i].namaSubKriteria).toLowerCase() === bk.KriteriaKeDua.toLowerCase() &&
         bk.KriteriaPertama.toLowerCase() !== bk.KriteriaKeDua.toLowerCase()
       ) {
-        kriteria_bobot[i].bobot.push(parseFloat(1 / parseInt(bk.penilaian)));
+        kriteria_bobot[i].bobot.push(parseNumber(parseFloat(1 / parseInt(bk.penilaian)), 2));
       } else if ((kriteria[i].namaKriteria || kriteria[i].namaSubKriteria).toLowerCase() === bk.KriteriaPertama.toLowerCase()) {
         kriteria_bobot[i].bobot.push(parseInt(bk.penilaian));
       }
