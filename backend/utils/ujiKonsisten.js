@@ -1,3 +1,4 @@
+const parseNumber = require('./parseNumber');
 /**
  *
  * Author   : Ari Nurcahya
@@ -17,7 +18,7 @@ const ujiKonsistensi = (normalisasi, bobotPrioritas) => {
     for (const j in bobotKriteria) {
       sumColumn += bobotKriteria[i][j] * bobotPrioritas[j];
     }
-    lamdaMaks.push(sumColumn);
+    lamdaMaks.push(parseNumber(sumColumn, 2));
   }
 
   for (const j in lamdaMaks) {
@@ -30,12 +31,11 @@ const ujiKonsistensi = (normalisasi, bobotPrioritas) => {
   }
   sumLamdaMaks *= 1 / 5;
 
-  const ci =
-    (sumLamdaMaks - bobotPrioritas.length) / (bobotPrioritas.length - 1);
+  const ci = parseNumber((sumLamdaMaks - bobotPrioritas.length) / (bobotPrioritas.length - 1), 2);
 
   // console.log(ci);
 
-  const cr = ci / 1.12;
+  const cr = parseNumber(ci / 1.12, 2);
 
   // console.log(cr);
 
