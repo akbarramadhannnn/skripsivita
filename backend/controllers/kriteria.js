@@ -1,6 +1,6 @@
 const Kriteria = require('../models/kriteria');
 // const Subkriteria = require('../models/subkriteria');
-const AHP = require('ahp');
+const Bobot = require('../models/bobot');
 const perhitunganKriteria = require('../utils/perhitunganKriteria');
 const normalisasiBobotKriteria = require('../utils/normalisasiBobotKriteria');
 const ujiKonsistensi = require('../utils/ujiKonsisten');
@@ -186,12 +186,20 @@ exports.perhitunganBobot = async (req, res) => {
       isConsistent: isConsistentsIso,
     } = ujiKonsistensi(bobotKriteriaIso, bobotPrioritasIso);
 
-    console.log('isConsistent', isConsistent);
-    console.log('isConsistentsSensor', isConsistentsSensor);
-    console.log('isConsistentsResolusi', isConsistentsResolusi);
-    console.log('isConsistentsHarga', isConsistentsHarga);
-    console.log('isConsistentsFitur', isConsistentsFitur);
-    console.log('isConsistentsIso', isConsistentsIso);
+    if(isConsistent === true && isConsistentsSensor === true && isConsistentsResolusi === true && isConsistentsHarga === true && isConsistentsFitur === true && isConsistentsIso === true) {
+      // console.log(reqKriteria)
+      // for(let d of reqKriteria) {
+      //   d.bobot = Number(d.penilaian)
+      //   delete d.penilaian
+      //   const bobot = new Bobot(d);
+      //   await bobot.save();
+      // }
+      const payload = {
+        bobot: hasilPerhitungan
+      }
+      const bobot = new Bobot(payload);
+      await bobot.save();
+    }
 
     return res.status(200).json({
       kriteria: {
