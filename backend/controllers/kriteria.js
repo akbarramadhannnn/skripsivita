@@ -73,10 +73,6 @@ exports.perhitunganBobot = async (req, res) => {
       namaKriteria: data.namaKriteria,
       bobot: data.bobot,
     }));
-    const bobotKriteriaData = new bobotKriteriaModel({
-      kriteria: mappedBobotKriteria
-    });
-    bobotKriteriaData.save();
 
     // Perhitungan subkriteria
     const subKriteria = await Kriteria.aggregate([
@@ -199,18 +195,10 @@ exports.perhitunganBobot = async (req, res) => {
     } = ujiKonsistensi(bobotKriteriaIso, bobotPrioritasIso);
 
     if(isConsistent === true && isConsistentsSensor === true && isConsistentsResolusi === true && isConsistentsHarga === true && isConsistentsFitur === true && isConsistentsIso === true) {
-      // console.log(reqKriteria)
-      // for(let d of reqKriteria) {
-      //   d.bobot = Number(d.penilaian)
-      //   delete d.penilaian
-      //   const bobot = new Bobot(d);
-      //   await bobot.save();
-      // }
-      const payload = {
-        bobot: hasilPerhitungan
-      }
-      const bobot = new Bobot(payload);
-      await bobot.save();
+      const bobotKriteriaData = new bobotKriteriaModel({
+        kriteria: mappedBobotKriteria
+      });
+      bobotKriteriaData.save();
     }
 
     return res.status(200).json({
