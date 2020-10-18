@@ -5,7 +5,7 @@ const perhitunganKriteria = (bobot_kriteria, kriteria) => {
   
   for (const i in kriteria) {
     kriteria_bobot.push({
-      ...kriteria[i]._doc,
+      ...kriteria[i]._doc || kriteria[i],
       bobot: [],
     });
     for (const bk of bobot_kriteria) {

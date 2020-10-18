@@ -1,4 +1,5 @@
 const Kriteria = require('../models/kriteria');
+const bobotKriteriaModel = require('../models/bobot_kriteria');
 // const Subkriteria = require('../models/subkriteria');
 const AHP = require('ahp');
 const perhitunganKriteria = require('../utils/perhitunganKriteria');
@@ -67,6 +68,16 @@ exports.perhitunganBobot = async (req, res) => {
       isConsistent,
     } = ujiKonsistensi(bobotKriteria, bobotPrioritas);
 
+    // save bobot dan nama bobot ke database
+    const mappedBobotKriteria = bobotKriteria.map(data => ({
+      namaKriteria: data.namaKriteria,
+      bobot: data.bobot,
+    }));
+    const bobotKriteriaData = new bobotKriteriaModel({
+      kriteria: mappedBobotKriteria
+    });
+    bobotKriteriaData.save();
+
     // Perhitungan subkriteria
     const subKriteria = await Kriteria.aggregate([
       {
@@ -84,6 +95,7 @@ exports.perhitunganBobot = async (req, res) => {
         item.namaKriteria.toLowerCase() ===
         reqSubkriteriaSensor.nama.toLowerCase()
     );
+    
     const subKriteriaResolusi = subKriteria.find(
       (item) =>
         item.namaKriteria.toLowerCase() ===
