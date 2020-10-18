@@ -15,7 +15,7 @@ const perhitunganKriteria = (bobot_kriteria, kriteria) => {
       ) {
         kriteria_bobot[i].bobot.push(parseNumber(parseFloat(1 / parseInt(bk.penilaian)), 2));
       } else if ((kriteria[i].namaKriteria || kriteria[i].namaSubKriteria).toLowerCase() === bk.KriteriaPertama.toLowerCase()) {
-        kriteria_bobot[i].bobot.push(parseInt(bk.penilaian));
+        kriteria_bobot[i].bobot.push(parseNumber(parseInt(bk.penilaian), 2));
       }
     }
   }
@@ -26,7 +26,7 @@ const perhitunganKriteria = (bobot_kriteria, kriteria) => {
     for (const j in kriteria_bobot[i].bobot) {
       sumBobot += kriteria_bobot[j].bobot[i];
     }
-    arraySumBobot.push(sumBobot);
+    arraySumBobot.push(parseNumber(sumBobot, 2));
   }
 
   kriteria_bobot.push({
