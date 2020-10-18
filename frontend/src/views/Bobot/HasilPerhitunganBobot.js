@@ -101,9 +101,9 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
             <thead>
               <tr>
                 <th></th>
-                <th>nama sub kriteria 1</th>
-                <th>nama sub kriteria 2</th>
-                <th>nama sub kriteria 3</th>
+                <th>Full Frame</th>
+                <th>APS-C</th>
+                <th>APS-H</th>
               </tr>
             </thead>
 
@@ -112,7 +112,7 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
                 <Fragment key={i}>
                   <tbody>
                     <tr>
-                      <td>nama sub kriteria</td>
+                      <td>{d.namaKriteria}</td>
                       {d.bobot.map((b, i1) => {
                         return <td key={i1}>{b}</td>;
                       })}
@@ -130,9 +130,9 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
               <thead>
                 <tr>
                   <th></th>
-                  <th>nama sub kriteria 1</th>
-                  <th>nama sub kriteria 2</th>
-                  <th>nama sub kriteria 3</th>
+                  <th>Full Frame</th>
+                  <th>APS-C</th>
+                  <th>APS-H</th>
                   <th>Jumlah</th>
                   <th>Bobot</th>
                   <th>Max</th>
@@ -144,7 +144,7 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
                   <Fragment key={i}>
                     <tbody>
                       <tr>
-                        <td>nama sub kriteria</td>
+                        <td>{d.namaKriteria}</td>
                         {d.normalisasi.map((b, i1) => {
                           return <td key={i1}>{b}</td>;
                         })}
@@ -182,9 +182,9 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
             <thead>
               <tr>
                 <th></th>
-                <th>nama sub kriteria 1</th>
-                <th>nama sub kriteria 2</th>
-                <th>nama sub kriteria 3</th>
+                <th>TINGGI</th>
+                <th>SEDANG</th>
+                <th>RENDAH</th>
               </tr>
             </thead>
 
@@ -193,7 +193,7 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
                 <Fragment key={i}>
                   <tbody>
                     <tr>
-                      <td>nama sub kriteria</td>
+                    <td>{d.namaKriteria}</td>
                       {d.bobot.map((b, i1) => {
                         return <td key={i1}>{b}</td>;
                       })}
@@ -211,9 +211,9 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
               <thead>
                 <tr>
                   <th></th>
-                  <th>nama sub kriteria 1</th>
-                  <th>nama sub kriteria 2</th>
-                  <th>nama sub kriteria 3</th>
+                  <th>TINGGI</th>
+                  <th>SEDANG</th>
+                  <th>RENDAH</th>
                   <th>Jumlah</th>
                   <th>Bobot</th>
                   <th>Max</th>
@@ -226,7 +226,7 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
                     <Fragment key={i}>
                       <tbody>
                         <tr>
-                          <td>nama sub kriteria</td>
+                          <td>{d.namaKriteria}</td>
                           {d.normalisasi.map((b, i1) => {
                             return <td key={i1}>{b}</td>;
                           })}
@@ -265,9 +265,9 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
             <thead>
               <tr>
                 <th></th>
-                <th>nama sub kriteria 1</th>
-                <th>nama sub kriteria 2</th>
-                <th>nama sub kriteria 3</th>
+                <th>MAHAL</th>
+                <th>SEDANG</th>
+                <th>MURAH</th>
               </tr>
             </thead>
 
@@ -276,7 +276,7 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
                 <Fragment key={i}>
                   <tbody>
                     <tr>
-                      <td>nama sub kriteria</td>
+                      <td>{d.namaKriteria}</td>
                       {d.bobot.map((b, i1) => {
                         return <td key={i1}>{b}</td>;
                       })}
@@ -294,9 +294,9 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
               <thead>
                 <tr>
                   <th></th>
-                  <th>nama sub kriteria 1</th>
-                  <th>nama sub kriteria 2</th>
-                  <th>nama sub kriteria 3</th>
+                  <th>MAHAL</th>
+                  <th>SEDANG</th>
+                  <th>MURAH</th>
                   <th>Jumlah</th>
                   <th>Bobot</th>
                   <th>Max</th>
@@ -308,7 +308,7 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
                   <Fragment key={i}>
                     <tbody>
                       <tr>
-                        <td>nama sub kriteria</td>
+                        <td>{d.namaKriteria}</td>
                         {d.normalisasi.map((b, i1) => {
                           return <td key={i1}>{b}</td>;
                         })}
@@ -345,9 +345,9 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
             <thead>
               <tr>
                 <th></th>
-                <th>nama sub kriteria 1</th>
-                <th>nama sub kriteria 2</th>
-                <th>nama sub kriteria 3</th>
+                <th>SANGAT LENGKAP</th>
+                <th>LENGKAP</th>
+                <th>TIDAK LENGKAP</th>
               </tr>
             </thead>
 
@@ -356,7 +356,7 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
                 <Fragment key={i}>
                   <tbody>
                     <tr>
-                      <td>nama sub kriteria</td>
+                      <td>{d.namaKriteria}</td>
                       {d.bobot.map((b, i1) => {
                         return <td key={i1}>{b}</td>;
                       })}
@@ -374,9 +374,9 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
               <thead>
                 <tr>
                   <th></th>
-                  <th>nama sub kriteria 1</th>
-                  <th>nama sub kriteria 2</th>
-                  <th>nama sub kriteria 3</th>
+                  <th>SANGAT LENGKAP</th>
+                  <th>LENGKAP</th>
+                  <th>TIDAK LENGKAP</th>
                   <th>Jumlah</th>
                   <th>Bobot</th>
                   <th>Max</th>
@@ -388,7 +388,7 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
                   <Fragment key={i}>
                     <tbody>
                       <tr>
-                        <td>nama sub kriteria</td>
+                        <td>{d.namaKriteria}</td>
                         {d.normalisasi.map((b, i1) => {
                           return <td key={i1}>{b}</td>;
                         })}
@@ -425,9 +425,9 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
             <thead>
               <tr>
                 <th></th>
-                <th>nama sub kriteria 1</th>
-                <th>nama sub kriteria 2</th>
-                <th>nama sub kriteria 3</th>
+                <th>TINGGI</th>
+                <th>SEDANG</th>
+                <th>MURAH</th>
               </tr>
             </thead>
 
@@ -436,7 +436,7 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
                 <Fragment key={i}>
                   <tbody>
                     <tr>
-                      <td>nama sub kriteria</td>
+                      <td>{d.namaKriteria}</td>
                       {d.bobot.map((b, i1) => {
                         return <td key={i1}>{b}</td>;
                       })}
@@ -454,9 +454,9 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
               <thead>
                 <tr>
                   <th></th>
-                  <th>nama sub kriteria 1</th>
-                  <th>nama sub kriteria 2</th>
-                  <th>nama sub kriteria 3</th>
+                  <th>TINGGI</th>
+                  <th>SEDANG</th>
+                  <th>MURAH</th>
                   <th>Jumlah</th>
                   <th>Bobot</th>
                   <th>Max</th>
@@ -468,7 +468,7 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
                   <Fragment key={i}>
                     <tbody>
                       <tr>
-                        <td>nama sub kriteria</td>
+                        <td>{d.namaKriteria}</td>
                         {d.normalisasi.map((b, i1) => {
                           return <td key={i1}>{b}</td>;
                         })}

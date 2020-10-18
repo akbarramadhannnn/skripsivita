@@ -30,11 +30,17 @@ const perhitunganKriteria = (bobot_kriteria, kriteria) => {
   }
 
   kriteria_bobot.push({
-    // id: '5598954tjnvfjdj458u',
     kodeKriteria: 'jumlah',
     namaKriteria: 'Jumlah',
     bobot: arraySumBobot,
   });
+
+  for(let i = 0; i < kriteria_bobot.length; i ++) {
+    if(kriteria_bobot[i].namaSubKriteria) {
+      kriteria_bobot[i].namaKriteria = kriteria_bobot[i].namaSubKriteria
+      delete kriteria_bobot[i].namaSubKriteria
+    }
+  }
 
   return kriteria_bobot;
 };
