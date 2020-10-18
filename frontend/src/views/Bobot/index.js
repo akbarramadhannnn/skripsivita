@@ -496,6 +496,7 @@ const Bobot = (props) => {
     axios
       .post("http://localhost:8080/kriteria/perhitunganbobot", data)
       .then((response) => {
+        console.log(response.data)
         props.history.push("/hasil-perhitungan-bobot", {
           bobot: response.data,
         });
