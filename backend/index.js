@@ -8,8 +8,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 mongoose
-  .connect('mongodb://localhost:27017/vitaskripsi', {
-    // .connect('mongodb://localhost:27017/skripsivita', {
+  // .connect('mongodb://localhost:27017/vitaskripsi', {
+    .connect('mongodb://localhost:27017/skripsivita', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -29,10 +29,12 @@ const authRoutes = require('./routes/auth');
 const alternatifRoutes = require('./routes/alternatif');
 const kriteriaRoutes = require('./routes/kriteria');
 const subKriteriaRoutes = require('./routes/subkriteria');
+const fahpRoutes = require('./routes/f-ahp');
 app.use('/', authRoutes);
 app.use('/', alternatifRoutes);
 app.use('/', kriteriaRoutes);
 app.use('/', subKriteriaRoutes);
+app.use('/', fahpRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`run on PORT ${process.env.PORT}`);
