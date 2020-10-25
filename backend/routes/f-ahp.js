@@ -3,6 +3,6 @@ const router       = express.Router()
 
 const { calculateFAHP } = require('../controllers/f-ahp');
 
-router.get('/fahp/:id', calculateFAHP);
+router.get('/bobot/fuzzy/:id', calculateFAHP);
 
 module.exports = router;

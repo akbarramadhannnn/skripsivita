@@ -2,7 +2,6 @@ const parseNumber = require('./parseNumber');
 
 const perhitunganKriteria = (bobot_kriteria, kriteria) => {
   let kriteria_bobot = [];
-  
   for (const i in kriteria) {
     kriteria_bobot.push({
       ...kriteria[i]._doc || kriteria[i],

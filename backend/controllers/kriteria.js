@@ -91,7 +91,6 @@ exports.perhitunganBobot = async (req, res) => {
         item.namaKriteria.toLowerCase() ===
         reqSubkriteriaSensor.nama.toLowerCase()
     );
-    
     const subKriteriaResolusi = subKriteria.find(
       (item) =>
         item.namaKriteria.toLowerCase() ===
@@ -117,6 +116,7 @@ exports.perhitunganBobot = async (req, res) => {
       reqSubkriteriaSensor.bobot,
       subKriteriaSensor.subkriteria
     );
+    
     const {
       bobotKriteria: bobotKriteriaSensor,
       bobotPrioritas: bobotPrioritasSensor,
@@ -194,10 +194,10 @@ exports.perhitunganBobot = async (req, res) => {
       isConsistent: isConsistentsIso,
     } = ujiKonsistensi(bobotKriteriaIso, bobotPrioritasIso);
 
+    const bobotKriteriaData = new bobotKriteriaModel({
+      kriteria: mappedBobotKriteria
+    });
     if(isConsistent === true && isConsistentsSensor === true && isConsistentsResolusi === true && isConsistentsHarga === true && isConsistentsFitur === true && isConsistentsIso === true) {
-      const bobotKriteriaData = new bobotKriteriaModel({
-        kriteria: mappedBobotKriteria
-      });
       bobotKriteriaData.save();
     }
 
@@ -210,6 +210,7 @@ exports.perhitunganBobot = async (req, res) => {
         consistency_index: parseNumber(consistencyIndex, 2),
         consistency_ratio: parseNumber(consistencyRatio, 2),
         is_consistent: isConsistent,
+        id_bobot_kriteria: bobotKriteriaData._id,
       },
       sub: {
         sensor: {
