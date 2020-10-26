@@ -9,14 +9,24 @@ exports.calculateFAHP = async (req, res) => {
     const bobot = bobotKriteria.kriteria.map((item) => item.bobot);
     const matrixAHP = generateMatrixAHP(bobot);
     const matrixFAHP = generateMatrixFAHP(matrixAHP);
-    const data = bobotKriteria.kriteria.map(((item, index) => {
+
+    const dataAHP = bobotKriteria.kriteria.map(((item, index) => {
+        const bobot = matrixAHP.find((item, indexMatrix) => indexMatrix === index);
+        return {
+            name: item.namaKriteria,
+            bobot,
+        }
+    }));
+
+    const dataFAHP = bobotKriteria.kriteria.map(((item, index) => {
         const bobot = matrixFAHP.find((item, indexMatrix) => indexMatrix === index);
         return {
             name: item.namaKriteria,
             bobot,
         }
-    }))
+    }));
     res.send({
-        data,
+        matrix_fahp: dataFAHP,
+        matrix_ahp: dataAHP,
     });
 }
