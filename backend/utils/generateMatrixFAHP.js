@@ -1,3 +1,4 @@
+const parseNumber = require('./parseNumber');
 const fuzzyTriangleScala = {
     1: {
         tringular: [1,1,1],
@@ -49,8 +50,8 @@ const generateMatrixFAHP = (matrixAHP) => {
                 .keys(fuzzyTriangleScala)
                 .find((index) => parseInt(index) === matrixAHP[j][i]);
 
-            matrixFAHP[i][j] = fuzzyTriangleScala[tringular].tringular;
-            matrixFAHP[j][i] = fuzzyTriangleScala[reciprocal].reciprocal;
+            matrixFAHP[i][j] = fuzzyTriangleScala[tringular].tringular.map(item => parseNumber(item, 2));
+            matrixFAHP[j][i] = fuzzyTriangleScala[reciprocal].reciprocal.map(item => parseNumber(item, 2));
         }
     }
     
