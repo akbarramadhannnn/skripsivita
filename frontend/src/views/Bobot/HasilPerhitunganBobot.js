@@ -501,7 +501,20 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
         <Col md="12" className="mb-3">
           <Link to="/bobot" className="btn btn-warning">
             Kembali
-          </Link>
+          </Link>{' '}
+
+          {
+            state.bobot.kriteria.is_consistent === true &&
+            state.bobot.sub.sensor.is_consistent === true &&
+            state.bobot.sub.resolusi.is_consistent === true &&
+            state.bobot.sub.harga.is_consistent === true &&
+            state.bobot.sub.fitur.is_consistent === true &&
+            state.bobot.sub.iso.is_consistent === true && (
+              <Link to={`/hasil-perhitungan-fuzzy/${state.bobot.kriteria.id_bobot_kriteria}`} className="btn btn-info">
+                Lanjut Fuzzy
+              </Link>
+            )
+          }
         </Col>
       </Card>
     </div>

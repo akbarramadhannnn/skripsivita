@@ -24,6 +24,9 @@ const Bobot = React.lazy(() => import("./views/Bobot"));
 const HasilPerhitunganBobot = React.lazy(() =>
   import("./views/Bobot/HasilPerhitunganBobot")
 );
+const HasilPerhitunganFuzzy = React.lazy(() =>
+  import("./views/Bobot/HasilPerhitunganFuzzy")
+);
 
 const Pengguna = React.lazy(() => import("./views/Pengguna/Pengguna"));
 const Perhitungan = React.lazy(() => import("./views/Perhitungan/Perhitungan"));
@@ -74,6 +77,12 @@ const routes = [
     component: HasilPerhitunganBobot,
     exact: true,
   },
+  {
+    path: "/hasil-perhitungan-fuzzy/:idBobot",
+    name: "Hasil Perhitungan Bobot",
+    component: HasilPerhitunganFuzzy,
+    exact: true,
+  },
 
   // pengguna
   { path: "/pengguna", name: "Pengguna", component: Pengguna, exact: true },
@@ -85,6 +94,7 @@ const routes = [
     component: Perhitungan,
     exact: true,
   },
+  
 
   // user
   {
