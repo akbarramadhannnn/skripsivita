@@ -4,13 +4,14 @@ import axios from 'axios';
 
 const HasilPerhitunganFuzzy = (props) => {
     const idBobot = props.match.params.idBobot
-    const [data,setData] = useState([]);
+    const [matrixFAhp,setMatrixFAhp] = useState([]);
+    const [matrixAhp,setMatrixAhp] = useState([]);
 
     useEffect(() => {
         axios.get(`http://localhost:8080/bobot/fuzzy/${idBobot}`)
         .then((response) => {
-            console.log(response)
-            setData(response.data.data)
+            setMatrixAhp(response.data.matrix_ahp)
+            setMatrixFAhp(response.data.matrix_fahp)
         });
     }, [idBobot])
 
@@ -18,6 +19,37 @@ const HasilPerhitunganFuzzy = (props) => {
         <div className="animated fadeIn">
             <h2>Hasil Perhitungan Fuzzy</h2>
             <Card>
+                <CardBody>
+                    <h4>Matrix AHP</h4>
+                    <Table className="table-bordered text-center">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Sensor</th>
+                            <th>Resolusi</th>
+                            <th>Harga</th>
+                            <th>Fitur</th>
+                            <th>Iso</th>
+                        </tr>
+                        </thead>
+
+                        {matrixAhp.map((d, i) => {
+                            return (
+                                <Fragment key={i}>
+                                    <tbody>
+                                        <tr>
+                                            <td>{d.name}</td>
+                                            {d.bobot.map((b, i1) => {
+                                                return <td key={i1}>{b}</td>;
+                                            })}
+                                        </tr>
+                                    </tbody>
+                                </Fragment>
+                            );
+                        })}
+                    </Table>
+                </CardBody>
+
                 <CardBody>
                     <h4>Matrix F-AHP</h4>
                     <div className="table-responsive">
@@ -50,7 +82,7 @@ const HasilPerhitunganFuzzy = (props) => {
                                 </tr>
                             </thead>
 
-                            {data.map((d, i) => {
+                            {matrixFAhp.map((d, i) => {
                                 return (
                                     <Fragment key={i}>
                                         <tbody>
