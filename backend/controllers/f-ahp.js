@@ -1,3 +1,4 @@
+const parseNumber = require('../utils/parseNumber');
 const bobotKriteriaModel = require('../models/bobot_kriteria');
 const generateMatrixAHP = require('../utils/generateMatrixAHP');
 const generateMatrixFAHP = require('../utils/generateMatrixFAHP');

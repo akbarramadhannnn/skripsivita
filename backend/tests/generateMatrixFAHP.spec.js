@@ -1,6 +1,7 @@
 const { describe, it } = require('mocha');
 const { expect } = require('chai');
 
+const parseNumber = require('../utils/parseNumber');
 const generateMatrixFAHP = require('../utils/generateMatrixFAHP');
 
 describe('Generate matrix FAHP', () => {
@@ -18,19 +19,19 @@ describe('Generate matrix FAHP', () => {
             .to.deep.equals([
                 [
                     [1,1,1],[1/2,1,3/2],[1,3/2,2],[3/2,2,5/2],[2,5/2,3]
-                ],
+                ].map(item => item.map(i => parseNumber(i, 2))),
                 [
                     [2/3,1,2],[1,1,1],[1/2,1,3/2],[1,3/2,2],[3/2,2,5/2]
-                ],
+                ].map(item => item.map(i => parseNumber(i, 2))),
                 [
                     [1/2,2/3,1],[2/3,1,2],[1,1,1],[1/2,1,3/2],[1,3/2,2]
-                ],
+                ].map(item => item.map(i => parseNumber(i, 2))),
                 [
                     [2/5,1/2,2/3],[1/2,2/3,1],[2/3,1,2],[1,1,1],[1/2,1,3/2]
-                ],
+                ].map(item => item.map(i => parseNumber(i, 2))),
                 [
                     [1/3,2/5,1/2],[2/5,1/2,2/3],[1/2,2/3,1],[2/3,1,2],[1,1,1]
-                ],
+                ].map(item => item.map(i => parseNumber(i, 2))),
             ])
     });
 })
