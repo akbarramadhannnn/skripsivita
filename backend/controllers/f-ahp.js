@@ -17,12 +17,12 @@ exports.calculateFAHP = async (req, res) => {
     const outputSumColOfFAHPRow = sumColOfFAHPRow(outputSumFAHPRow);
     const outputSyntetic = generateSyntetic(outputSumFAHPRow, outputSumColOfFAHPRow);
 
-    const matrixFAHPWithSumRow = matrixFAHP.map((item, index) => {
+    matrixFAHP.map((item, index) => {
         return item.push(outputSumFAHPRow[index]);
     });
 
     const dataAHP = bobotKriteria.kriteria.map(((item, index) => {
-        const bobot = matrixFAHPWithSumRow.find((item, indexMatrix) => indexMatrix === index);
+        const bobot = matrixAHP.find((item, indexMatrix) => indexMatrix === index);
         return {
             name: item.namaKriteria,
             bobot,
@@ -37,13 +37,13 @@ exports.calculateFAHP = async (req, res) => {
         }
     }));
 
-    const dataSumFAHPRow = bobotKriteria.kriteria.map(((item, index) => {
-        const bobot = outputSumFAHPRow.find((item, indexMatrix) => indexMatrix === index);
-        return {
-            name: item.namaKriteria,
-            bobot,
-        }
-    }));
+    // const dataSumFAHPRow = bobotKriteria.kriteria.map(((item, index) => {
+    //     const bobot = outputSumFAHPRow.find((item, indexMatrix) => indexMatrix === index);
+    //     return {
+    //         name: item.namaKriteria,
+    //         bobot,
+    //     }
+    // }));
 
     const dataSyntetic = bobotKriteria.kriteria.map(((item, index) => {
         const bobot = outputSyntetic.find((item, indexMatrix) => indexMatrix === index);
