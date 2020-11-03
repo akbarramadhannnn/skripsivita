@@ -13,9 +13,16 @@ exports.calculateFAHP = async (req, res) => {
     const bobot = bobotKriteria.kriteria.map((item) => item.bobot);
     const matrixAHP = generateMatrixAHP(bobot);
     const matrixFAHP = generateMatrixFAHP(matrixAHP);
+    const outputSumFAHPRow = sumFAHPRow(matrixFAHP);
+    const outputSumColOfFAHPRow = sumColOfFAHPRow(outputSumFAHPRow);
+    const outputSyntetic = generateSyntetic(outputSumFAHPRow, outputSumColOfFAHPRow);
+
+    const matrixFAHPWithSumRow = matrixFAHP.map((item, index) => {
+        return item.push(outputSumFAHPRow[index]);
+    });
 
     const dataAHP = bobotKriteria.kriteria.map(((item, index) => {
-        const bobot = matrixAHP.find((item, indexMatrix) => indexMatrix === index);
+        const bobot = matrixFAHPWithSumRow.find((item, indexMatrix) => indexMatrix === index);
         return {
             name: item.namaKriteria,
             bobot,
@@ -29,10 +36,6 @@ exports.calculateFAHP = async (req, res) => {
             bobot,
         }
     }));
-
-    const outputSumFAHPRow = sumFAHPRow(matrixFAHP);
-    const outputSumColOfFAHPRow = sumColOfFAHPRow(outputSumFAHPRow);
-    const outputSyntetic = generateSyntetic(outputSumFAHPRow, outputSumColOfFAHPRow);
 
     const dataSumFAHPRow = bobotKriteria.kriteria.map(((item, index) => {
         const bobot = outputSumFAHPRow.find((item, indexMatrix) => indexMatrix === index);
@@ -53,7 +56,6 @@ exports.calculateFAHP = async (req, res) => {
     res.send({
         matrix_fahp: dataFAHP,
         matrix_ahp: dataAHP,
-        sum_row_matrix_fahp: dataSumFAHPRow,
         sum_col_matrix_fahp: outputSumColOfFAHPRow,
         syntetic: dataSyntetic,
     });
