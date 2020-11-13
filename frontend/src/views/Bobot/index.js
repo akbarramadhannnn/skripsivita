@@ -151,77 +151,77 @@ const Bobot = (props) => {
   const [valueBobotKriteria, setValueBobotKriteria] = useState([
     {
       KriteriaPertama: kriteria.sensor,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: kriteria.sensor,
     },
     {
       KriteriaPertama: kriteria.sensor,
-      penilaian: "",
+      penilaian: "2",
       KriteriaKeDua: kriteria.resolusi,
     },
     {
       KriteriaPertama: kriteria.sensor,
-      penilaian: "",
+      penilaian: "3",
       KriteriaKeDua: kriteria.harga,
     },
     {
       KriteriaPertama: kriteria.sensor,
-      penilaian: "",
+      penilaian: "4",
       KriteriaKeDua: kriteria.fitur,
     },
     {
       KriteriaPertama: kriteria.sensor,
-      penilaian: "",
+      penilaian: "5",
       KriteriaKeDua: kriteria.iso,
     },
     {
       KriteriaPertama: kriteria.resolusi,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: kriteria.resolusi,
     },
     {
       KriteriaPertama: kriteria.resolusi,
-      penilaian: "",
+      penilaian: "2",
       KriteriaKeDua: kriteria.harga,
     },
     {
       KriteriaPertama: kriteria.resolusi,
-      penilaian: "",
+      penilaian: "3",
       KriteriaKeDua: kriteria.fitur,
     },
     {
       KriteriaPertama: kriteria.resolusi,
-      penilaian: "",
+      penilaian: "4",
       KriteriaKeDua: kriteria.iso,
     },
     {
       KriteriaPertama: kriteria.harga,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: kriteria.harga,
     },
     {
       KriteriaPertama: kriteria.harga,
-      penilaian: "",
+      penilaian: "2",
       KriteriaKeDua: kriteria.fitur,
     },
     {
       KriteriaPertama: kriteria.harga,
-      penilaian: "",
+      penilaian: "3",
       KriteriaKeDua: kriteria.iso,
     },
     {
       KriteriaPertama: kriteria.fitur,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: kriteria.fitur,
     },
     {
       KriteriaPertama: kriteria.fitur,
-      penilaian: "",
+      penilaian: "2",
       KriteriaKeDua: kriteria.iso,
     },
     {
       KriteriaPertama: kriteria.iso,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: kriteria.iso,
     },
   ]);
@@ -232,32 +232,32 @@ const Bobot = (props) => {
   ] = useState([
     {
       KriteriaPertama: subKriteria.sensor.apsc,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.sensor.apsc,
     },
     {
       KriteriaPertama: subKriteria.sensor.apsc,
-      penilaian: "",
+      penilaian: "2",
       KriteriaKeDua: subKriteria.sensor.apsh,
     },
     {
       KriteriaPertama: subKriteria.sensor.apsc,
-      penilaian: "",
+      penilaian: "3",
       KriteriaKeDua: subKriteria.sensor.fullframe,
     },
     {
       KriteriaPertama: subKriteria.sensor.apsh,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.sensor.apsh,
     },
     {
       KriteriaPertama: subKriteria.sensor.apsh,
-      penilaian: "",
+      penilaian: "2",
       KriteriaKeDua: subKriteria.sensor.fullframe,
     },
     {
       KriteriaPertama: subKriteria.sensor.fullframe,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.sensor.fullframe,
     },
   ]);
@@ -268,32 +268,32 @@ const Bobot = (props) => {
   ] = useState([
     {
       KriteriaPertama: subKriteria.resolusi.tinggi,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.resolusi.tinggi,
     },
     {
       KriteriaPertama: subKriteria.resolusi.tinggi,
-      penilaian: "",
+      penilaian: "2",
       KriteriaKeDua: subKriteria.resolusi.sedang,
     },
     {
       KriteriaPertama: subKriteria.resolusi.tinggi,
-      penilaian: "",
+      penilaian: "3",
       KriteriaKeDua: subKriteria.resolusi.rendah,
     },
     {
       KriteriaPertama: subKriteria.resolusi.sedang,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.resolusi.sedang,
     },
     {
       KriteriaPertama: subKriteria.resolusi.sedang,
-      penilaian: "",
+      penilaian: "2",
       KriteriaKeDua: subKriteria.resolusi.rendah,
     },
     {
       KriteriaPertama: subKriteria.resolusi.rendah,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.resolusi.rendah,
     },
   ]);
@@ -301,32 +301,32 @@ const Bobot = (props) => {
   const [valueBobotSubKriteriaHarga, setValueBobotSubKriteriaHarga] = useState([
     {
       KriteriaPertama: subKriteria.harga.mahal,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.harga.mahal,
     },
     {
       KriteriaPertama: subKriteria.harga.mahal,
-      penilaian: "",
+      penilaian: "2",
       KriteriaKeDua: subKriteria.harga.sedang,
     },
     {
       KriteriaPertama: subKriteria.harga.mahal,
-      penilaian: "",
+      penilaian: "3",
       KriteriaKeDua: subKriteria.harga.murah,
     },
     {
       KriteriaPertama: subKriteria.harga.sedang,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.harga.sedang,
     },
     {
       KriteriaPertama: subKriteria.harga.sedang,
-      penilaian: "",
+      penilaian: "2",
       KriteriaKeDua: subKriteria.harga.murah,
     },
     {
       KriteriaPertama: subKriteria.harga.murah,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.harga.murah,
     },
   ]);
@@ -334,32 +334,32 @@ const Bobot = (props) => {
   const [valueBobotSubKriteriaFitur, setValueBobotSubKriteriaFitur] = useState([
     {
       KriteriaPertama: subKriteria.fitur.sangatlengkap,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.fitur.sangatlengkap,
     },
     {
       KriteriaPertama: subKriteria.fitur.sangatlengkap,
-      penilaian: "",
+      penilaian: "2",
       KriteriaKeDua: subKriteria.fitur.lengkap,
     },
     {
       KriteriaPertama: subKriteria.fitur.sangatlengkap,
-      penilaian: "",
+      penilaian: "3",
       KriteriaKeDua: subKriteria.fitur.tidaklengkap,
     },
     {
       KriteriaPertama: subKriteria.fitur.lengkap,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.fitur.lengkap,
     },
     {
       KriteriaPertama: subKriteria.fitur.lengkap,
-      penilaian: "",
+      penilaian: "2",
       KriteriaKeDua: subKriteria.fitur.tidaklengkap,
     },
     {
       KriteriaPertama: subKriteria.fitur.tidaklengkap,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.fitur.tidaklengkap,
     },
   ]);
@@ -367,109 +367,103 @@ const Bobot = (props) => {
   const [valueBobotSubKriteriaIso, setValueBobotSubKriteriaIso] = useState([
     {
       KriteriaPertama: subKriteria.iso.tinggi,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.iso.tinggi,
     },
     {
       KriteriaPertama: subKriteria.iso.tinggi,
-      penilaian: "",
+      penilaian: "2",
       KriteriaKeDua: subKriteria.iso.sedang,
     },
     {
       KriteriaPertama: subKriteria.iso.tinggi,
-      penilaian: "",
+      penilaian: "3",
       KriteriaKeDua: subKriteria.iso.rendah,
     },
     {
       KriteriaPertama: subKriteria.iso.sedang,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.iso.sedang,
     },
     {
       KriteriaPertama: subKriteria.iso.sedang,
-      penilaian: "",
+      penilaian: "2",
       KriteriaKeDua: subKriteria.iso.rendah,
     },
     {
       KriteriaPertama: subKriteria.iso.rendah,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.iso.rendah,
     },
   ]);
 
-  const [disabledButton, setDisabledButton] = useState(true);
+  const [disabledButton, setDisabledButton] = useState(false);
 
-  useEffect(() => {
-    if (
-      valueKriteria.valuePenilaianPertama === "" ||
-      valueKriteria.valuePenilaianKeDua === "" ||
-      valueKriteria.valuePenilaianKeTiga === "" ||
-      valueKriteria.valuePenilaianKeEmpat === "" ||
-      valueKriteria.valuePenilaianKeLima === "" ||
-      valueKriteria.valuePenilaianKeEnam === "" ||
-      valueKriteria.valuePenilaianKeTujuh === "" ||
-      valueKriteria.valuePenilaianKeDelepan === "" ||
-      valueKriteria.valuePenilaianKeSembilan === "" ||
-      valueKriteria.valuePenilaianKeSepuluh === "" ||
-      valueKriteria.valuePenilaianKeSebelas === "" ||
-      valueKriteria.valuePenilaianKeDuabelas === "" ||
-      valueKriteria.valuePenilaianKeTigabelas === "" ||
-      valueKriteria.valuePenilaianKeEmpatbelas === "" ||
-      valueKriteria.valuePenilaianKeLimabelas === "" ||
-      valueSubKriteriaSensor.valuePenilaianPertama === "" ||
-      valueSubKriteriaSensor.valuePenilaianKeDua === "" ||
-      valueSubKriteriaSensor.valuePenilaianKeTiga === "" ||
-      valueSubKriteriaSensor.valuePenilaianKeEmpat === "" ||
-      valueSubKriteriaSensor.valuePenilaianKeLima === "" ||
-      valueSubKriteriaSensor.valuePenilaianKeEnam === "" ||
-      valueSubKriteriaResolusi.valuePenilaianPertama === "" ||
-      valueSubKriteriaResolusi.valuePenilaianKeDua === "" ||
-      valueSubKriteriaResolusi.valuePenilaianKeTiga === "" ||
-      valueSubKriteriaResolusi.valuePenilaianKeEmpat === "" ||
-      valueSubKriteriaResolusi.valuePenilaianKeLima === "" ||
-      valueSubKriteriaResolusi.valuePenilaianKeEnam === ""
-    ) {
-      setDisabledButton(true);
-    } else {
-      setDisabledButton(false);
-    }
-  }, [
-    valueKriteria.valuePenilaianPertama,
-    valueKriteria.valuePenilaianKeDua,
-    valueKriteria.valuePenilaianKeTiga,
-    valueKriteria.valuePenilaianKeEmpat,
-    valueKriteria.valuePenilaianKeLima,
-    valueKriteria.valuePenilaianKeEnam,
-    valueKriteria.valuePenilaianKeTujuh,
-    valueKriteria.valuePenilaianKeDelepan,
-    valueKriteria.valuePenilaianKeSembilan,
-    valueKriteria.valuePenilaianKeSepuluh,
-    valueKriteria.valuePenilaianKeSebelas,
-    valueKriteria.valuePenilaianKeDuabelas,
-    valueKriteria.valuePenilaianKeTigabelas,
-    valueKriteria.valuePenilaianKeEmpatbelas,
-    valueKriteria.valuePenilaianKeLimabelas,
-    valueSubKriteriaSensor.valuePenilaianPertama,
-    valueSubKriteriaSensor.valuePenilaianKeDua,
-    valueSubKriteriaSensor.valuePenilaianKeTiga,
-    valueSubKriteriaSensor.valuePenilaianKeEmpat,
-    valueSubKriteriaSensor.valuePenilaianKeLima,
-    valueSubKriteriaSensor.valuePenilaianKeEnam,
-    valueSubKriteriaResolusi.valuePenilaianPertama,
-    valueSubKriteriaResolusi.valuePenilaianKeDua,
-    valueSubKriteriaResolusi.valuePenilaianKeTiga,
-    valueSubKriteriaResolusi.valuePenilaianKeEmpat,
-    valueSubKriteriaResolusi.valuePenilaianKeLima,
-    valueSubKriteriaResolusi.valuePenilaianKeEnam,
-  ]);
+  // useEffect(() => {
+  //   if (
+  //     valueKriteria.valuePenilaianPertama === "" ||
+  //     valueKriteria.valuePenilaianKeDua === "" ||
+  //     valueKriteria.valuePenilaianKeTiga === "" ||
+  //     valueKriteria.valuePenilaianKeEmpat === "" ||
+  //     valueKriteria.valuePenilaianKeLima === "" ||
+  //     valueKriteria.valuePenilaianKeEnam === "" ||
+  //     valueKriteria.valuePenilaianKeTujuh === "" ||
+  //     valueKriteria.valuePenilaianKeDelepan === "" ||
+  //     valueKriteria.valuePenilaianKeSembilan === "" ||
+  //     valueKriteria.valuePenilaianKeSepuluh === "" ||
+  //     valueKriteria.valuePenilaianKeSebelas === "" ||
+  //     valueKriteria.valuePenilaianKeDuabelas === "" ||
+  //     valueKriteria.valuePenilaianKeTigabelas === "" ||
+  //     valueKriteria.valuePenilaianKeEmpatbelas === "" ||
+  //     valueKriteria.valuePenilaianKeLimabelas === "" ||
+  //     valueSubKriteriaSensor.valuePenilaianPertama === "" ||
+  //     valueSubKriteriaSensor.valuePenilaianKeDua === "" ||
+  //     valueSubKriteriaSensor.valuePenilaianKeTiga === "" ||
+  //     valueSubKriteriaSensor.valuePenilaianKeEmpat === "" ||
+  //     valueSubKriteriaSensor.valuePenilaianKeLima === "" ||
+  //     valueSubKriteriaSensor.valuePenilaianKeEnam === "" ||
+  //     valueSubKriteriaResolusi.valuePenilaianPertama === "" ||
+  //     valueSubKriteriaResolusi.valuePenilaianKeDua === "" ||
+  //     valueSubKriteriaResolusi.valuePenilaianKeTiga === "" ||
+  //     valueSubKriteriaResolusi.valuePenilaianKeEmpat === "" ||
+  //     valueSubKriteriaResolusi.valuePenilaianKeLima === "" ||
+  //     valueSubKriteriaResolusi.valuePenilaianKeEnam === ""
+  //   ) {
+  //     setDisabledButton(true);
+  //   } else {
+  //     setDisabledButton(false);
+  //   }
+  // }, [
+  //   valueKriteria.valuePenilaianPertama,
+  //   valueKriteria.valuePenilaianKeDua,
+  //   valueKriteria.valuePenilaianKeTiga,
+  //   valueKriteria.valuePenilaianKeEmpat,
+  //   valueKriteria.valuePenilaianKeLima,
+  //   valueKriteria.valuePenilaianKeEnam,
+  //   valueKriteria.valuePenilaianKeTujuh,
+  //   valueKriteria.valuePenilaianKeDelepan,
+  //   valueKriteria.valuePenilaianKeSembilan,
+  //   valueKriteria.valuePenilaianKeSepuluh,
+  //   valueKriteria.valuePenilaianKeSebelas,
+  //   valueKriteria.valuePenilaianKeDuabelas,
+  //   valueKriteria.valuePenilaianKeTigabelas,
+  //   valueKriteria.valuePenilaianKeEmpatbelas,
+  //   valueKriteria.valuePenilaianKeLimabelas,
+  //   valueSubKriteriaSensor.valuePenilaianPertama,
+  //   valueSubKriteriaSensor.valuePenilaianKeDua,
+  //   valueSubKriteriaSensor.valuePenilaianKeTiga,
+  //   valueSubKriteriaSensor.valuePenilaianKeEmpat,
+  //   valueSubKriteriaSensor.valuePenilaianKeLima,
+  //   valueSubKriteriaSensor.valuePenilaianKeEnam,
+  //   valueSubKriteriaResolusi.valuePenilaianPertama,
+  //   valueSubKriteriaResolusi.valuePenilaianKeDua,
+  //   valueSubKriteriaResolusi.valuePenilaianKeTiga,
+  //   valueSubKriteriaResolusi.valuePenilaianKeEmpat,
+  //   valueSubKriteriaResolusi.valuePenilaianKeLima,
+  //   valueSubKriteriaResolusi.valuePenilaianKeEnam,
+  // ]);
 
   const klikHitung = () => {
-    // console.log("valueBobotKriteria", valueBobotKriteria);
-    // console.log("valueBobotSubKriteriaSensor", valueBobotSubKriteriaSensor);
-    // console.log("valueBobotSubKriteriaResolusi", valueBobotSubKriteriaResolusi);
-    // console.log("valueBobotSubKriteriaHarga", valueBobotSubKriteriaHarga);
-    // console.log("valueBobotSubKriteriaFitur", valueBobotSubKriteriaFitur);
-    // console.log("valueBobotSubKriteriaIso", valueBobotSubKriteriaIso);
     const data = {
       kriteria: valueBobotKriteria,
       subKriteriaSensor: {

@@ -6,12 +6,15 @@ const HasilPerhitunganFuzzy = (props) => {
     const idBobot = props.match.params.idBobot
     const [matrixFAhp,setMatrixFAhp] = useState([]);
     const [matrixAhp,setMatrixAhp] = useState([]);
+    const [sintetis,setSintetis] = useState([]);
 
     useEffect(() => {
         axios.get(`http://localhost:8080/bobot/fuzzy/${idBobot}`)
         .then((response) => {
+            console.log(response)
             setMatrixAhp(response.data.matrix_ahp)
             setMatrixFAhp(response.data.matrix_fahp)
+            setSintetis(response.data.syntetic)
         });
     }, [idBobot])
 
@@ -62,8 +65,12 @@ const HasilPerhitunganFuzzy = (props) => {
                                     <th colSpan="3" >Harga</th>
                                     <th colSpan="3" >Fitur</th>
                                     <th colSpan="3" >Iso</th>
+                                    <th colSpan="3" >Jumlah Baris</th>
                                 </tr>
                                 <tr>
+                                    <th>L</th>
+                                    <th>M</th>
+                                    <th>U</th>
                                     <th>L</th>
                                     <th>M</th>
                                     <th>U</th>
@@ -106,6 +113,38 @@ const HasilPerhitunganFuzzy = (props) => {
                             })}
                         </Table>
                     </div>
+                </CardBody>
+
+                <CardBody>
+                    <h4>Perhitungan Sintetis</h4>
+                    <Table className="table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th rowSpan="3" ></th>
+                                <th colSpan="3" >Nilai Sintetis</th>
+                            </tr>
+                            <tr>
+                                <th>L</th>
+                                <th>M</th>
+                                <th>U</th>
+                            </tr>
+                        </thead>
+
+                        {sintetis.map((d, i) => {
+                            return (
+                                <Fragment key={i}>
+                                    <tbody>
+                                        <tr>
+                                            <td>{d.name}</td>
+                                            {d.bobot.map((b, i1) => {
+                                                return <td key={i1}>{b}</td>;
+                                            })}
+                                        </tr>
+                                    </tbody>
+                                </Fragment>
+                            );
+                        })}
+                    </Table>
                 </CardBody>
             </Card>
         </div>
