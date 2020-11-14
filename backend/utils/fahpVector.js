@@ -3,22 +3,40 @@ const parseNumber = require('./parseNumber');
 const FahpVector = (synteticMatrix = []) => {
     const vector = [];
     for (let i = 0; i < synteticMatrix.length; i++) {
-        const minVector = []
+        const minVector = [];
         for (let j = 0; j < synteticMatrix.length; j++) {
             if (j !== i) {
-                if (synteticMatrix[j][1] >= synteticMatrix[i][1]) {
-                    minVector.push(1);
-                } else if (synteticMatrix[i][0] >= synteticMatrix[i][2]) {
-                    minVector.push(0);
+                if (synteticMatrix[j].bobot[1] >= synteticMatrix[i].bobot[1]) {
+                    minVector.push({
+                        name: `${synteticMatrix[j].name} > ${synteticMatrix[i].name}`,
+                        value: 1
+                    });
+                } else if (synteticMatrix[i].bobot[0] >= synteticMatrix[i].bobot[2]) {
+                    minVector.push({
+                        name: `${synteticMatrix[j].name} > ${synteticMatrix[i].name}`,
+                        value: 0
+                    });
                 } else {
-                    const v = ((synteticMatrix[i][0] - synteticMatrix[j][2]) / ((synteticMatrix[j][1] - synteticMatrix[j][2]) - (synteticMatrix[i][1] - synteticMatrix[i][0])));
-                    minVector.push(parseNumber(v, 2));
+                    const v = ((synteticMatrix[i].bobot[0] - synteticMatrix[j].bobot[2]) / ((synteticMatrix[j].bobot[1] - synteticMatrix[j].bobot[2]) - (synteticMatrix[i].bobot[1] - synteticMatrix[i].bobot[0])));
+                    minVector.push({
+                        name: `${synteticMatrix[j].name} > ${synteticMatrix[i].name}`,
+                        value: parseNumber(v, 2)
+                    });
                 }
             }
         }
-        vector.push(
-            Math.min(...minVector),
-        );
+        
+        const min = minVector.reduce((prev, curr) => {
+            if (prev.value > curr.value) {
+                return curr;
+            }
+            return prev;
+        });
+
+        vector.push({
+            vector: minVector,
+            min,
+        });
     }
     return vector
 }
