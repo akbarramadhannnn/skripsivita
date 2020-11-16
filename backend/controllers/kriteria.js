@@ -68,12 +68,6 @@ exports.perhitunganBobot = async (req, res) => {
       isConsistent,
     } = ujiKonsistensi(bobotKriteria, bobotPrioritas);
 
-    // save bobot dan nama bobot ke database
-    const mappedBobotKriteria = bobotKriteria.map(data => ({
-      namaKriteria: data.namaKriteria,
-      bobot: data.bobot,
-    }));
-
     // Perhitungan subkriteria
     const subKriteria = await Kriteria.aggregate([
       {
@@ -194,8 +188,62 @@ exports.perhitunganBobot = async (req, res) => {
       isConsistent: isConsistentsIso,
     } = ujiKonsistensi(bobotKriteriaIso, bobotPrioritasIso);
 
+    // save bobot dan nama bobot ke database
+    const mappedBobotKriteria = bobotKriteria.map(data => ({
+      namaKriteria: data.namaKriteria,
+      bobot: data.bobot,
+    }));
+
+    const mappedBobotSubkriteriaSensor = bobotKriteriaSensor.map(data => ({
+      namaKriteria: data.namaKriteria,
+      bobot: data.bobot,
+    }));
+
+    const mappedBobotSubkriteriaResulusi = bobotKriteriaResolusi.map(data => ({
+      namaKriteria: data.namaKriteria,
+      bobot: data.bobot,
+    }));
+
+    const mappedBobotSubkriteriaIso = bobotKriteriaIso.map(data => ({
+      namaKriteria: data.namaKriteria,
+      bobot: data.bobot,
+    }));
+
+    const mappedBobotSubkriteriaHarga = bobotKriteriaHarga.map(data => ({
+      namaKriteria: data.namaKriteria,
+      bobot: data.bobot,
+    }));
+
+    const mappedBobotSubkriteriaFitur = bobotKriteriaFitur.map(data => ({
+      namaKriteria: data.namaKriteria,
+      bobot: data.bobot,
+    }));
+
+
     const bobotKriteriaData = new bobotKriteriaModel({
-      kriteria: mappedBobotKriteria
+      kriteria: mappedBobotKriteria,
+      sub_kriteria: [
+        {
+          nama: 'Sensor',
+          data: mappedBobotSubkriteriaSensor,
+        },
+        {
+          nama: 'Resolusi',
+          data: mappedBobotSubkriteriaResulusi,
+        },
+        {
+          nama: 'Iso',
+          data: mappedBobotSubkriteriaIso,
+        },
+        {
+          nama: 'Harga',
+          data: mappedBobotSubkriteriaHarga,
+        },
+        {
+          nama: 'Fitur',
+          data: mappedBobotSubkriteriaFitur,
+        },
+      ]
     });
     if(isConsistent === true && isConsistentsSensor === true && isConsistentsResolusi === true && isConsistentsHarga === true && isConsistentsFitur === true && isConsistentsIso === true) {
       bobotKriteriaData.save();
