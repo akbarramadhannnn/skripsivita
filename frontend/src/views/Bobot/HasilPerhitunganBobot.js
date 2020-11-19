@@ -12,39 +12,43 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
       <h2>Hasil Perhitungan</h2>
       <Card>
         <CardBody>
-          <h4>Perhitungan Kriteria</h4>
-          <Table className="table-bordered text-center">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Sensor</th>
-                <th>Resolusi</th>
-                <th>Harga</th>
-                <th>Fitur</th>
-                <th>Iso</th>
-              </tr>
-            </thead>
+          <h2>Perhitungan Kriteria</h2>
+          <div className="table-responsive">
+            <h5> - Perbandingan</h5>
+            <Table className="table-bordered text-center">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Sensor</th>
+                  <th>Resolusi</th>
+                  <th>Harga</th>
+                  <th>Fitur</th>
+                  <th>Iso</th>
+                </tr>
+              </thead>
 
-            {state.bobot.kriteria.kriteria_bobot.map((d, i) => {
-              return (
-                <Fragment key={i}>
-                  <tbody>
-                    <tr>
-                      <td>{d.namaKriteria}</td>
-                      {d.bobot.map((b, i1) => {
-                        return <td key={i1}>{b}</td>;
-                      })}
-                    </tr>
-                  </tbody>
-                </Fragment>
-              );
-            })}
-          </Table>
+              {state.bobot.kriteria.kriteria_bobot.map((d, i) => {
+                return (
+                  <Fragment key={i}>
+                    <tbody>
+                      <tr>
+                        <td>{d.namaKriteria}</td>
+                        {d.bobot.map((b, i1) => {
+                          return <td key={i1}>{b}</td>;
+                        })}
+                      </tr>
+                    </tbody>
+                  </Fragment>
+                );
+              })}
+            </Table>
+          </div>
         </CardBody>
 
         <CardBody>
-          <div className="table-responsive text-center">
-            <Table className="table-bordered">
+          <div className="table-responsive">
+            <h5> - Bobot Prioritas</h5>
+            <Table className="table-bordered text-center">
               <thead>
                 <tr>
                   <th></th>
@@ -96,37 +100,41 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
 
         {/* Sub Kriteria Sensor */}
         <CardBody>
-          <h4>Perhitungan Sub Kriteria Sensor</h4>
-          <Table className="table-bordered text-center">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Full Frame</th>
-                <th>APS-C</th>
-                <th>APS-H</th>
-              </tr>
-            </thead>
+          <h2>Perhitungan Sub Kriteria Sensor</h2>
+          <div className="table-responsive">
+            <h5> - Perbandingan</h5>
+            <Table className="table-bordered text-center">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Full Frame</th>
+                  <th>APS-C</th>
+                  <th>APS-H</th>
+                </tr>
+              </thead>
 
-            {state.bobot.sub.sensor.kriteria_bobot.map((d, i) => {
-              return (
-                <Fragment key={i}>
-                  <tbody>
-                    <tr>
-                      <td>{d.namaKriteria}</td>
-                      {d.bobot.map((b, i1) => {
-                        return <td key={i1}>{b}</td>;
-                      })}
-                    </tr>
-                  </tbody>
-                </Fragment>
-              );
-            })}
-          </Table>
+              {state.bobot.sub.sensor.kriteria_bobot.map((d, i) => {
+                return (
+                  <Fragment key={i}>
+                    <tbody>
+                      <tr>
+                        <td>{d.namaKriteria}</td>
+                        {d.bobot.map((b, i1) => {
+                          return <td key={i1}>{b}</td>;
+                        })}
+                      </tr>
+                    </tbody>
+                  </Fragment>
+                );
+              })}
+            </Table>
+          </div>
         </CardBody>
 
         <CardBody>
-          <div className="table-responsive text-center">
-            <Table className="table-bordered">
+          <div className="table-responsive">
+            <h5> - Bobot Prioritas</h5>
+            <Table className="table-bordered text-center">
               <thead>
                 <tr>
                   <th></th>
@@ -177,37 +185,41 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
 
         {/* Sub Kriteria Resolusi */}
         <CardBody>
-          <h4>Perhitungan Sub Kriteria Resolusi</h4>
-          <Table className="table-bordered text-center">
-            <thead>
-              <tr>
-                <th></th>
-                <th>TINGGI</th>
-                <th>SEDANG</th>
-                <th>RENDAH</th>
-              </tr>
-            </thead>
+          <h2>Perhitungan Sub Kriteria Resolusi</h2>
+          <div className="table-responsive">
+            <h5> - Perbandingan</h5>
+            <Table className="table-bordered text-center">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>TINGGI</th>
+                  <th>SEDANG</th>
+                  <th>RENDAH</th>
+                </tr>
+              </thead>
 
-            {state.bobot.sub.resolusi.kriteria_bobot.map((d, i) => {
-              return (
-                <Fragment key={i}>
-                  <tbody>
-                    <tr>
-                    <td>{d.namaKriteria}</td>
-                      {d.bobot.map((b, i1) => {
-                        return <td key={i1}>{b}</td>;
-                      })}
-                    </tr>
-                  </tbody>
-                </Fragment>
-              );
-            })}
-          </Table>
+              {state.bobot.sub.resolusi.kriteria_bobot.map((d, i) => {
+                return (
+                  <Fragment key={i}>
+                    <tbody>
+                      <tr>
+                      <td>{d.namaKriteria}</td>
+                        {d.bobot.map((b, i1) => {
+                          return <td key={i1}>{b}</td>;
+                        })}
+                      </tr>
+                    </tbody>
+                  </Fragment>
+                );
+              })}
+            </Table>
+          </div>
         </CardBody>
 
         <CardBody>
-          <div className="table-responsive text-center">
-            <Table className="table-bordered">
+          <div className="table-responsive">
+          <h5> - Bobot Prioritas</h5>
+            <Table className="table-bordered text-center">
               <thead>
                 <tr>
                   <th></th>
@@ -260,37 +272,41 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
 
         {/* Sub Kriteria Harga */}
         <CardBody>
-          <h4>Perhitungan Sub Kriteria Harga</h4>
-          <Table className="table-bordered text-center">
-            <thead>
-              <tr>
-                <th></th>
-                <th>MAHAL</th>
-                <th>SEDANG</th>
-                <th>MURAH</th>
-              </tr>
-            </thead>
+          <h2>Perhitungan Sub Kriteria Harga</h2>
+          <div className="table-responsive">
+            <h5> - Perbandingan</h5>
+            <Table className="table-bordered text-center">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>MAHAL</th>
+                  <th>SEDANG</th>
+                  <th>MURAH</th>
+                </tr>
+              </thead>
 
-            {state.bobot.sub.harga.kriteria_bobot.map((d, i) => {
-              return (
-                <Fragment key={i}>
-                  <tbody>
-                    <tr>
-                      <td>{d.namaKriteria}</td>
-                      {d.bobot.map((b, i1) => {
-                        return <td key={i1}>{b}</td>;
-                      })}
-                    </tr>
-                  </tbody>
-                </Fragment>
-              );
-            })}
-          </Table>
+              {state.bobot.sub.harga.kriteria_bobot.map((d, i) => {
+                return (
+                  <Fragment key={i}>
+                    <tbody>
+                      <tr>
+                        <td>{d.namaKriteria}</td>
+                        {d.bobot.map((b, i1) => {
+                          return <td key={i1}>{b}</td>;
+                        })}
+                      </tr>
+                    </tbody>
+                  </Fragment>
+                );
+              })}
+            </Table>
+          </div>
         </CardBody>
 
         <CardBody>
-          <div className="table-responsive text-center">
-            <Table className="table-bordered">
+          <div className="table-responsive">
+            <h5> - Bobot Prioritas</h5>
+            <Table className="table-bordered text-center">
               <thead>
                 <tr>
                   <th></th>
@@ -340,37 +356,41 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
 
         {/* Sub Kriteria Fitur */}
         <CardBody>
-          <h4>Perhitungan Sub Kriteria Fitur</h4>
-          <Table className="table-bordered text-center">
-            <thead>
-              <tr>
-                <th></th>
-                <th>SANGAT LENGKAP</th>
-                <th>LENGKAP</th>
-                <th>TIDAK LENGKAP</th>
-              </tr>
-            </thead>
+          <h2>Perhitungan Sub Kriteria Fitur</h2>
+          <div className="table-responsive">
+            <h5> - Perbandingan</h5>
+            <Table className="table-bordered text-center">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>SANGAT LENGKAP</th>
+                  <th>LENGKAP</th>
+                  <th>TIDAK LENGKAP</th>
+                </tr>
+              </thead>
 
-            {state.bobot.sub.fitur.kriteria_bobot.map((d, i) => {
-              return (
-                <Fragment key={i}>
-                  <tbody>
-                    <tr>
-                      <td>{d.namaKriteria}</td>
-                      {d.bobot.map((b, i1) => {
-                        return <td key={i1}>{b}</td>;
-                      })}
-                    </tr>
-                  </tbody>
-                </Fragment>
-              );
-            })}
-          </Table>
+              {state.bobot.sub.fitur.kriteria_bobot.map((d, i) => {
+                return (
+                  <Fragment key={i}>
+                    <tbody>
+                      <tr>
+                        <td>{d.namaKriteria}</td>
+                        {d.bobot.map((b, i1) => {
+                          return <td key={i1}>{b}</td>;
+                        })}
+                      </tr>
+                    </tbody>
+                  </Fragment>
+                );
+              })}
+            </Table>
+          </div>
         </CardBody>
 
         <CardBody>
-          <div className="table-responsive text-center">
-            <Table className="table-bordered">
+          <div className="table-responsive">
+            <h5> - Bobot Prioritas</h5>
+            <Table className="table-bordered text-center">
               <thead>
                 <tr>
                   <th></th>
@@ -420,37 +440,41 @@ const HasilPerhitunganBobotKriteria = ({ location }) => {
 
         {/* Sub Kriteria Iso */}
         <CardBody>
-          <h4>Perhitungan Sub Kriteria Iso</h4>
-          <Table className="table-bordered text-center">
-            <thead>
-              <tr>
-                <th></th>
-                <th>TINGGI</th>
-                <th>SEDANG</th>
-                <th>MURAH</th>
-              </tr>
-            </thead>
+          <h2>Perhitungan Sub Kriteria Iso</h2>
+          <div className="table-responsive">
+            <h5> - Perbandingan</h5>
+            <Table className="table-bordered text-center">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>TINGGI</th>
+                  <th>SEDANG</th>
+                  <th>MURAH</th>
+                </tr>
+              </thead>
 
-            {state.bobot.sub.iso.kriteria_bobot.map((d, i) => {
-              return (
-                <Fragment key={i}>
-                  <tbody>
-                    <tr>
-                      <td>{d.namaKriteria}</td>
-                      {d.bobot.map((b, i1) => {
-                        return <td key={i1}>{b}</td>;
-                      })}
-                    </tr>
-                  </tbody>
-                </Fragment>
-              );
-            })}
-          </Table>
+              {state.bobot.sub.iso.kriteria_bobot.map((d, i) => {
+                return (
+                  <Fragment key={i}>
+                    <tbody>
+                      <tr>
+                        <td>{d.namaKriteria}</td>
+                        {d.bobot.map((b, i1) => {
+                          return <td key={i1}>{b}</td>;
+                        })}
+                      </tr>
+                    </tbody>
+                  </Fragment>
+                );
+              })}
+            </Table>
+          </div>
         </CardBody>
 
         <CardBody>
-          <div className="table-responsive text-center">
-            <Table className="table-bordered">
+          <div className="table-responsive">
+            <h5> - Bobot Prioritas</h5>
+            <Table className="table-bordered text-center">
               <thead>
                 <tr>
                   <th></th>
