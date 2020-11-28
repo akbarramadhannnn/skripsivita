@@ -246,6 +246,7 @@ exports.perhitunganBobot = async (req, res) => {
       ]
     });
     if(isConsistent === true && isConsistentsSensor === true && isConsistentsResolusi === true && isConsistentsHarga === true && isConsistentsFitur === true && isConsistentsIso === true) {
+      await bobotKriteriaModel.deleteMany({});
       bobotKriteriaData.save();
     }
 

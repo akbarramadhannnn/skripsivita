@@ -8,18 +8,18 @@ const FahpVector = (synteticMatrix = []) => {
             if (j !== i) {
                 if (synteticMatrix[j].bobot[1] >= synteticMatrix[i].bobot[1]) {
                     minVector.push({
-                        name: `${synteticMatrix[j].name} > ${synteticMatrix[i].name}`,
+                        name: `${synteticMatrix[i].name} > ${synteticMatrix[j].name}`,
                         value: 1
                     });
                 } else if (synteticMatrix[i].bobot[0] >= synteticMatrix[i].bobot[2]) {
                     minVector.push({
-                        name: `${synteticMatrix[j].name} > ${synteticMatrix[i].name}`,
+                        name: `${synteticMatrix[i].name} > ${synteticMatrix[j].name}`,
                         value: 0
                     });
                 } else {
                     const v = ((synteticMatrix[i].bobot[0] - synteticMatrix[j].bobot[2]) / ((synteticMatrix[j].bobot[1] - synteticMatrix[j].bobot[2]) - (synteticMatrix[i].bobot[1] - synteticMatrix[i].bobot[0])));
                     minVector.push({
-                        name: `${synteticMatrix[j].name} > ${synteticMatrix[i].name}`,
+                        name: `${synteticMatrix[i].name} > ${synteticMatrix[j].name}`,
                         value: parseNumber(v, 2)
                     });
                 }
