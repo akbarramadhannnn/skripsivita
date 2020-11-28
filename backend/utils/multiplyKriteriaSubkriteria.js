@@ -1,3 +1,5 @@
+const parseNumber = require('./parseNumber');
+
 const multiplyKriteriaSubkriteria = (alternatif, bobot) => {
     const hasil = [];
     for (const a of alternatif) {
@@ -11,13 +13,13 @@ const multiplyKriteriaSubkriteria = (alternatif, bobot) => {
             }
             bobotKriteria.push({
                 nama: `${b.namaKriteria} x ${a[b.namaKriteria.toLowerCase()]}`,
-                value: sum,
+                value: parseNumber(sum, 2),
             });
         }
         hasil.push({
             nama: a.merk,
             value: bobotKriteria,
-            total: bobotKriteria.reduce((prev, cur) => prev + cur.value, 0),
+            total: parseNumber(bobotKriteria.reduce((prev, cur) => prev + cur.value, 0), 2),
         })
     }
     

@@ -68,11 +68,12 @@ exports.calculateFAHP = async (req, res) => {
     datafahpVector.push({
         name: 'total',
         bobot: sumVector
-    })
+    });
 
-    const datanormalisasiVector = bobotKriteria.kriteria.map( async (item, index) => {
-        const bobot = normalisasiVector.find((item, indexMatrix) => indexMatrix === index);
-        const k = await kriteria.findOneAndUpdate(
+    const denormalisasiVectorMapFunction = async (item, index) => {
+        const bobot = normalisasiVector.find((_, indexMatrix) => indexMatrix === index);
+        
+        await kriteria.findOneAndUpdate(
             {namaKriteria: item.namaKriteria},
             {
                 $set: {
@@ -80,18 +81,26 @@ exports.calculateFAHP = async (req, res) => {
                 }
             },
         );
-        return {
+        
+        return Promise.resolve({
             name: item.namaKriteria,
-            bobot,
-        }
-    });
+            bobot: bobot,
+        });
+    } 
+
+    const denormalisasiVectorMap = async () => {
+        return Promise.all(bobotKriteria.kriteria.map((item, index) => denormalisasiVectorMapFunction(item, index)));
+    }
+
+    const datanormalisasiVector = await denormalisasiVectorMap();
+
     datanormalisasiVector.push({
         name: 'total',
         bobot: sumNormalisasiVector,
     });
+    console.log(datanormalisasiVector);
 
-    // perhitungan sub kriteria
-    const sub_kriteria = bobotKriteria.sub_kriteria.map((sub_kriteria) => {
+    const calculateBobotKriteriaMapFunction = async (sub_kriteria) => {
         const nama_subkriteria = sub_kriteria.nama;
         const bobot = sub_kriteria.data.map((data) => data.bobot);
 
@@ -146,9 +155,9 @@ exports.calculateFAHP = async (req, res) => {
         datafahpVector.push({
             name: 'total',
             bobot: sumVector
-        })
+        });
 
-        const datanormalisasiVector = sub_kriteria.data.map(async (item, index) => {
+        const denormalisasiVectorMapFunction = async (item, index) => {
             const bobot = normalisasiVector.find((item, indexMatrix) => indexMatrix === index);
             const k = await kriteria.findOne({
                 namaKriteria: sub_kriteria.nama,
@@ -161,20 +170,24 @@ exports.calculateFAHP = async (req, res) => {
                 bobot: bobot,
             });
             
-            // await subkriteria.findOneAndUpdate({
-            //     namaKriteria: namaSubKriteria
-            // })
-            return {
+            return Promise.resolve({
                 name: item.namaKriteria,
                 bobot,
-            }
-        });
+            })
+        }
+
+        const denormalisasiVectorMap = async () => {
+            return Promise.all(sub_kriteria.data.map((item, index) => denormalisasiVectorMapFunction(item, index)));
+        }
+
+        const datanormalisasiVector = await denormalisasiVectorMap();
+
         datanormalisasiVector.push({
             name: 'total',
             bobot: sumNormalisasiVector,
         });
 
-        return {
+        return Promise.resolve({
             nama_subkriteria: nama_subkriteria,
             matrix_fahp: dataFAHP,
             matrix_ahp: dataAHP,
@@ -182,8 +195,17 @@ exports.calculateFAHP = async (req, res) => {
             syntetic: dataSyntetic,
             vector: datafahpVector,
             normalisasi_vector: datanormalisasiVector,
-        }
-    });
+        });
+    }
+
+    // perhitungan sub kriteria
+    const calculateBobotKriteriaMap = async () => {
+        return Promise.all(
+            bobotKriteria.sub_kriteria.map((sub_kriteria) => calculateBobotKriteriaMapFunction(sub_kriteria))
+        );
+    };
+
+    const sub_kriteria = await calculateBobotKriteriaMap();
 
     res.send({
         kriteria: {
