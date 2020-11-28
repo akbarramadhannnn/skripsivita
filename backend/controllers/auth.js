@@ -6,6 +6,7 @@ exports.login = async (req,res) => {
     const { email, password } = req.body
     try {
         const user = await User.findOne({ email: email })
+        console.log(user);
         if(user) {
             const getPassword = await bcryptjs.compareSync(password, user.password)
             if(getPassword) {

@@ -8,11 +8,13 @@ const generateSyntetic = require('../utils/generateSynteticValue');
 const fahpVector = require('../utils/fahpVector');
 const normalisasiBobotVector = require('../utils/normalisasiBobotVector');
 const sumFahpVector = require('../utils/sumFahpVector');
+const kriteria = require('../models/kriteria');
+const subkriteria = require('../models/subkriteria');
 
+// perhitungan fuzzy
 exports.calculateFAHP = async (req, res) => {
     const id = req.params.id;
     const bobotKriteria = await bobotKriteriaModel.findById(id);
-
     // perhitungan kriteria
     const bobot = bobotKriteria.kriteria.map((item) => item.bobot);
     const matrixAHP = generateMatrixAHP(bobot);
@@ -68,22 +70,28 @@ exports.calculateFAHP = async (req, res) => {
         bobot: sumVector
     })
 
-    const datanormalisasiVector = bobotKriteria.kriteria.map(((item, index) => {
+    const datanormalisasiVector = bobotKriteria.kriteria.map( async (item, index) => {
         const bobot = normalisasiVector.find((item, indexMatrix) => indexMatrix === index);
+        const k = await kriteria.findOneAndUpdate(
+            {namaKriteria: item.namaKriteria},
+            {
+                $set: {
+                    bobot,
+                }
+            },
+        );
         return {
             name: item.namaKriteria,
             bobot,
         }
-    }));
+    });
     datanormalisasiVector.push({
         name: 'total',
         bobot: sumNormalisasiVector,
     });
 
-
     // perhitungan sub kriteria
     const sub_kriteria = bobotKriteria.sub_kriteria.map((sub_kriteria) => {
-    
         const nama_subkriteria = sub_kriteria.nama;
         const bobot = sub_kriteria.data.map((data) => data.bobot);
 
@@ -140,13 +148,27 @@ exports.calculateFAHP = async (req, res) => {
             bobot: sumVector
         })
 
-        const datanormalisasiVector = sub_kriteria.data.map(((item, index) => {
+        const datanormalisasiVector = sub_kriteria.data.map(async (item, index) => {
             const bobot = normalisasiVector.find((item, indexMatrix) => indexMatrix === index);
+            const k = await kriteria.findOne({
+                namaKriteria: sub_kriteria.nama,
+            });
+            
+            await subkriteria.findOneAndUpdate({
+                idKriteria: k.id,
+                namaSubKriteria: item.namaKriteria,
+            }, {
+                bobot: bobot,
+            });
+            
+            // await subkriteria.findOneAndUpdate({
+            //     namaKriteria: namaSubKriteria
+            // })
             return {
                 name: item.namaKriteria,
                 bobot,
             }
-        }));
+        });
         datanormalisasiVector.push({
             name: 'total',
             bobot: sumNormalisasiVector,

@@ -105,6 +105,7 @@ exports.perhitunganBobot = async (req, res) => {
         item.namaKriteria.toLowerCase() === reqSubkriteriaIso.nama.toLowerCase()
     );
 
+    
     // sensor
     const hasilPerhitunganSensor = perhitunganKriteria(
       reqSubkriteriaSensor.bobot,
