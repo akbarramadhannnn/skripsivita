@@ -154,3 +154,12 @@ export const getDataSubKriteriaByIdKriteria = async (id) => {
         return e
     }
 }
+
+export const RekomendasiAlternatif = async (payload) => {
+    try {
+        const result = await axios.post(`http://localhost:8080/rekomendasi`, payload)
+        return result.data
+    } catch(e) {
+        return e
+    }
+}

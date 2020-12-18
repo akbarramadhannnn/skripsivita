@@ -102,7 +102,7 @@ exports.rekomendasi = async (req, res) => {
         name: 'total',
         bobot: sumNormalisasiVector,
     });
-    console.log(datanormalisasiVector);
+    // console.log(datanormalisasiVector);
 
     const calculateBobotKriteriaMapFunction = async (sub_kriteria) => {
         const nama_subkriteria = sub_kriteria.nama;
