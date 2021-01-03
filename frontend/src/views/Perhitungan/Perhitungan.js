@@ -587,11 +587,11 @@ const Perhitungan = (props) => {
             </Row>
 
             <Col md="12">
-              <p>
+              <h4>
                 Jadi pilihan terbaik adalah kamera <b>{bobot[0].nama}</b> dengan
                 nilai <b>{bobot[0].total}</b> dari <b>{bobot.length}</b>{" "}
                 alternatif
-              </p>
+              </h4>
             </Col>
           </Card>
         </Fragment>

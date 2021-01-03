@@ -13,6 +13,8 @@ const Bobot = ({
   const changePenilaianPertama = (e) => {
     const value = e.target.value;
     const nilai = e.target[e.target.selectedIndex].id;
+    console.log(value)
+    console.log(nilai)
     const stateKriteria = { ...valueKriteria };
     stateKriteria.valuePenilaianPertama = value;
     setValueKriteria(stateKriteria);

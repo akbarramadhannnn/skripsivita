@@ -86,7 +86,7 @@ const Bobot = (props) => {
   ]);
 
   const [valueKriteria, setValueKriteria] = useState({
-    valuePenilaianPertama: "",
+    valuePenilaianPertama: "1. Sama penting dengan",
     valuePenilaianKeDua: "",
     valuePenilaianKeTiga: "",
     valuePenilaianKeEmpat: "",
@@ -104,7 +104,7 @@ const Bobot = (props) => {
   });
 
   const [valueSubKriteriaSensor, setValueSubKriteriaSensor] = useState({
-    valuePenilaianPertama: "",
+    valuePenilaianPertama: "1. Sama penting dengan",
     valuePenilaianKeDua: "",
     valuePenilaianKeTiga: "",
     valuePenilaianKeEmpat: "",
@@ -113,7 +113,7 @@ const Bobot = (props) => {
   });
 
   const [valueSubKriteriaHarga, setValueSubKriteriaHarga] = useState({
-    valuePenilaianPertama: "",
+    valuePenilaianPertama: "1. Sama penting dengan",
     valuePenilaianKeDua: "",
     valuePenilaianKeTiga: "",
     valuePenilaianKeEmpat: "",
@@ -122,7 +122,7 @@ const Bobot = (props) => {
   });
 
   const [valueSubKriteriaFitur, setValueSubKriteriaFitur] = useState({
-    valuePenilaianPertama: "",
+    valuePenilaianPertama: "1. Sama penting dengan",
     valuePenilaianKeDua: "",
     valuePenilaianKeTiga: "",
     valuePenilaianKeEmpat: "",
@@ -131,7 +131,7 @@ const Bobot = (props) => {
   });
 
   const [valueSubKriteriaIso, setValueSubKriteriaIso] = useState({
-    valuePenilaianPertama: "",
+    valuePenilaianPertama: "1. Sama penting dengan",
     valuePenilaianKeDua: "",
     valuePenilaianKeTiga: "",
     valuePenilaianKeEmpat: "",
@@ -140,7 +140,7 @@ const Bobot = (props) => {
   });
 
   const [valueSubKriteriaResolusi, setValueSubKriteriaResolusi] = useState({
-    valuePenilaianPertama: "",
+    valuePenilaianPertama: "1. Sama penting dengan",
     valuePenilaianKeDua: "",
     valuePenilaianKeTiga: "",
     valuePenilaianKeEmpat: "",
@@ -151,7 +151,7 @@ const Bobot = (props) => {
   const [valueBobotKriteria, setValueBobotKriteria] = useState([
     {
       KriteriaPertama: kriteria.sensor,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: kriteria.sensor,
     },
     {
@@ -232,7 +232,7 @@ const Bobot = (props) => {
   ] = useState([
     {
       KriteriaPertama: subKriteria.sensor.apsc,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.sensor.apsc,
     },
     {
@@ -268,7 +268,7 @@ const Bobot = (props) => {
   ] = useState([
     {
       KriteriaPertama: subKriteria.resolusi.tinggi,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.resolusi.tinggi,
     },
     {
@@ -301,7 +301,7 @@ const Bobot = (props) => {
   const [valueBobotSubKriteriaHarga, setValueBobotSubKriteriaHarga] = useState([
     {
       KriteriaPertama: subKriteria.harga.mahal,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.harga.mahal,
     },
     {
@@ -334,7 +334,7 @@ const Bobot = (props) => {
   const [valueBobotSubKriteriaFitur, setValueBobotSubKriteriaFitur] = useState([
     {
       KriteriaPertama: subKriteria.fitur.sangatlengkap,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.fitur.sangatlengkap,
     },
     {
@@ -367,7 +367,7 @@ const Bobot = (props) => {
   const [valueBobotSubKriteriaIso, setValueBobotSubKriteriaIso] = useState([
     {
       KriteriaPertama: subKriteria.iso.tinggi,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.iso.tinggi,
     },
     {
