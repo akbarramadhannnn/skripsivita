@@ -3,7 +3,7 @@ import { Table, FormGroup, Input, Label, Col, Row } from "reactstrap";
 import { getDataAlternatif, RekomendasiAlternatif } from "../../api";
 import { Accordion, Card, Button } from "react-bootstrap";
 
-const Perhitungan = () => {
+const Perhitungan = (props) => {
   const [alternatif, setAlternatif] = useState([]);
   const [idAlternatif, setIdAlternatif] = useState([]);
   const [disabledButton, setDisabledButton] = useState(true);
@@ -535,6 +535,9 @@ const Perhitungan = () => {
               );
             })}
           </Accordion>
+          {/* {props.location.pathname === "/perhitungan" && (
+            
+          )} */}
 
           <Card>
             <Row>

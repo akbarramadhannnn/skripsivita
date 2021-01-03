@@ -33,7 +33,7 @@ const Perhitungan = React.lazy(() => import("./views/Perhitungan/Perhitungan"));
 
 // user
 const UserAlternatif = React.lazy(() => import("./views/User/Alternatif"));
-const UserPerhitungan = React.lazy(() => import("./views/User/Perhitungan"));
+// const UserPerhitungan = React.lazy(() => import("./views/User/Perhitungan"));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
@@ -106,7 +106,7 @@ const routes = [
   {
     path: "/user/perhitungan",
     name: "Perhitungan",
-    component: UserPerhitungan,
+    component: Perhitungan,
     exact: true,
   },
 ];
