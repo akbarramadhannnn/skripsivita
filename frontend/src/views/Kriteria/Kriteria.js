@@ -70,8 +70,8 @@ const Kriteria = () => {
                                 <Link to={`/subkriteria/${data._id}`}>
                                   <Button color="primary">subkriteria</Button>{" "}
                                 </Link>
-                                <Button color="warning">edit</Button>{" "}
-                                <Button color="danger">hapus</Button>{" "}
+                                {/* <Button color="warning">edit</Button>{" "}
+                                <Button color="danger">hapus</Button>{" "} */}
                               </td>
                             </tr>
                           </tbody>

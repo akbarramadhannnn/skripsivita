@@ -45,7 +45,7 @@ const SubKriteria = (props) => {
                     <th>No</th>
                     <th>Kriteria</th>
                     <th>Sub Kriteria</th>
-                    <th>Keterangan</th>
+                    {/* <th>Keterangan</th> */}
                   </tr>
                 </thead>
 
@@ -58,10 +58,10 @@ const SubKriteria = (props) => {
                             <td>{i + 1}</td>
                             <td>{data.idKriteria.namaKriteria}</td>
                             <td>{data.namaSubKriteria}</td>
-                            <td>
+                            {/* <td>
                               <Button color="warning">edit</Button>{" "}
                               <Button color="danger">hapus</Button>{" "}
-                            </td>
+                            </td> */}
                           </tr>
                         </tbody>
                       </Fragment>

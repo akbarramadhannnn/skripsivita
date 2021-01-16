@@ -21,6 +21,7 @@ const TambahSubKriteria = React.lazy(() =>
 );
 
 const Bobot = React.lazy(() => import("./views/Bobot"));
+// const Bobot = React.lazy(() => import("./views/PerhitunganBobot/Ahp"));
 const HasilPerhitunganBobot = React.lazy(() =>
   import("./views/Bobot/HasilPerhitunganBobot")
 );
