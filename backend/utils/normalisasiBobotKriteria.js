@@ -4,7 +4,6 @@ const parseNumber = require('./parseNumber');
  * @param {{kodeKriteria: string, namaKriteria: string, bobot: number[]}[]} databobotKriteria
  */
 const normalisasiBobotKriteria = (databobotKriteria) => {
-  //   console.log(databobotKriteria);
   const sumBoboKriteria = databobotKriteria.find(
     (bobot) => bobot.kodeKriteria === 'jumlah'
   );
@@ -15,13 +14,15 @@ const normalisasiBobotKriteria = (databobotKriteria) => {
   for (const i in bobotKriteria) {
     bobotKriteria[i].normalisasi = [];
     for (const j in bobotKriteria[i].bobot) {
-      const sumNormalisasi =
-        bobotKriteria[i].bobot[j] / sumBoboKriteria.bobot[j];
-        bobotKriteria[i].normalisasi.push(parseNumber(sumNormalisasi, 2));
+      const sumNormalisasi = bobotKriteria[i].bobot[j] / sumBoboKriteria.bobot[j];
+      bobotKriteria[i].normalisasi.push(parseNumber(sumNormalisasi, 2));
     }
     bobotPrioritas.push(
-      bobotKriteria[i].normalisasi.reduce((a, b) => a + b) /
-      bobotKriteria[i].normalisasi.length
+      parseNumber(
+        bobotKriteria[i].normalisasi.reduce((a, b) => a + b) /
+        bobotKriteria[i].normalisasi.length,
+        2
+      )
     );
   }
 

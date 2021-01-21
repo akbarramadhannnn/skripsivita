@@ -39,16 +39,15 @@ const fuzzyTriangleScala = {
 }
 const generateMatrixFAHP = (matrixAHP) => {
     const matrixFAHP = matrixAHP.map((item) => item.slice());
-    
     for (let i = 0; i < matrixAHP.length; i+=1) {
         for (let j = i; j < matrixAHP[i].length; j+=1) {
             const tringular = Object
                 .keys(fuzzyTriangleScala)
-                .find((index) => parseInt(index) === matrixAHP[i][j]);
+                .find((index) => parseInt(index) === parseInt(matrixAHP[i][j], 10));
             
             const reciprocal = Object
                 .keys(fuzzyTriangleScala)
-                .find((index) => parseInt(index) === matrixAHP[j][i]);
+                .find((index) => parseInt(index) === parseInt(matrixAHP[j][i], 10));
 
             matrixFAHP[i][j] = fuzzyTriangleScala[tringular].tringular.map(item => parseNumber(item, 2));
             matrixFAHP[j][i] = fuzzyTriangleScala[reciprocal].reciprocal.map(item => parseNumber(item, 2));

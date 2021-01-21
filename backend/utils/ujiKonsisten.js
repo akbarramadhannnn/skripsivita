@@ -20,7 +20,6 @@ const ujiKonsistensi = (normalisasi, bobotPrioritas) => {
     }
     lamdaMaks.push(parseNumber(sumColumn, 2));
   }
-
   for (const j in lamdaMaks) {
     normalisasi[j].lamdaNormalisasi = lamdaMaks[j];
   }
@@ -31,9 +30,7 @@ const ujiKonsistensi = (normalisasi, bobotPrioritas) => {
   }
   sumLamdaMaks *= 1 / 5;
 
-  const ci = parseNumber((sumLamdaMaks - bobotPrioritas.length) / (bobotPrioritas.length - 1), 2);
-
-  // console.log(ci);
+  const ci = (sumLamdaMaks - bobotPrioritas.length) / (bobotPrioritas.length - 1);
 
   const cr = parseNumber(ci / 1.12, 2);
 

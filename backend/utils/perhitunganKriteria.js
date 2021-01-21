@@ -40,7 +40,6 @@ const perhitunganKriteria = (bobot_kriteria, kriteria) => {
       delete kriteria_bobot[i].namaSubKriteria
     }
   }
-
   return kriteria_bobot;
 };
 

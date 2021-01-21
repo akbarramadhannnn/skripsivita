@@ -19,6 +19,8 @@ exports.calculateFAHP = async (req, res) => {
     const bobot = bobotKriteria.kriteria.map((item) => item.bobot);
     const matrixAHP = generateMatrixAHP(bobot);
     const matrixFAHP = generateMatrixFAHP(matrixAHP);
+    console.log(matrixFAHP);
+    console.log('end')
     const outputSumFAHPRow = sumFAHPRow(matrixFAHP);
     const outputSumColOfFAHPRow = sumColOfFAHPRow(outputSumFAHPRow);
     const outputSyntetic = generateSyntetic(outputSumFAHPRow, outputSumColOfFAHPRow);
@@ -98,13 +100,15 @@ exports.calculateFAHP = async (req, res) => {
         name: 'total',
         bobot: sumNormalisasiVector,
     });
-    console.log(datanormalisasiVector);
+    // console.log(datanormalisasiVector);
 
     const calculateBobotKriteriaMapFunction = async (sub_kriteria) => {
         const nama_subkriteria = sub_kriteria.nama;
         const bobot = sub_kriteria.data.map((data) => data.bobot);
-
+        console.log(bobot);
         const matrixAHP = generateMatrixAHP(bobot);
+        console.log(matrixAHP);
+        console.log('end');
         const matrixFAHP = generateMatrixFAHP(matrixAHP);
         const outputSumFAHPRow = sumFAHPRow(matrixFAHP);
         const outputSumColOfFAHPRow = sumColOfFAHPRow(outputSumFAHPRow);
