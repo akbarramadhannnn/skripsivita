@@ -111,11 +111,12 @@ const SubKriteriaIso = ({
                 <Label style={{ fontSize: "20px" }}>Penilaian</Label>
                 <div style={{ marginBottom: "10px" }}>
                   <Input
-                    type="select"
+                    type="text"
                     value={valueSubKriteria.valuePenilaianPertama}
                     onChange={changePenilaianPertama}
-                  >
-                    <option value="">Pilih Skala Saaty</option>
+                    disabled={true}
+                  />
+                    {/* <option value="">Pilih Skala Saaty</option>
                     {skalaSaaty &&
                       skalaSaaty.map((data, i) => {
                         return (
@@ -128,8 +129,8 @@ const SubKriteriaIso = ({
                             </option>
                           </Fragment>
                         );
-                      })}
-                  </Input>
+                      })} */}
+                  {/* </Input> */}
                 </div>
                 <div style={{ marginBottom: "10px" }}>
                   <Input
@@ -177,11 +178,12 @@ const SubKriteriaIso = ({
                 </div>
                 <div style={{ marginBottom: "10px" }}>
                   <Input
-                    type="select"
+                    type="text"
                     value={valueSubKriteria.valuePenilaianKeEmpat}
                     onChange={changePenilaianKeempat}
-                  >
-                    <option value="">Pilih Skala Saaty</option>
+                    disabled={true}
+                  />
+                    {/* <option value="">Pilih Skala Saaty</option>
                     {skalaSaaty &&
                       skalaSaaty.map((data, i) => {
                         return (
@@ -194,8 +196,8 @@ const SubKriteriaIso = ({
                             </option>
                           </Fragment>
                         );
-                      })}
-                  </Input>
+                      })} */}
+                  {/* </Input> */}
                 </div>
                 <div style={{ marginBottom: "10px" }}>
                   <Input
@@ -221,11 +223,12 @@ const SubKriteriaIso = ({
                 </div>
                 <div style={{ marginBottom: "10px" }}>
                   <Input
-                    type="select"
+                    type="text"
                     value={valueSubKriteria.valuePenilaianKeEnam}
                     onChange={changePenilaianKeenam}
-                  >
-                    <option value="">Pilih Skala Saaty</option>
+                    disabled={true}
+                  />
+                    {/* <option value="">Pilih Skala Saaty</option>
                     {skalaSaaty &&
                       skalaSaaty.map((data, i) => {
                         return (
@@ -238,8 +241,8 @@ const SubKriteriaIso = ({
                             </option>
                           </Fragment>
                         );
-                      })}
-                  </Input>
+                      })} */}
+                  {/* </Input> */}
                 </div>
               </FormGroup>
             </Col>

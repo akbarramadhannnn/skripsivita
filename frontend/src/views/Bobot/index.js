@@ -91,61 +91,61 @@ const Bobot = (props) => {
     valuePenilaianKeTiga: "",
     valuePenilaianKeEmpat: "",
     valuePenilaianKeLima: "",
-    valuePenilaianKeEnam: "",
+    valuePenilaianKeEnam: "1. Sama penting dengan",
     valuePenilaianKeTujuh: "",
     valuePenilaianKeDelapan: "",
     valuePenilaianKeSembilan: "",
-    valuePenilaianKeSepuluh: "",
+    valuePenilaianKeSepuluh: "1. Sama penting dengan",
     valuePenilaianKeSebelas: "",
     valuePenilaianKeDuabelas: "",
-    valuePenilaianKeTigabelas: "",
+    valuePenilaianKeTigabelas: "1. Sama penting dengan",
     valuePenilaianKeEmpatbelas: "",
-    valuePenilaianKeLimabelas: "",
+    valuePenilaianKeLimabelas: "1. Sama penting dengan",
   });
 
   const [valueSubKriteriaSensor, setValueSubKriteriaSensor] = useState({
     valuePenilaianPertama: "1. Sama penting dengan",
     valuePenilaianKeDua: "",
     valuePenilaianKeTiga: "",
-    valuePenilaianKeEmpat: "",
+    valuePenilaianKeEmpat: "1. Sama penting dengan",
     valuePenilaianKeLima: "",
-    valuePenilaianKeEnam: "",
+    valuePenilaianKeEnam: "1. Sama penting dengan",
   });
 
   const [valueSubKriteriaHarga, setValueSubKriteriaHarga] = useState({
     valuePenilaianPertama: "1. Sama penting dengan",
     valuePenilaianKeDua: "",
     valuePenilaianKeTiga: "",
-    valuePenilaianKeEmpat: "",
+    valuePenilaianKeEmpat: "1. Sama penting dengan",
     valuePenilaianKeLima: "",
-    valuePenilaianKeEnam: "",
+    valuePenilaianKeEnam: "1. Sama penting dengan",
   });
 
   const [valueSubKriteriaFitur, setValueSubKriteriaFitur] = useState({
     valuePenilaianPertama: "1. Sama penting dengan",
     valuePenilaianKeDua: "",
     valuePenilaianKeTiga: "",
-    valuePenilaianKeEmpat: "",
+    valuePenilaianKeEmpat: "1. Sama penting dengan",
     valuePenilaianKeLima: "",
-    valuePenilaianKeEnam: "",
+    valuePenilaianKeEnam: "1. Sama penting dengan",
   });
 
   const [valueSubKriteriaIso, setValueSubKriteriaIso] = useState({
     valuePenilaianPertama: "1. Sama penting dengan",
     valuePenilaianKeDua: "",
     valuePenilaianKeTiga: "",
-    valuePenilaianKeEmpat: "",
+    valuePenilaianKeEmpat: "1. Sama penting dengan",
     valuePenilaianKeLima: "",
-    valuePenilaianKeEnam: "",
+    valuePenilaianKeEnam: "1. Sama penting dengan",
   });
 
   const [valueSubKriteriaResolusi, setValueSubKriteriaResolusi] = useState({
     valuePenilaianPertama: "1. Sama penting dengan",
     valuePenilaianKeDua: "",
     valuePenilaianKeTiga: "",
-    valuePenilaianKeEmpat: "",
+    valuePenilaianKeEmpat: "1. Sama penting dengan",
     valuePenilaianKeLima: "",
-    valuePenilaianKeEnam: "",
+    valuePenilaianKeEnam: "1. Sama penting dengan",
   });
 
   const [valueBobotKriteria, setValueBobotKriteria] = useState([
@@ -176,7 +176,7 @@ const Bobot = (props) => {
     },
     {
       KriteriaPertama: kriteria.resolusi,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: kriteria.resolusi,
     },
     {
@@ -196,7 +196,7 @@ const Bobot = (props) => {
     },
     {
       KriteriaPertama: kriteria.harga,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: kriteria.harga,
     },
     {
@@ -211,7 +211,7 @@ const Bobot = (props) => {
     },
     {
       KriteriaPertama: kriteria.fitur,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: kriteria.fitur,
     },
     {
@@ -221,7 +221,7 @@ const Bobot = (props) => {
     },
     {
       KriteriaPertama: kriteria.iso,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: kriteria.iso,
     },
   ]);
@@ -247,7 +247,7 @@ const Bobot = (props) => {
     },
     {
       KriteriaPertama: subKriteria.sensor.apsh,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.sensor.apsh,
     },
     {
@@ -257,7 +257,7 @@ const Bobot = (props) => {
     },
     {
       KriteriaPertama: subKriteria.sensor.fullframe,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.sensor.fullframe,
     },
   ]);
@@ -283,7 +283,7 @@ const Bobot = (props) => {
     },
     {
       KriteriaPertama: subKriteria.resolusi.sedang,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.resolusi.sedang,
     },
     {
@@ -293,7 +293,7 @@ const Bobot = (props) => {
     },
     {
       KriteriaPertama: subKriteria.resolusi.rendah,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.resolusi.rendah,
     },
   ]);
@@ -316,7 +316,7 @@ const Bobot = (props) => {
     },
     {
       KriteriaPertama: subKriteria.harga.sedang,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.harga.sedang,
     },
     {
@@ -326,7 +326,7 @@ const Bobot = (props) => {
     },
     {
       KriteriaPertama: subKriteria.harga.murah,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.harga.murah,
     },
   ]);
@@ -349,7 +349,7 @@ const Bobot = (props) => {
     },
     {
       KriteriaPertama: subKriteria.fitur.lengkap,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.fitur.lengkap,
     },
     {
@@ -359,7 +359,7 @@ const Bobot = (props) => {
     },
     {
       KriteriaPertama: subKriteria.fitur.tidaklengkap,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.fitur.tidaklengkap,
     },
   ]);
@@ -382,7 +382,7 @@ const Bobot = (props) => {
     },
     {
       KriteriaPertama: subKriteria.iso.sedang,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.iso.sedang,
     },
     {
@@ -392,7 +392,7 @@ const Bobot = (props) => {
     },
     {
       KriteriaPertama: subKriteria.iso.rendah,
-      penilaian: "",
+      penilaian: "1",
       KriteriaKeDua: subKriteria.iso.rendah,
     },
   ]);
@@ -427,7 +427,25 @@ const Bobot = (props) => {
       valueSubKriteriaResolusi.valuePenilaianKeTiga === "" ||
       valueSubKriteriaResolusi.valuePenilaianKeEmpat === "" ||
       valueSubKriteriaResolusi.valuePenilaianKeLima === "" ||
-      valueSubKriteriaResolusi.valuePenilaianKeEnam === ""
+      valueSubKriteriaResolusi.valuePenilaianKeEnam === "" ||
+      valueSubKriteriaHarga.valuePenilaianPertama === "" ||
+      valueSubKriteriaHarga.valuePenilaianKeDua === "" ||
+      valueSubKriteriaHarga.valuePenilaianKeTiga === "" ||
+      valueSubKriteriaHarga.valuePenilaianKeEmpat === "" ||
+      valueSubKriteriaHarga.valuePenilaianKeLima === "" ||
+      valueSubKriteriaHarga.valuePenilaianKeEnam === "" ||
+      valueSubKriteriaFitur.valuePenilaianPertama === "" ||
+      valueSubKriteriaFitur.valuePenilaianKeDua === "" ||
+      valueSubKriteriaFitur.valuePenilaianKeTiga === "" ||
+      valueSubKriteriaFitur.valuePenilaianKeEmpat === "" ||
+      valueSubKriteriaFitur.valuePenilaianKeLima === "" ||
+      valueSubKriteriaFitur.valuePenilaianKeEnam === "" ||
+      valueSubKriteriaIso.valuePenilaianPertama === "" ||
+      valueSubKriteriaIso.valuePenilaianKeDua === "" ||
+      valueSubKriteriaIso.valuePenilaianKeTiga === "" ||
+      valueSubKriteriaIso.valuePenilaianKeEmpat === "" ||
+      valueSubKriteriaIso.valuePenilaianKeLima === "" ||
+      valueSubKriteriaIso.valuePenilaianKeEnam === ""
     ) {
       setDisabledButton(true);
     } else {
@@ -461,6 +479,24 @@ const Bobot = (props) => {
     valueSubKriteriaResolusi.valuePenilaianKeEmpat,
     valueSubKriteriaResolusi.valuePenilaianKeLima,
     valueSubKriteriaResolusi.valuePenilaianKeEnam,
+    valueSubKriteriaHarga.valuePenilaianPertama,
+    valueSubKriteriaHarga.valuePenilaianKeDua,
+    valueSubKriteriaHarga.valuePenilaianKeTiga,
+    valueSubKriteriaHarga.valuePenilaianKeEmpat,
+    valueSubKriteriaHarga.valuePenilaianKeLima,
+    valueSubKriteriaHarga.valuePenilaianKeEnam,
+    valueSubKriteriaFitur.valuePenilaianPertama,
+    valueSubKriteriaFitur.valuePenilaianKeDua,
+    valueSubKriteriaFitur.valuePenilaianKeTiga,
+    valueSubKriteriaFitur.valuePenilaianKeEmpat,
+    valueSubKriteriaFitur.valuePenilaianKeLima,
+    valueSubKriteriaFitur.valuePenilaianKeEnam,
+    valueSubKriteriaIso.valuePenilaianPertama,
+    valueSubKriteriaIso.valuePenilaianKeDua,
+    valueSubKriteriaIso.valuePenilaianKeTiga,
+    valueSubKriteriaIso.valuePenilaianKeEmpat,
+    valueSubKriteriaIso.valuePenilaianKeLima,
+    valueSubKriteriaIso.valuePenilaianKeEnam,
   ]);
 
   const klikHitung = () => {
@@ -490,7 +526,7 @@ const Bobot = (props) => {
     axios
       .post("http://localhost:8080/kriteria/perhitunganbobot", data)
       .then((response) => {
-        console.log(response.data)
+        console.log(response.data);
         props.history.push("/hasil-perhitungan-bobot", {
           bobot: response.data,
         });

@@ -240,11 +240,12 @@ const Bobot = ({
                 <Label style={{ fontSize: "20px" }}>Penilaian</Label>
                 <div style={{ marginBottom: "10px" }}>
                   <Input
-                    type="select"
+                    type="text"
                     value={valueKriteria.valuePenilaianPertama}
                     onChange={changePenilaianPertama}
-                  >
-                    <option value="">Pilih Skala Saaty</option>
+                    disabled={true}
+                  />
+                    {/* <option value="">Pilih Skala Saaty</option>
                     {skalaSaaty &&
                       skalaSaaty.map((data, i) => {
                         return (
@@ -257,8 +258,8 @@ const Bobot = ({
                             </option>
                           </Fragment>
                         );
-                      })}
-                  </Input>
+                      })} */}
+                  {/* </Input> */}
                 </div>
                 <div style={{ marginBottom: "10px" }}>
                   <Input
@@ -350,11 +351,12 @@ const Bobot = ({
                 </div>
                 <div style={{ marginBottom: "10px" }}>
                   <Input
-                    type="select"
+                    type="text"
                     value={valueKriteria.valuePenilaianKeEnam}
                     onChange={changePenilaianKeenam}
-                  >
-                    <option value="">Pilih Skala Saaty</option>
+                    disabled={true}
+                  />
+                    {/* <option value="">Pilih Skala Saaty</option>
                     {skalaSaaty &&
                       skalaSaaty.map((data, i) => {
                         return (
@@ -367,8 +369,8 @@ const Bobot = ({
                             </option>
                           </Fragment>
                         );
-                      })}
-                  </Input>
+                      })} */}
+                  {/* </Input> */}
                 </div>
                 <div style={{ marginBottom: "10px" }}>
                   <Input
@@ -438,11 +440,12 @@ const Bobot = ({
                 </div>
                 <div style={{ marginBottom: "10px" }}>
                   <Input
-                    type="select"
+                    type="text"
                     value={valueKriteria.valuePenilaianKeSepuluh}
                     onChange={changePenilaianKesepuluh}
-                  >
-                    <option value="">Pilih Skala Saaty</option>
+                    disabled={true}
+                  />
+                    {/* <option value="">Pilih Skala Saaty</option>
                     {skalaSaaty &&
                       skalaSaaty.map((data, i) => {
                         return (
@@ -455,8 +458,8 @@ const Bobot = ({
                             </option>
                           </Fragment>
                         );
-                      })}
-                  </Input>
+                      })} */}
+                  {/* </Input> */}
                 </div>
                 <div style={{ marginBottom: "10px" }}>
                   <Input
@@ -504,11 +507,12 @@ const Bobot = ({
                 </div>
                 <div style={{ marginBottom: "10px" }}>
                   <Input
-                    type="select"
+                    type="text"
                     value={valueKriteria.valuePenilaianKeTigabelas}
                     onChange={changePenilaianKetigabelas}
-                  >
-                    <option value="">Pilih Skala Saaty</option>
+                    disabled={true}
+                  />
+                    {/* <option value="">Pilih Skala Saaty</option>
                     {skalaSaaty &&
                       skalaSaaty.map((data, i) => {
                         return (
@@ -521,8 +525,8 @@ const Bobot = ({
                             </option>
                           </Fragment>
                         );
-                      })}
-                  </Input>
+                      })} */}
+                  {/* </Input> */}
                 </div>
                 <div style={{ marginBottom: "10px" }}>
                   <Input
@@ -548,11 +552,12 @@ const Bobot = ({
                 </div>
                 <div style={{ marginBottom: "10px" }}>
                   <Input
-                    type="select"
+                    type="text"
                     value={valueKriteria.valuePenilaianKeLimabelas}
                     onChange={changePenilaianKelimabelas}
-                  >
-                    <option value="">Pilih Skala Saaty</option>
+                    disabled={true}
+                  />
+                    {/* <option value="">Pilih Skala Saaty</option>
                     {skalaSaaty &&
                       skalaSaaty.map((data, i) => {
                         return (
@@ -565,8 +570,8 @@ const Bobot = ({
                             </option>
                           </Fragment>
                         );
-                      })}
-                  </Input>
+                      })} */}
+                  {/* </Input> */}
                 </div>
               </FormGroup>
             </Col>
