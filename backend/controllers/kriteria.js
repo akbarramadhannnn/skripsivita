@@ -1,6 +1,5 @@
 const Kriteria = require('../models/kriteria');
 const bobotKriteriaModel = require('../models/bobot_kriteria');
-const generateMatrixAHP = require('../utils/generateMatrixAHP');
 // const Subkriteria = require('../models/subkriteria');
 const Bobot = require('../models/bobot');
 const perhitunganKriteria = require('../utils/perhitunganKriteria');
@@ -58,7 +57,7 @@ exports.perhitunganBobot = async (req, res) => {
   try {
     // perhitungan kriteria
     const kriteria = await Kriteria.find().select('-__v');
-    let hasilPerhitungan = perhitunganKriteria(reqKriteria, kriteria);
+    const hasilPerhitungan = perhitunganKriteria(reqKriteria, kriteria);
     const { bobotKriteria, bobotPrioritas } = normalisasiBobotKriteria(
       hasilPerhitungan
     );
@@ -68,22 +67,6 @@ exports.perhitunganBobot = async (req, res) => {
       consistencyRatio,
       isConsistent,
     } = ujiKonsistensi(bobotKriteria, bobotPrioritas);
-
-    let bobotTmp = hasilPerhitungan.filter((data) => {
-      if (data.namaKriteria !== "Jumlah") {
-        return data;
-      }
-    });
-    bobotTmp = bobotTmp.map(data => data.bobot);
-    bobotTmp = generateMatrixAHP(bobotTmp);
-    hasilPerhitungan = hasilPerhitungan.map((data, index) => {
-      const bobot = bobotTmp.find((item, indexMatrix) => indexMatrix === index) || data.bobot;
-      console.log(bobot);
-      return {
-        ...data,
-        bobot,
-      }
-    })
 
     // Perhitungan subkriteria
     const subKriteria = await Kriteria.aggregate([

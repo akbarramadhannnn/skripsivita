@@ -15,12 +15,15 @@ const subkriteria = require('../models/subkriteria');
 exports.calculateFAHP = async (req, res) => {
     const id = req.params.id;
     const bobotKriteria = await bobotKriteriaModel.findById(id);
+    console.log(bobotKriteria.kriteria);
     // perhitungan kriteria
-    const bobot = bobotKriteria.kriteria.map((item) => item.bobot);
+    const bobot = JSON.parse(JSON.stringify(bobotKriteria.kriteria.map((item) => item.bobot)));
+    console.log(bobot);
     const matrixAHP = generateMatrixAHP(bobot);
+    console.log(bobot);
+    console.log(matrixAHP)
+    console.log(bobotKriteria.kriteria);
     const matrixFAHP = generateMatrixFAHP(matrixAHP);
-    console.log(matrixFAHP);
-    console.log('end')
     const outputSumFAHPRow = sumFAHPRow(matrixFAHP);
     const outputSumColOfFAHPRow = sumColOfFAHPRow(outputSumFAHPRow);
     const outputSyntetic = generateSyntetic(outputSumFAHPRow, outputSumColOfFAHPRow);
@@ -28,12 +31,11 @@ exports.calculateFAHP = async (req, res) => {
     matrixFAHP.map((item, index) => {
         return item.push(outputSumFAHPRow[index]);
     });
-
+    
     const dataAHP = bobotKriteria.kriteria.map(((item, index) => {
-        const bobot = matrixAHP.find((item, indexMatrix) => indexMatrix === index);
         return {
             name: item.namaKriteria,
-            bobot,
+            bobot: item.bobot,
         }
     }));
 
@@ -104,7 +106,7 @@ exports.calculateFAHP = async (req, res) => {
 
     const calculateBobotKriteriaMapFunction = async (sub_kriteria) => {
         const nama_subkriteria = sub_kriteria.nama;
-        const bobot = sub_kriteria.data.map((data) => data.bobot);
+        const bobot = JSON.parse(JSON.stringify(sub_kriteria.data.map((data) => data.bobot)));
         console.log(bobot);
         const matrixAHP = generateMatrixAHP(bobot);
         console.log(matrixAHP);
@@ -119,10 +121,9 @@ exports.calculateFAHP = async (req, res) => {
         });
 
         const dataAHP = sub_kriteria.data.map(((item, index) => {
-            const bobot = matrixAHP.find((item, indexMatrix) => indexMatrix === index);
             return {
                 name: item.namaKriteria,
-                bobot,
+                bobot: item.bobot,
             }
         }));
 
