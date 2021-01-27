@@ -83,7 +83,7 @@ const SubKriteriaSensor = ({
           <Row>
             <Col md="4">
               <FormGroup>
-                <Label style={{ fontSize: "20px" }}>Sub Kriteria Pertama</Label>
+                <Label style={{ fontSize: "20px" }}>Sub Kriteria</Label>
                 <div style={{ marginBottom: "10px" }}>
                   <Input type="text" value={subKriteria.apsc} disabled />
                 </div>
@@ -248,7 +248,7 @@ const SubKriteriaSensor = ({
 
             <Col md="4">
               <FormGroup>
-                <Label style={{ fontSize: "20px" }}>Sub Kriteria Kedua </Label>
+                <Label style={{ fontSize: "20px" }}>Sub Kriteria </Label>
                 <div style={{ marginBottom: "10px" }}>
                   <Input type="text" value={subKriteria.apsc} disabled />
                 </div>

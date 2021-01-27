@@ -184,7 +184,7 @@ const Bobot = ({
           <Row>
             <Col md="4">
               <FormGroup>
-                <Label style={{ fontSize: "20px" }}>Kriteria Pertama</Label>
+                <Label style={{ fontSize: "20px" }}>Kriteria</Label>
                 <div style={{ marginBottom: "10px" }}>
                   <Input type="text" value={kriteria.sensor} disabled />
                 </div>
@@ -577,7 +577,7 @@ const Bobot = ({
             </Col>
             <Col md="4">
               <FormGroup>
-                <Label style={{ fontSize: "20px" }}>Kriteria Kedua</Label>
+                <Label style={{ fontSize: "20px" }}>Kriteria</Label>
                 <div style={{ marginBottom: "10px" }}>
                   <Input type="text" value={kriteria.sensor} disabled />
                 </div>

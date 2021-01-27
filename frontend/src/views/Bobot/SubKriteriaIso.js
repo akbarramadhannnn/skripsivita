@@ -83,7 +83,7 @@ const SubKriteriaIso = ({
           <Row>
             <Col md="4">
               <FormGroup>
-                <Label style={{ fontSize: "20px" }}>Sub Kriteria Pertama</Label>
+                <Label style={{ fontSize: "20px" }}>Sub Kriteria</Label>
                 <div style={{ marginBottom: "10px" }}>
                   <Input type="text" value={subKriteria.tinggi} disabled />
                 </div>
@@ -249,7 +249,7 @@ const SubKriteriaIso = ({
 
             <Col md="4">
               <FormGroup>
-                <Label style={{ fontSize: "20px" }}>Sub Kriteria Kedua </Label>
+                <Label style={{ fontSize: "20px" }}>Sub Kriteria </Label>
                 <div style={{ marginBottom: "10px" }}>
                   <Input type="text" value={subKriteria.tinggi} disabled />
                 </div>
