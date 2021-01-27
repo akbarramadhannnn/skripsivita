@@ -20,7 +20,7 @@ exports.rekomendasi = async (req, res) => {
 
     const bobotKriteria = await bobotKriteriaModel.findOne();
     // perhitungan kriteria
-    const bobot = bobotKriteria.kriteria.map((item) => item.bobot);
+    const bobot = JSON.parse(JSON.stringify(bobotKriteria.kriteria.map((item) => item.bobot)));
     const matrixAHP = generateMatrixAHP(bobot);
     const matrixFAHP = generateMatrixFAHP(matrixAHP);
     const outputSumFAHPRow = sumFAHPRow(matrixFAHP);
@@ -32,10 +32,9 @@ exports.rekomendasi = async (req, res) => {
     });
 
     const dataAHP = bobotKriteria.kriteria.map(((item, index) => {
-        const bobot = matrixAHP.find((item, indexMatrix) => indexMatrix === index);
         return {
             name: item.namaKriteria,
-            bobot,
+            bobot: item.bobot,
         }
     }));
 
@@ -106,7 +105,7 @@ exports.rekomendasi = async (req, res) => {
 
     const calculateBobotKriteriaMapFunction = async (sub_kriteria) => {
         const nama_subkriteria = sub_kriteria.nama;
-        const bobot = sub_kriteria.data.map((data) => data.bobot);
+        const bobot = JSON.parse(JSON.stringify(sub_kriteria.data.map((data) => data.bobot)));
 
         const matrixAHP = generateMatrixAHP(bobot);
         const matrixFAHP = generateMatrixFAHP(matrixAHP);
@@ -119,10 +118,9 @@ exports.rekomendasi = async (req, res) => {
         });
 
         const dataAHP = sub_kriteria.data.map(((item, index) => {
-            const bobot = matrixAHP.find((item, indexMatrix) => indexMatrix === index);
             return {
                 name: item.namaKriteria,
-                bobot,
+                bobot: item.bobot,
             }
         }));
 
