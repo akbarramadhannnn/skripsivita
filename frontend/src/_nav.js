@@ -65,6 +65,11 @@ if (getRole() && getRole() === "user") {
         icon: "icon-speedometer",
       },
       {
+        name: "Rekomendasi",
+        url: "/rekomendasi",
+        icon: "fa fa-archive",
+      },
+      {
         name: "Alternatif",
         url: "/user/alternatif",
         icon: "fa fa-archive",

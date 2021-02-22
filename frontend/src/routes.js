@@ -34,6 +34,9 @@ const Perhitungan = React.lazy(() => import("./views/Perhitungan/Perhitungan"));
 
 // user
 const UserAlternatif = React.lazy(() => import("./views/User/Alternatif"));
+
+// Rekomendasi
+const Rekomendasi = React.lazy(() => import("./views/Rekomendasi"));
 // const UserPerhitungan = React.lazy(() => import("./views/User/Perhitungan"));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
@@ -98,6 +101,12 @@ const routes = [
   
 
   // user
+  {
+    path: "/rekomendasi",
+    name: "Rekomendasi",
+    component: Rekomendasi,
+    exact: true,
+  },
   {
     path: "/user/alternatif",
     name: "Alternatif",
