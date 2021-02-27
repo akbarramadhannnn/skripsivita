@@ -74,11 +74,16 @@ if (getRole() && getRole() === "user") {
         url: "/user/alternatif",
         icon: "fa fa-archive",
       },
-      {
-        name: "Perhitungan",
-        url: "/user/perhitungan",
-        icon: "fa fa-archive",
-      },
+      // {
+      //   name: "Alternatif",
+      //   url: "/user/alternatif",
+      //   icon: "fa fa-archive",
+      // },
+      // {
+      //   name: "Perhitungan",
+      //   url: "/user/perhitungan",
+      //   icon: "fa fa-archive",
+      // },
     ],
   };
 }

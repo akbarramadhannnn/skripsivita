@@ -60,7 +60,7 @@ const FormCariKamera = ({
               <option value="">Pilih Fitur</option>
               <option value="TIDAK LENGKAP">Tidak Lengkap (1-5)</option>
               <option value="LENGKAP">Lengkap (5-10)</option>
-              <option value="SANGAT LENGKAP">Snagat Lengkap (10)</option>
+              <option value="SANGAT LENGKAP">Sangat Lengkap (10)</option>
             </Input>
           </FormGroup>
         </Col>

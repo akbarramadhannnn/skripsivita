@@ -307,45 +307,46 @@ exports.rekomendasi = async (req, res) => {
 };
 
 exports.cariRekomendasi = async (req, res) => {
-    const { harga, resolusi, sensor, fitur, iso } = req.body;
-    const resolusiConvert = convertToSubKriteriaRevert(
-        'resolusi',
-        resolusi
+  const { harga, resolusi, sensor, fitur, iso } = req.body;
+  const resolusiConvert = convertToSubKriteriaRevert('resolusi', resolusi);
+  const hargaConvert = convertToSubKriteriaRevert('harga', harga);
+  const fiturConvert = convertToSubKriteriaRevert('fitur', fitur);
+  const isoConvert = convertToSubKriteriaRevert('iso', iso);
+
+  const alternatif = await alternatifModel.find({
+    $and: [
+      {
+        resolusi: {
+          $lt: resolusiConvert.max,
+          $gt: resolusiConvert.min,
+        },
+      },
+      {
+        harga: {
+          $lt: hargaConvert.max,
+          $gt: hargaConvert.min,
+        },
+      },
+      {
+        sensor: sensor,
+      },
+      {
+        iso: {
+          $lt: isoConvert.max,
+          $gt: isoConvert.min,
+        },
+      },
+    ],
+  });
+
+  const filterAlternatif = alternatif.filter((data) => {
+    return (
+      data.fitur.length > fiturConvert.min &&
+      data.fitur.length < fiturConvert.max
     );
-    const hargaConvert = convertToSubKriteriaRevert('harga', harga);
-    const fiturConvert = convertToSubKriteriaRevert('fitur', fitur);
-    const isoConvert = convertToSubKriteriaRevert('iso', iso);
+  });
 
-    const alternatif = await alternatifModel.find({
-        $and: [
-            {
-                "resolusi": {
-                    $lt: resolusiConvert.max,
-                    $gt: resolusiConvert.min,
-                },
-            },
-            {
-                "harga": {
-                    $lt: hargaConvert.max,
-                    $gt: hargaConvert.min,
-                },
-            },
-            {
-                "sensor": sensor,
-            },
-            {
-                "iso": {
-                    $lt: isoConvert.max,
-                    $gt: isoConvert.min,
-                }
-            }
-        ],
-    });
-
-    const filterAlternatif = alternatif.filter(data => {
-        return (data.fitur.length > fiturConvert.min && data.fitur.length < fiturConvert.max)
-    })
-
-    console.log(alternatif);
-    res.send(filterAlternatif)
+  res.send({
+    data: filterAlternatif,
+  });
 };

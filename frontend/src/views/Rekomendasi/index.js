@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card, CardBody } from "reactstrap";
 import FormCariKamera from "./FormCariKamera";
+import FormRekomendasi from "./FormRekomendasi";
 import axios from "axios";
 
 const Index = () => {
@@ -13,6 +14,7 @@ const Index = () => {
   const [disabledButtonCariKamera, setDisabledButtonCariKamera] = useState(
     true
   );
+  const [dataAlternatif, setDataAlternatif] = useState([]);
 
   useEffect(() => {
     if (
@@ -65,7 +67,7 @@ const Index = () => {
     axios
       .post("http://localhost:8080/rekomendasi/cari", payload)
       .then((response) => {
-        console.log(response);
+        setDataAlternatif(response.data.data);
       });
   };
 
@@ -87,6 +89,13 @@ const Index = () => {
               onChangeIso={onChangeIso}
               klikCariKamera={klikCariKamera}
               disabledButtonCariKamera={disabledButtonCariKamera}
+            />
+          )}
+
+          {!showFormCari && (
+            <FormRekomendasi
+              setShowFormCari={setShowFormCari}
+              dataAlternatif={dataAlternatif}
             />
           )}
         </CardBody>
