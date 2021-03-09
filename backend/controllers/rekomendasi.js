@@ -307,46 +307,91 @@ exports.rekomendasi = async (req, res) => {
 };
 
 exports.cariRekomendasi = async (req, res) => {
-  const { harga, resolusi, sensor, fitur, iso } = req.body;
-  const resolusiConvert = convertToSubKriteriaRevert('resolusi', resolusi);
-  const hargaConvert = convertToSubKriteriaRevert('harga', harga);
-  const fiturConvert = convertToSubKriteriaRevert('fitur', fitur);
-  const isoConvert = convertToSubKriteriaRevert('iso', iso);
+  const { kriteria, subKriteria } = req.body;
+  let hasil;
+  if (kriteria === 'harga') {
+    const hargaConvert = convertToSubKriteriaRevert('harga', subKriteria);
+    const alternatif = await alternatifModel.find({
+      harga: {
+        $lt: hargaConvert.max,
+        $gt: hargaConvert.min,
+      },
+    });
+    hasil = alternatif;
+  } else if (kriteria === 'resolusi') {
+    const resolusiConvert = convertToSubKriteriaRevert('resolusi', subKriteria);
+    const alternatif = await alternatifModel.find({
+      resolusi: {
+        $lt: resolusiConvert.max,
+        $gt: resolusiConvert.min,
+      },
+    });
+    hasil = alternatif;
+  } else if (kriteria === 'sensor') {
+    const alternatif = await alternatifModel.find({
+      sensor: subKriteria,
+    });
+    hasil = alternatif;
+  } else if (kriteria === 'fitur') {
+    const fiturConvert = convertToSubKriteriaRevert('fitur', subKriteria);
+    const alternatif = await alternatifModel.find();
+    const filter = alternatif.filter((data) => {
+      return (
+        data.fitur.length > fiturConvert.min &&
+        data.fitur.length < fiturConvert.max
+      );
+    });
+    hasil = filter;
+  } else if (kriteria === 'iso') {
+    const isoConvert = convertToSubKriteriaRevert('iso', subKriteria);
+    const alternatif = await alternatifModel.find({
+      iso: {
+        $lt: isoConvert.max,
+        $gt: isoConvert.min,
+      },
+    });
+    hasil = alternatif;
+  }
+  // const { harga, resolusi, sensor, fitur, iso } = req.body;
+  // const resolusiConvert = convertToSubKriteriaRevert('resolusi', resolusi);
+  // const hargaConvert = convertToSubKriteriaRevert('harga', harga);
+  // const fiturConvert = convertToSubKriteriaRevert('fitur', fitur);
+  // const isoConvert = convertToSubKriteriaRevert('iso', iso);
 
-  const alternatif = await alternatifModel.find({
-    $and: [
-      {
-        resolusi: {
-          $lt: resolusiConvert.max,
-          $gt: resolusiConvert.min,
-        },
-      },
-      {
-        harga: {
-          $lt: hargaConvert.max,
-          $gt: hargaConvert.min,
-        },
-      },
-      {
-        sensor: sensor,
-      },
-      {
-        iso: {
-          $lt: isoConvert.max,
-          $gt: isoConvert.min,
-        },
-      },
-    ],
-  });
+  // const alternatif = await alternatifModel.find({
+  //   $and: [
+  //     {
+  //       resolusi: {
+  //         $lt: resolusiConvert.max,
+  //         $gt: resolusiConvert.min,
+  //       },
+  //     },
+  //     {
+  //       harga: {
+  //         $lt: hargaConvert.max,
+  //         $gt: hargaConvert.min,
+  //       },
+  //     },
+  //     {
+  //       sensor: sensor,
+  //     },
+  //     {
+  //       iso: {
+  //         $lt: isoConvert.max,
+  //         $gt: isoConvert.min,
+  //       },
+  //     },
+  //   ],
+  // });
 
-  const filterAlternatif = alternatif.filter((data) => {
-    return (
-      data.fitur.length > fiturConvert.min &&
-      data.fitur.length < fiturConvert.max
-    );
-  });
+  // const filterAlternatif = alternatif.filter((data) => {
+  //   return (
+  //     data.fitur.length > fiturConvert.min &&
+  //     data.fitur.length < fiturConvert.max
+  //   );
+  // });
 
   res.send({
-    data: filterAlternatif,
+    data: hasil,
   });
 };
