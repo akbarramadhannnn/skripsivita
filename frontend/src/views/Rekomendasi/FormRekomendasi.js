@@ -37,6 +37,7 @@ const FormRekomendasi = ({ setShowFormCari, dataAlternatif }) => {
   const submit = () => {
     const payload = {
       id: idAlternatif,
+      idUser: window.localStorage.getItem("idUser"),
     };
     RekomendasiAlternatif(payload).then((response) => {
       const sortBobot = response.bobot.sort((a, b) => b.total - a.total);

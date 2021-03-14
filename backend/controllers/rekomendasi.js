@@ -2,6 +2,7 @@ const alternatifModel = require('../models/alternatif');
 const bobotKriteriaModel = require('../models/bobot_kriteria');
 const kriteriaModel = require('../models/kriteria');
 const subKriteriaModel = require('../models/subkriteria');
+const userModel = require('../models/user');
 const convertToSubkriteria = require('../utils/convertToSubKriteria');
 const convertToSubKriteriaRevert = require('../utils/convertToSubKriteriaRevert');
 const multiplyKriteriaSubkriteria = require('../utils/multiplyKriteriaSubkriteria');
@@ -15,7 +16,7 @@ const normalisasiBobotVector = require('../utils/normalisasiBobotVector');
 const sumFahpVector = require('../utils/sumFahpVector');
 
 exports.rekomendasi = async (req, res) => {
-  const { id } = req.body;
+  const { id, idUser } = req.body;
 
   const bobotKriteria = await bobotKriteriaModel.findOne();
   // perhitungan kriteria
@@ -289,6 +290,17 @@ exports.rekomendasi = async (req, res) => {
   }
 
   const hasil = multiplyKriteriaSubkriteria(data, kriteria);
+  const hasilSort = hasil.sort((a, b) => b.total - a.total);
+  await userModel.update(
+    {
+      _id: idUser,
+    },
+    {
+      $push: {
+        rekomendasi: hasilSort[0]._id,
+      },
+    }
+  );
 
   res.send({
     id: id,

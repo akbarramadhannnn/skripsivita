@@ -17,6 +17,7 @@ const multiplyKriteriaSubkriteria = (alternatif, bobot) => {
             });
         }
         hasil.push({
+            _id: a._id,
             nama: a.merk,
             value: bobotKriteria,
             total: parseNumber(bobotKriteria.reduce((prev, cur) => prev + cur.value, 0), 2),
