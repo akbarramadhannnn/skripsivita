@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   Button,
   Card,
@@ -10,8 +10,8 @@ import {
   Form,
   Input,
   InputGroup,
-//   InputGroupAddon,
-//   InputGroupText,
+  //   InputGroupAddon,
+  //   InputGroupText,
   Row,
   FormText,
   FormGroup,
@@ -31,10 +31,10 @@ const Daftar = () => {
   //   const [errorTanggalLahir, setErrorTanggalLahir] = useState("");
   //   const [stateJenisKelamin, setStateJenisKelamin] = useState("");
   //   const [errorJenisKelamin, setErrorJenisKelamin] = useState("");
-  //   const [stateEmail, setStateEmail] = useState("");
-  //   const [errorEmail, setErrorEmail] = useState("");
-  //   const [statePassword, setStatePassword] = useState("");
-  //   const [errorPassword, setErrorPassword] = useState("");
+  const [stateEmail, setStateEmail] = useState("");
+  const [errorEmail, setErrorEmail] = useState("");
+  const [statePassword, setStatePassword] = useState("");
+  const [errorPassword, setErrorPassword] = useState("");
 
   const [success, setSuccess] = useState("");
 
@@ -63,41 +63,107 @@ const Daftar = () => {
   //     setErrorJenisKelamin("");
   //   };
 
-  //   const changeEmail = (e) => {
-  //     setStateEmail(e.target.value);
-  //     setErrorEmail("");
-  //   };
+  const changeEmail = (e) => {
+    setStateEmail(e.target.value);
+    setErrorEmail("");
+  };
 
-  //   const changePassword = (e) => {
-  //     setStatePassword(e.target.value);
-  //     setErrorPassword("");
-  //   };
+  const changePassword = (e) => {
+    setStatePassword(e.target.value);
+    setErrorPassword("");
+  };
 
   const submit = (e) => {
     e.preventDefault();
     const nama = stateNama;
     const umur = stateUmur;
-    if (nama === "" && umur === "") {
+    const email = stateEmail;
+    const password = statePassword;
+    if (nama === "" && umur === "" && email === "" && password === "") {
       setErrorNama("kolom nama harus diisi!!");
       setErrorUmur("kolom umur harus diisi!!");
-    } else if (!nama === "" && umur === "") {
+      setErrorEmail("kolom email harus diisi!!");
+      setErrorPassword("kolom password harus diisi!!");
+    } else if (!nama === "" && umur === "" && email === "" && password === "") {
       setErrorUmur("kolom umur harus diisi!!");
-    } else if (nama === "" && !umur === "") {
+      setErrorEmail("kolom email harus diisi!!");
+      setErrorPassword("kolom password harus diisi!!");
+    } else if (nama === "" && !umur === "" && email === "" && password === "") {
       setErrorNama("kolom nama harus diisi!!");
+      setErrorEmail("kolom email harus diisi!!");
+      setErrorPassword("kolom password harus diisi!!");
+    } else if (nama === "" && umur === "" && !email === "" && password === "") {
+      setErrorNama("kolom nama harus diisi!!");
+      setErrorUmur("kolom umur harus diisi!!");
+      setErrorPassword("kolom password harus diisi!!");
+    } else if (nama === "" && umur === "" && email === "" && !password === "") {
+      setErrorNama("kolom nama harus diisi!!");
+      setErrorUmur("kolom umur harus diisi!!");
+      setErrorEmail("kolom email harus diisi!!");
+    } else if (
+      !nama === "" &&
+      !umur === "" &&
+      email === "" &&
+      password === ""
+    ) {
+      setErrorEmail("kolom email harus diisi!!");
+      setErrorPassword("kolom password harus diisi!!");
+    } else if (
+      !nama === "" &&
+      umur === "" &&
+      !email === "" &&
+      password === ""
+    ) {
+      setErrorUmur("kolom umur harus diisi!!");
+      setErrorPassword("kolom password harus diisi!!");
+    } else if (
+      !nama === "" &&
+      umur === "" &&
+      email === "" &&
+      !password === ""
+    ) {
+      setErrorUmur("kolom umur harus diisi!!");
+      setErrorEmail("kolom email harus diisi!!");
+    } else if (
+      nama === "" &&
+      !umur === "" &&
+      !email === "" &&
+      password === ""
+    ) {
+      setErrorNama("kolom nama harus diisi!!");
+      setErrorPassword("kolom password harus diisi!!");
+    } else if (
+      nama === "" &&
+      !umur === "" &&
+      email === "" &&
+      !password === ""
+    ) {
+      setErrorNama("kolom nama harus diisi!!");
+      setErrorEmail("kolom email harus diisi!!");
+    } else if (
+      nama === "" &&
+      umur === "" &&
+      !email === "" &&
+      !password === ""
+    ) {
+      setErrorNama("kolom nama harus diisi!!");
+      setErrorUmur("kolom umur harus diisi!!");
     } else {
       const data = {
-        nama: nama,
+        nama,
+        umur,
+        email,
+        password,
       };
       userDaftar(data).then((res) => {
-        if (res) {
-          setStateNama("");
-          setSuccess(
-            "anda berhasil mendaftar, silahkan login dengan email anda"
-          );
-          setTimeout(() => {
-            history.push("/");
-          }, 5000);
-        }
+        setStateNama("");
+        setStateUmur("");
+        setStateEmail("");
+        setStatePassword("");
+        setSuccess("anda berhasil mendaftar, silahkan login dengan email anda");
+        setTimeout(() => {
+          history.push("/");
+        }, 3000);
       });
     }
   };
@@ -111,7 +177,7 @@ const Daftar = () => {
               <Card className="p-4">
                 <CardBody>
                   <Form onSubmit={submit}>
-                    <p className="text-muted">Mohon isi data berikut</p>
+                    {/* <p className="text-muted">Mohon isi data berikut</p> */}
                     {success && <Alert color="primary">{success}</Alert>}
                     <FormGroup>
                       <InputGroup className="mb-3">
@@ -159,6 +225,56 @@ const Daftar = () => {
                           style={{ marginTop: "-15px" }}
                         >
                           {errorUmur}
+                        </FormText>
+                      )}
+                    </FormGroup>
+
+                    <FormGroup>
+                      <InputGroup className="mb-3">
+                        {/* <InputGroupAddon addonType="prepend">
+                          <InputGroupText>
+                            <i className="icon-user"></i>
+                          </InputGroupText>
+                        </InputGroupAddon> */}
+                        <Input
+                          type="email"
+                          placeholder="email"
+                          value={stateEmail}
+                          onChange={changeEmail}
+                        />
+                      </InputGroup>
+                      {errorEmail && (
+                        <FormText
+                          className="help-block"
+                          color="danger"
+                          style={{ marginTop: "-15px" }}
+                        >
+                          {errorEmail}
+                        </FormText>
+                      )}
+                    </FormGroup>
+
+                    <FormGroup>
+                      <InputGroup className="mb-3">
+                        {/* <InputGroupAddon addonType="prepend">
+                          <InputGroupText>
+                            <i className="icon-user"></i>
+                          </InputGroupText>
+                        </InputGroupAddon> */}
+                        <Input
+                          type="password"
+                          placeholder="password"
+                          value={statePassword}
+                          onChange={changePassword}
+                        />
+                      </InputGroup>
+                      {errorPassword && (
+                        <FormText
+                          className="help-block"
+                          color="danger"
+                          style={{ marginTop: "-15px" }}
+                        >
+                          {errorPassword}
                         </FormText>
                       )}
                     </FormGroup>
@@ -214,10 +330,17 @@ const Daftar = () => {
                     </FormGroup> */}
 
                     <Row>
-                      <Col xs="12">
-                        <Button color="primary" className="px-4 pull-right">
-                          Selesai
+                      <Col xs="6">
+                        <Button color="primary" className="px-4 pull-left">
+                          Daftar
                         </Button>
+                      </Col>
+                      <Col xs="6" className="text-right">
+                        <Link to="/daftar">
+                          <Button color="link" className="px-0">
+                            Kembali ke Login
+                          </Button>
+                        </Link>
                       </Col>
                     </Row>
                   </Form>

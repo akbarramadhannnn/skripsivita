@@ -6,16 +6,8 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  tempatLahir: {
-    type: String,
-    required: true,
-  },
-  tanggalLahir: {
-    type: Date,
-    required: true,
-  },
-  jenisKelamin: {
-    type: String,
+  umur: {
+    type: Number,
     required: true,
   },
   email: {

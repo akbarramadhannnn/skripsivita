@@ -52,9 +52,7 @@ exports.login = async (req, res) => {
 exports.daftar = async (req, res) => {
   const {
     nama,
-    tempatlahir,
-    tanggallahir,
-    jenisKelamin,
+    umur,
     email,
     password,
   } = req.body;
@@ -62,9 +60,7 @@ exports.daftar = async (req, res) => {
     const hashPassword = await bcryptjs.hash(password, 8);
     const user = new User({
       nama: nama,
-      tempatLahir: tempatlahir,
-      tanggalLahir: tanggallahir,
-      jenisKelamin: jenisKelamin,
+      umur: Number(umur),
       email: email,
       password: hashPassword,
     });
@@ -98,8 +94,7 @@ exports.getAllUser = async (req, res) => {
         $project: {
           _id: 1,
           nama: 1,
-          jenisKelamin: 1,
-          tempatLahir: 1,
+          umur: 1,
           email: 1,
           rekomendasi: '$rekomendasi.merk',
         },
