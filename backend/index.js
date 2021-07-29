@@ -7,8 +7,9 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
+// mongodb://localhost:27017/vitaskripsi
 mongoose
-  .connect('mongodb://localhost:27017/vitaskripsi', {
+  .connect('mongodb+srv://123user:123456user@cluster0.jippn.mongodb.net/vitaskripsi?retryWrites=true&w=majority', {
     // .connect('mongodb://localhost:27017/skripsivita', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
