@@ -1,5 +1,5 @@
 const Kriteria = require('../models/kriteria');
-const bobotKriteriaModel = require('../models/bobot_kriteria');
+const bobotKriteriaModel = require('../models/bobotKriteria');
 // const Subkriteria = require('../models/subkriteria');
 const Bobot = require('../models/bobot');
 const perhitunganKriteria = require('../utils/perhitunganKriteria');

@@ -11,4 +11,4 @@ const bobotKriteriaSchema = new mongoose.Schema({
     }
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
-module.exports = mongoose.model("bobot_kriteria", bobotKriteriaSchema);
+module.exports = mongoose.model("bobotKriteria", bobotKriteriaSchema);

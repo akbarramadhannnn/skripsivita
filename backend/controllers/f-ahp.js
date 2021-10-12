@@ -1,5 +1,5 @@
 const parseNumber = require('../utils/parseNumber');
-const bobotKriteriaModel = require('../models/bobot_kriteria');
+const bobotKriteriaModel = require('../models/bobotKriteria');
 const generateMatrixAHP = require('../utils/generateMatrixAHP');
 const generateMatrixFAHP = require('../utils/generateMatrixFAHP');
 const sumFAHPRow = require('../utils/penjumlahanRowMatrixFAHP');
