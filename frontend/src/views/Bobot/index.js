@@ -231,34 +231,34 @@ const Bobot = (props) => {
     setValueBobotSubKriteriaSensor,
   ] = useState([
     {
-      KriteriaPertama: subKriteria.sensor.apsc,
+      KriteriaPertama: subKriteria.sensor.fullframe,
       penilaian: "1",
-      KriteriaKeDua: subKriteria.sensor.apsc,
-    },
-    {
-      KriteriaPertama: subKriteria.sensor.apsc,
-      penilaian: "",
-      KriteriaKeDua: subKriteria.sensor.apsh,
-    },
-    {
-      KriteriaPertama: subKriteria.sensor.apsc,
-      penilaian: "",
-      KriteriaKeDua: subKriteria.sensor.fullframe,
-    },
-    {
-      KriteriaPertama: subKriteria.sensor.apsh,
-      penilaian: "1",
-      KriteriaKeDua: subKriteria.sensor.apsh,
-    },
-    {
-      KriteriaPertama: subKriteria.sensor.apsh,
-      penilaian: "",
       KriteriaKeDua: subKriteria.sensor.fullframe,
     },
     {
       KriteriaPertama: subKriteria.sensor.fullframe,
+      penilaian: "",
+      KriteriaKeDua: subKriteria.sensor.apsh,
+    },
+    {
+      KriteriaPertama: subKriteria.sensor.fullframe,
+      penilaian: "",
+      KriteriaKeDua: subKriteria.sensor.apsc,
+    },
+    {
+      KriteriaPertama: subKriteria.sensor.apsh,
       penilaian: "1",
-      KriteriaKeDua: subKriteria.sensor.fullframe,
+      KriteriaKeDua: subKriteria.sensor.apsh,
+    },
+    {
+      KriteriaPertama: subKriteria.sensor.apsh,
+      penilaian: "",
+      KriteriaKeDua: subKriteria.sensor.apsc,
+    },
+    {
+      KriteriaPertama: subKriteria.sensor.apsc,
+      penilaian: "1",
+      KriteriaKeDua: subKriteria.sensor.apsc,
     },
   ]);
 

@@ -85,22 +85,22 @@ const SubKriteriaSensor = ({
               <FormGroup>
                 <Label style={{ fontSize: "20px" }}>Sub Kriteria</Label>
                 <div style={{ marginBottom: "10px" }}>
-                  <Input type="text" value={subKriteria.apsc} disabled />
-                </div>
-                <div style={{ marginBottom: "10px" }}>
-                  <Input type="text" value={subKriteria.apsc} disabled />
-                </div>
-                <div style={{ marginBottom: "10px" }}>
-                  <Input type="text" value={subKriteria.apsc} disabled />
-                </div>
-                <div style={{ marginBottom: "10px" }}>
-                  <Input type="text" value={subKriteria.apsh} disabled />
-                </div>
-                <div style={{ marginBottom: "10px" }}>
-                  <Input type="text" value={subKriteria.apsh} disabled />
+                  <Input type="text" value={subKriteria.fullframe} disabled />
                 </div>
                 <div style={{ marginBottom: "10px" }}>
                   <Input type="text" value={subKriteria.fullframe} disabled />
+                </div>
+                <div style={{ marginBottom: "10px" }}>
+                  <Input type="text" value={subKriteria.fullframe} disabled />
+                </div>
+                <div style={{ marginBottom: "10px" }}>
+                  <Input type="text" value={subKriteria.apsh} disabled />
+                </div>
+                <div style={{ marginBottom: "10px" }}>
+                  <Input type="text" value={subKriteria.apsh} disabled />
+                </div>
+                <div style={{ marginBottom: "10px" }}>
+                  <Input type="text" value={subKriteria.apsc} disabled />
                 </div>
               </FormGroup>
             </Col>
@@ -250,22 +250,22 @@ const SubKriteriaSensor = ({
               <FormGroup>
                 <Label style={{ fontSize: "20px" }}>Sub Kriteria </Label>
                 <div style={{ marginBottom: "10px" }}>
+                  <Input type="text" value={subKriteria.fullframe} disabled />
+                </div>
+                <div style={{ marginBottom: "10px" }}>
+                  <Input type="text" value={subKriteria.apsh} disabled />
+                </div>
+                <div style={{ marginBottom: "10px" }}>
                   <Input type="text" value={subKriteria.apsc} disabled />
                 </div>
                 <div style={{ marginBottom: "10px" }}>
                   <Input type="text" value={subKriteria.apsh} disabled />
                 </div>
                 <div style={{ marginBottom: "10px" }}>
-                  <Input type="text" value={subKriteria.fullframe} disabled />
+                  <Input type="text" value={subKriteria.apsc} disabled />
                 </div>
                 <div style={{ marginBottom: "10px" }}>
-                  <Input type="text" value={subKriteria.apsh} disabled />
-                </div>
-                <div style={{ marginBottom: "10px" }}>
-                  <Input type="text" value={subKriteria.fullframe} disabled />
-                </div>
-                <div style={{ marginBottom: "10px" }}>
-                  <Input type="text" value={subKriteria.fullframe} disabled />
+                  <Input type="text" value={subKriteria.apsc} disabled />
                 </div>
               </FormGroup>
             </Col>
