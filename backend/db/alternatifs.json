@@ -157,7 +157,45 @@
       "namaFitur": "Wifi"
     }
   ],
-  "iso": 20,
+  "iso": 20000,
   "keterangan": "ini adalah kamera sony A58",
-  "__v": 2
+  "__v": 6
+},{
+  "_id": {
+    "$oid": "5ff1a8a03abe1a6a7a1270eb"
+  },
+  "kode": "A04",
+  "merk": "Cannon D5000",
+  "sensor": "APS-H",
+  "resolusi": 24,
+  "harga": 10000000,
+  "fitur": [
+    {
+      "_id": {
+        "$oid": "5ff1a8a03abe1a6a7a1270ec"
+      },
+      "namaFitur": "Wifi"
+    },
+    {
+      "_id": {
+        "$oid": "5ff1a8a03abe1a6a7a1270ed"
+      },
+      "namaFitur": "Bluetooth"
+    },
+    {
+      "_id": {
+        "$oid": "5ff1a8a03abe1a6a7a1270ee"
+      },
+      "namaFitur": "Off Mode"
+    },
+    {
+      "_id": {
+        "$oid": "5ff1a8a03abe1a6a7a1270ef"
+      },
+      "namaFitur": "HDMI"
+    }
+  ],
+  "iso": 2000,
+  "keterangan": "blablablabla",
+  "__v": 0
 }]
